@@ -1,0 +1,4 @@
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/bst.dir
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/app.dir
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/edit_cache.dir
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/rebuild_cache.dir
