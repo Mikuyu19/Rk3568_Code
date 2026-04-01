@@ -1,0 +1,129 @@
+![1744960593709](2026.3.25-循环链表.assets/1744960593709.png)
+
+```
+typedef int delemtype;
+typedef struct dnode
+{
+	delemtype data;//数据域
+	struct dnode *next;//指针域 保存下一个结点的地址
+	struct dnode *prev;//指针域 保存上一个结点的地址
+}dnode;
+```
+
+只有一个头结点
+
+```
+head->next = head;
+head->prev = head;
+```
+
+双向循环链表怎么判断遍历结束条件？
+
+```
+dnode *p=head->next;
+方法1:if(p == head) //循环结束
+方法2：可以用结点的个数判断，head->data(可以存储结点的数目的)
+```
+
+双向循环链表怎么获取最后一个结点?
+
+```
+单向循环
+dnode *p = head;
+while(p->next!=head)
+{
+	p = p->next;
+}
+//跳出来的时候p就是最后一个结点
+
+双向循环的最后一个结点 head->prev
+```
+
+创建一个头结点
+
+```
+//初始化双向循环链表  没有数据结点 只有一个头结点
+dnode *init_circle_list()
+{
+	dnode *head = malloc(sizeof(dnode));
+	head->data = 0;
+	head->next = head->prev = head;
+}
+```
+
+尾插
+
+```
+1.找最后一个结点 tail = head->prev
+
+2.尾插  tail pnew head
+	pnew->next = head;
+	pnew->prev = tail;
+	head->prev = pnew;
+	tail->next = pnew;
+```
+
+头插
+
+```
+pnew->next = head->next;
+pnew->prev = head;
+head->next->prev = pnew;
+head->next = pnew;
+```
+
+有序插入
+
+```c
+//找
+dnode *p = head->next;
+dnode *pre = head;
+while(p!=head)
+{
+
+}
+
+//中间插  pre pnew  p
+pnew->next = p;
+pnew->prev = pre;
+pre->next = pnew;
+p->prev = pnew;
+```
+
+删除值为x的结点
+
+```
+//找
+dnode *p = head->next;
+dnode *pre = head;
+while(p!=head)
+{
+
+}
+
+//找到了
+if(p!=head)
+{
+	//中间删除
+	pre->next = p->next;
+	p->next->prev = pre;
+	//孤立p结点
+	p->next = p->prev = NULL;
+	free(p);
+	p = NULL;
+}
+```
+
+销毁
+
+```
+p = head->next;
+whiel(p!=head)
+{
+	//循环头删
+}
+
+//删除头结点
+```
+
+circle_list.c/circle_list.h/main.c
