@@ -117,12 +117,12 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "/snap/cmake/1530/share/cmake-4.3/Modules/CMakeDetermineCompiler.cmake:115 (find_program)"
-      - "/snap/cmake/1530/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:67 (_cmake_find_compiler_path)"
+      - "/snap/cmake/1530/share/cmake-4.3/Modules/CMakeDetermineCompiler.cmake:73 (find_program)"
+      - "/snap/cmake/1530/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:64 (_cmake_find_compiler)"
       - "CMakeLists.txt:5 (project)"
     mode: "program"
-    variable: "CMAKE_C_COMPILER_WITH_PATH"
-    description: "Path to a program."
+    variable: "CMAKE_C_COMPILER"
+    description: "C compiler"
     settings:
       SearchFramework: "NEVER"
       SearchAppBundle: "NEVER"
@@ -132,7 +132,13 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-gcc"
+      - "cc"
+      - "gcc"
+      - "cl"
+      - "bcc"
+      - "xlc"
+      - "icx"
+      - "clang"
     candidate_directories:
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
@@ -145,15 +151,10 @@ events:
       - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
     searched_directories:
-      - "/usr/local/sbin/aarch64-linux-gnu-gcc"
-      - "/usr/local/bin/aarch64-linux-gnu-gcc"
-      - "/usr/sbin/aarch64-linux-gnu-gcc"
-      - "/usr/bin/aarch64-linux-gnu-gcc"
-      - "/sbin/aarch64-linux-gnu-gcc"
-      - "/bin/aarch64-linux-gnu-gcc"
-      - "/snap/bin/aarch64-linux-gnu-gcc"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-gcc"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc"
+      - "/usr/local/sbin/cc"
+      - "/usr/local/bin/cc"
+      - "/usr/sbin/cc"
+    found: "/usr/bin/cc"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -212,7 +213,7 @@ events:
       - "CMakeLists.txt:5 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-      Compiler: /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc 
+      Compiler: /usr/bin/cc 
       Build flags: 
       Id flags:  
       
@@ -243,20 +244,19 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-ar"
       - "ar"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-ar"
+    found: "/usr/bin/ar"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -287,20 +287,19 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-ranlib"
       - "ranlib"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-ranlib"
+    found: "/usr/bin/ranlib"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -331,20 +330,19 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-strip"
       - "strip"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-strip"
+    found: "/usr/bin/strip"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -375,20 +373,19 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-ld"
       - "ld"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-ld"
+    found: "/usr/bin/ld"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -419,20 +416,19 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-nm"
       - "nm"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-nm"
+    found: "/usr/bin/nm"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -463,20 +459,19 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-objdump"
       - "objdump"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-objdump"
+    found: "/usr/bin/objdump"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -507,20 +502,19 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-objcopy"
       - "objcopy"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-objcopy"
+    found: "/usr/bin/objcopy"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -551,20 +545,19 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-readelf"
       - "readelf"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-readelf"
+    found: "/usr/bin/readelf"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -595,39 +588,28 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-dlltool"
       - "dlltool"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
     searched_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-dlltool"
-      - "/usr/local/sbin/aarch64-linux-gnu-dlltool"
-      - "/usr/local/bin/aarch64-linux-gnu-dlltool"
-      - "/usr/sbin/aarch64-linux-gnu-dlltool"
-      - "/usr/bin/aarch64-linux-gnu-dlltool"
-      - "/sbin/aarch64-linux-gnu-dlltool"
-      - "/bin/aarch64-linux-gnu-dlltool"
-      - "/snap/bin/aarch64-linux-gnu-dlltool"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-dlltool"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-dlltool"
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/dlltool"
+      - "/usr/bin/dlltool"
       - "/usr/local/sbin/dlltool"
       - "/usr/local/bin/dlltool"
       - "/usr/sbin/dlltool"
-      - "/usr/bin/dlltool"
       - "/sbin/dlltool"
       - "/bin/dlltool"
       - "/snap/bin/dlltool"
       - "/usr/local/arm/5.4.0/usr/bin/dlltool"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/dlltool"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/dlltool"
     found: false
     search_context:
@@ -660,20 +642,19 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-addr2line"
       - "addr2line"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-addr2line"
+    found: "/usr/bin/addr2line"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -704,39 +685,28 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-tapi"
       - "tapi"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
     searched_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-tapi"
-      - "/usr/local/sbin/aarch64-linux-gnu-tapi"
-      - "/usr/local/bin/aarch64-linux-gnu-tapi"
-      - "/usr/sbin/aarch64-linux-gnu-tapi"
-      - "/usr/bin/aarch64-linux-gnu-tapi"
-      - "/sbin/aarch64-linux-gnu-tapi"
-      - "/bin/aarch64-linux-gnu-tapi"
-      - "/snap/bin/aarch64-linux-gnu-tapi"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-tapi"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-tapi"
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/tapi"
+      - "/usr/bin/tapi"
       - "/usr/local/sbin/tapi"
       - "/usr/local/bin/tapi"
       - "/usr/sbin/tapi"
-      - "/usr/bin/tapi"
       - "/sbin/tapi"
       - "/bin/tapi"
       - "/snap/bin/tapi"
       - "/usr/local/arm/5.4.0/usr/bin/tapi"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/tapi"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/tapi"
     found: false
     search_context:
@@ -769,53 +739,33 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-gcc-ar-7.5"
-      - "aarch64-linux-gnu-gcc-ar-7"
-      - "aarch64-linux-gnu-gcc-ar7"
-      - "aarch64-linux-gnu-gcc-ar"
+      - "gcc-ar-7.5"
+      - "gcc-ar-7"
+      - "gcc-ar7"
+      - "gcc-ar"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
     searched_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/usr/local/sbin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/usr/local/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/usr/sbin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/usr/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/sbin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/snap/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/usr/local/sbin/aarch64-linux-gnu-gcc-ar-7"
-      - "/usr/local/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/usr/sbin/aarch64-linux-gnu-gcc-ar-7"
-      - "/usr/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/sbin/aarch64-linux-gnu-gcc-ar-7"
-      - "/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/snap/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ar7"
-      - "/usr/local/sbin/aarch64-linux-gnu-gcc-ar7"
-      - "/usr/local/bin/aarch64-linux-gnu-gcc-ar7"
-      - "/usr/sbin/aarch64-linux-gnu-gcc-ar7"
-      - "/usr/bin/aarch64-linux-gnu-gcc-ar7"
-      - "/sbin/aarch64-linux-gnu-gcc-ar7"
-      - "/bin/aarch64-linux-gnu-gcc-ar7"
-      - "/snap/bin/aarch64-linux-gnu-gcc-ar7"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-gcc-ar7"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-gcc-ar7"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ar"
+      - "/usr/bin/gcc-ar-7.5"
+      - "/usr/local/sbin/gcc-ar-7.5"
+      - "/usr/local/bin/gcc-ar-7.5"
+      - "/usr/sbin/gcc-ar-7.5"
+      - "/sbin/gcc-ar-7.5"
+      - "/bin/gcc-ar-7.5"
+      - "/snap/bin/gcc-ar-7.5"
+      - "/usr/local/arm/5.4.0/usr/bin/gcc-ar-7.5"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/gcc-ar-7.5"
+      - "/home/china/cmake-4.3.1-linux-x86_64/bin/gcc-ar-7.5"
+    found: "/usr/bin/gcc-ar-7"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -846,53 +796,33 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "aarch64-linux-gnu-gcc-ranlib-7"
-      - "aarch64-linux-gnu-gcc-ranlib7"
-      - "aarch64-linux-gnu-gcc-ranlib"
+      - "gcc-ranlib-7.5"
+      - "gcc-ranlib-7"
+      - "gcc-ranlib7"
+      - "gcc-ranlib"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
     searched_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/usr/local/sbin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/usr/local/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/usr/sbin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/usr/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/sbin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/snap/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/usr/local/sbin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/usr/local/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/usr/sbin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/usr/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/sbin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/snap/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/usr/local/sbin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/usr/local/bin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/usr/sbin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/usr/bin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/sbin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/bin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/snap/bin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-gcc-ranlib7"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ranlib"
+      - "/usr/bin/gcc-ranlib-7.5"
+      - "/usr/local/sbin/gcc-ranlib-7.5"
+      - "/usr/local/bin/gcc-ranlib-7.5"
+      - "/usr/sbin/gcc-ranlib-7.5"
+      - "/sbin/gcc-ranlib-7.5"
+      - "/bin/gcc-ranlib-7.5"
+      - "/snap/bin/gcc-ranlib-7.5"
+      - "/usr/local/arm/5.4.0/usr/bin/gcc-ranlib-7.5"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/gcc-ranlib-7.5"
+      - "/home/china/cmake-4.3.1-linux-x86_64/bin/gcc-ranlib-7.5"
+    found: "/usr/bin/gcc-ranlib-7"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -925,8 +855,7 @@ events:
     names:
       - "c++"
       - "CC"
-      - "aarch64-linux-gnu-c++"
-      - "aarch64-linux-gnu-g++"
+      - "g++"
       - "aCC"
       - "cl"
       - "bcc"
@@ -935,11 +864,8 @@ events:
       - "icx"
       - "clang++"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
-    searched_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/c++"
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/CC"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-c++"
+      - "/usr/bin/"
+    found: "/usr/bin/c++"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -998,7 +924,7 @@ events:
       - "CMakeLists.txt:5 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-      Compiler: /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-c++ 
+      Compiler: /usr/bin/c++ 
       Build flags: 
       Id flags:  
       
@@ -1029,53 +955,33 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-gcc-ar-7.5"
-      - "aarch64-linux-gnu-gcc-ar-7"
-      - "aarch64-linux-gnu-gcc-ar7"
-      - "aarch64-linux-gnu-gcc-ar"
+      - "gcc-ar-7.5"
+      - "gcc-ar-7"
+      - "gcc-ar7"
+      - "gcc-ar"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
     searched_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/usr/local/sbin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/usr/local/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/usr/sbin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/usr/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/sbin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/snap/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-gcc-ar-7.5"
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/usr/local/sbin/aarch64-linux-gnu-gcc-ar-7"
-      - "/usr/local/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/usr/sbin/aarch64-linux-gnu-gcc-ar-7"
-      - "/usr/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/sbin/aarch64-linux-gnu-gcc-ar-7"
-      - "/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/snap/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-gcc-ar-7"
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ar7"
-      - "/usr/local/sbin/aarch64-linux-gnu-gcc-ar7"
-      - "/usr/local/bin/aarch64-linux-gnu-gcc-ar7"
-      - "/usr/sbin/aarch64-linux-gnu-gcc-ar7"
-      - "/usr/bin/aarch64-linux-gnu-gcc-ar7"
-      - "/sbin/aarch64-linux-gnu-gcc-ar7"
-      - "/bin/aarch64-linux-gnu-gcc-ar7"
-      - "/snap/bin/aarch64-linux-gnu-gcc-ar7"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-gcc-ar7"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-gcc-ar7"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ar"
+      - "/usr/bin/gcc-ar-7.5"
+      - "/usr/local/sbin/gcc-ar-7.5"
+      - "/usr/local/bin/gcc-ar-7.5"
+      - "/usr/sbin/gcc-ar-7.5"
+      - "/sbin/gcc-ar-7.5"
+      - "/bin/gcc-ar-7.5"
+      - "/snap/bin/gcc-ar-7.5"
+      - "/usr/local/arm/5.4.0/usr/bin/gcc-ar-7.5"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/gcc-ar-7.5"
+      - "/home/china/cmake-4.3.1-linux-x86_64/bin/gcc-ar-7.5"
+    found: "/usr/bin/gcc-ar-7"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -1106,53 +1012,33 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "aarch64-linux-gnu-gcc-ranlib-7"
-      - "aarch64-linux-gnu-gcc-ranlib7"
-      - "aarch64-linux-gnu-gcc-ranlib"
+      - "gcc-ranlib-7.5"
+      - "gcc-ranlib-7"
+      - "gcc-ranlib7"
+      - "gcc-ranlib"
     candidate_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
+      - "/usr/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
-      - "/usr/bin/"
       - "/sbin/"
       - "/bin/"
       - "/snap/bin/"
       - "/usr/local/arm/5.4.0/usr/bin/"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/"
       - "/home/china/cmake-4.3.1-linux-x86_64/bin/"
     searched_directories:
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/usr/local/sbin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/usr/local/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/usr/sbin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/usr/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/sbin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/snap/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-gcc-ranlib-7.5"
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/usr/local/sbin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/usr/local/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/usr/sbin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/usr/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/sbin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/snap/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-gcc-ranlib-7"
-      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/usr/local/sbin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/usr/local/bin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/usr/sbin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/usr/bin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/sbin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/bin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/snap/bin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/usr/local/arm/5.4.0/usr/bin/aarch64-linux-gnu-gcc-ranlib7"
-      - "/home/china/cmake-4.3.1-linux-x86_64/bin/aarch64-linux-gnu-gcc-ranlib7"
-    found: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ranlib"
+      - "/usr/bin/gcc-ranlib-7.5"
+      - "/usr/local/sbin/gcc-ranlib-7.5"
+      - "/usr/local/bin/gcc-ranlib-7.5"
+      - "/usr/sbin/gcc-ranlib-7.5"
+      - "/sbin/gcc-ranlib-7.5"
+      - "/bin/gcc-ranlib-7.5"
+      - "/snap/bin/gcc-ranlib-7.5"
+      - "/usr/local/arm/5.4.0/usr/bin/gcc-ranlib-7.5"
+      - "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/gcc-ranlib-7.5"
+      - "/home/china/cmake-4.3.1-linux-x86_64/bin/gcc-ranlib-7.5"
+    found: "/usr/bin/gcc-ranlib-7"
     search_context:
       ENV{PATH}:
         - "/usr/local/sbin"
@@ -1174,8 +1060,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/mnt/hgfs/Rk3568_Code/1_\u4ea4\u53c9\u5f00\u53d1/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-yNO1Mx"
-      binary: "/mnt/hgfs/Rk3568_Code/1_\u4ea4\u53c9\u5f00\u53d1/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-yNO1Mx"
+      source: "/mnt/hgfs/Rk3568_Code/1_\u4ea4\u53c9\u5f00\u53d1/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-PWhpOM"
+      binary: "/mnt/hgfs/Rk3568_Code/1_\u4ea4\u53c9\u5f00\u53d1/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-PWhpOM"
     cmakeVariables:
       CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_C_FLAGS: ""
@@ -1185,66 +1071,69 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-yNO1Mx'
+        Change Dir: '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-PWhpOM'
         
-        Run Build Command(s): /snap/cmake/1530/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_cc00c/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_cc00c.dir/build.make CMakeFiles/cmTC_cc00c.dir/build
-        make[1]: Entering directory '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-yNO1Mx'
-        Building C object CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o
-        /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc   -v -o CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o -c /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /snap/cmake/1530/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_637e9/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_637e9.dir/build.make CMakeFiles/cmTC_637e9.dir/build
+        make[1]: Entering directory '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-PWhpOM'
+        Building C object CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o -c /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCCompilerABI.c
         Using built-in specs.
-        COLLECT_GCC=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc
-        Target: aarch64-linux-gnu
-        Configured with: '/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-7.5-2019.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --enable-fix-cortex-a53-835769 --enable-fix-cortex-a53-843419 --with-arch=armv8-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/aarch64-linux-gnu --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/aarch64-linux-gnu/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=aarch64-linux-gnu --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu
+        COLLECT_GCC=/usr/bin/cc
+        OFFLOAD_TARGET_NAMES=nvptx-none
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.5.0-3ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
         Thread model: posix
-        gcc version 7.5.0 (Linaro GCC 7.5-2019.12) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o' '-c' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64'
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/cc1 -quiet -v -imultiarch aarch64-linux-gnu -iprefix /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/ -isysroot /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -march=armv8-a -mlittle-endian -mabi=lp64 -auxbase-strip CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccV7TAnz.s
-        GNU C11 (Linaro GCC 7.5-2019.12) version 7.5.0 (aarch64-linux-gnu)
-        	compiled by GNU C version 4.8.4, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version none
+        gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/7/cc1 -quiet -v -imultiarch x86_64-linux-gnu /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccDrioql.s
+        GNU C11 (Ubuntu 7.5.0-3ubuntu1~18.04) version 7.5.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 7.5.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP
+        
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-        ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/include"
-        ignoring nonexistent directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/local/include/aarch64-linux-gnu"
-        ignoring nonexistent directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/local/include"
-        ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed"
-        ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include"
-        ignoring nonexistent directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/include/aarch64-linux-gnu"
+        ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/7/../../../../x86_64-linux-gnu/include"
         #include "..." search starts here:
         #include <...> search starts here:
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/include
+         /usr/lib/gcc/x86_64-linux-gnu/7/include
+         /usr/local/include
+         /usr/lib/gcc/x86_64-linux-gnu/7/include-fixed
+         /usr/include/x86_64-linux-gnu
+         /usr/include
         End of search list.
-        GNU C11 (Linaro GCC 7.5-2019.12) version 7.5.0 (aarch64-linux-gnu)
-        	compiled by GNU C version 4.8.4, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version none
+        GNU C11 (Ubuntu 7.5.0-3ubuntu1~18.04) version 7.5.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 7.5.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP
+        
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-        Compiler executable checksum: 5d0f5ce72c62ffb599b2a09a116fcf39
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o' '-c' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64'
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/as -v -EL -march=armv8-a -mabi=lp64 -o CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o /tmp/ccV7TAnz.s
-        GNU assembler version 2.28.2 (aarch64-linux-gnu) using BFD version (Linaro_Binutils-2019.12) 2.28.2.20170706
-        COMPILER_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/
-        LIBRARY_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o' '-c' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64'
-        Linking C executable cmTC_cc00c
-        /snap/cmake/1530/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc00c.dir/link.txt --verbose=1
+        Compiler executable checksum: b62ed4a2880cd4159476ea8293b72fa8
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o /tmp/ccDrioql.s
+        GNU assembler version 2.30 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.30
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+        Linking C executable cmTC_637e9
+        /snap/cmake/1530/bin/cmake -E cmake_link_script CMakeFiles/cmTC_637e9.dir/link.txt --verbose=1
         Using built-in specs.
-        COLLECT_GCC=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc
-        COLLECT_LTO_WRAPPER=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper
-        Target: aarch64-linux-gnu
-        Configured with: '/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-7.5-2019.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --enable-fix-cortex-a53-835769 --enable-fix-cortex-a53-843419 --with-arch=armv8-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/aarch64-linux-gnu --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/aarch64-linux-gnu/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=aarch64-linux-gnu --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu
+        COLLECT_GCC=/usr/bin/cc
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.5.0-3ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
         Thread model: posix
-        gcc version 7.5.0 (Linaro GCC 7.5-2019.12) 
-        COMPILER_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/
-        LIBRARY_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_cc00c' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64'
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/collect2 -plugin /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/liblto_plugin.so -plugin-opt=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccx0W0GA.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -o cmTC_cc00c /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib -v CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o
+        gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_637e9' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWbeeLq.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_637e9 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -v CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
         collect2 version 7.5.0
-        /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/ld -plugin /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/liblto_plugin.so -plugin-opt=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccx0W0GA.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -o cmTC_cc00c /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib -v CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o
-        GNU ld (Linaro_Binutils-2019.12) 2.28.2.20170706
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_cc00c' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64'
-        /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc  -v -Wl,-v CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o -o cmTC_cc00c
-        make[1]: Leaving directory '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-yNO1Mx'
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWbeeLq.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_637e9 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -v CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+        GNU ld (GNU Binutils for Ubuntu) 2.30
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_637e9' '-mtune=generic' '-march=x86-64'
+        /usr/bin/cc  -v -Wl,-v CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o -o cmTC_637e9
+        make[1]: Leaving directory '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-PWhpOM'
         
       exitCode: 0
   -
@@ -1257,16 +1146,18 @@ events:
       Parsed C implicit include dir info: rv=done
         found start of include info
         found start of implicit include info
-          add: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include]
-          add: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed]
-          add: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include]
-          add: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/include]
+          add: [/usr/lib/gcc/x86_64-linux-gnu/7/include]
+          add: [/usr/local/include]
+          add: [/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
         end of search list found
-        collapse include dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/include]
-        collapse include dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed]
-        collapse include dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/include]
-        collapse include dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/include] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/include]
-        implicit include dirs: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/include;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/include;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/include]
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/7/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/7/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed] ==> [/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/lib/gcc/x86_64-linux-gnu/7/include;/usr/local/include;/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed;/usr/include/x86_64-linux-gnu;/usr/include]
       
       
   -
@@ -1279,123 +1170,129 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-yNO1Mx']
+        ignore line: [Change Dir: '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-PWhpOM']
         ignore line: []
-        ignore line: [Run Build Command(s): /snap/cmake/1530/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_cc00c/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_cc00c.dir/build.make CMakeFiles/cmTC_cc00c.dir/build]
-        ignore line: [make[1]: Entering directory '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-yNO1Mx']
-        ignore line: [Building C object CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc   -v -o CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o -c /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /snap/cmake/1530/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_637e9/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_637e9.dir/build.make CMakeFiles/cmTC_637e9.dir/build]
+        ignore line: [make[1]: Entering directory '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-PWhpOM']
+        ignore line: [Building C object CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o -c /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
-        ignore line: [COLLECT_GCC=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc]
-        ignore line: [Target: aarch64-linux-gnu]
-        ignore line: [Configured with: '/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-7.5-2019.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --enable-fix-cortex-a53-835769 --enable-fix-cortex-a53-843419 --with-arch=armv8-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/aarch64-linux-gnu --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/aarch64-linux-gnu/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=aarch64-linux-gnu --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.5.0-3ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
         ignore line: [Thread model: posix]
-        ignore line: [gcc version 7.5.0 (Linaro GCC 7.5-2019.12) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o' '-c' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64']
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/cc1 -quiet -v -imultiarch aarch64-linux-gnu -iprefix /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/ -isysroot /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -march=armv8-a -mlittle-endian -mabi=lp64 -auxbase-strip CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccV7TAnz.s]
-        ignore line: [GNU C11 (Linaro GCC 7.5-2019.12) version 7.5.0 (aarch64-linux-gnu)]
-        ignore line: [	compiled by GNU C version 4.8.4  GMP version 6.1.2  MPFR version 3.1.5  MPC version 1.0.3  isl version none]
+        ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/7/cc1 -quiet -v -imultiarch x86_64-linux-gnu /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccDrioql.s]
+        ignore line: [GNU C11 (Ubuntu 7.5.0-3ubuntu1~18.04) version 7.5.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 7.5.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.19-GMP]
+        ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
-        ignore line: [ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/include"]
-        ignore line: [ignoring nonexistent directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/local/include/aarch64-linux-gnu"]
-        ignore line: [ignoring nonexistent directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/local/include"]
-        ignore line: [ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed"]
-        ignore line: [ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include"]
-        ignore line: [ignoring nonexistent directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/include/aarch64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/7/../../../../x86_64-linux-gnu/include"]
         ignore line: [#include "..." search starts here:]
         ignore line: [#include <...> search starts here:]
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include]
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed]
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include]
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/include]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/7/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/7/include-fixed]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
         ignore line: [End of search list.]
-        ignore line: [GNU C11 (Linaro GCC 7.5-2019.12) version 7.5.0 (aarch64-linux-gnu)]
-        ignore line: [	compiled by GNU C version 4.8.4  GMP version 6.1.2  MPFR version 3.1.5  MPC version 1.0.3  isl version none]
+        ignore line: [GNU C11 (Ubuntu 7.5.0-3ubuntu1~18.04) version 7.5.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 7.5.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.19-GMP]
+        ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
-        ignore line: [Compiler executable checksum: 5d0f5ce72c62ffb599b2a09a116fcf39]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o' '-c' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64']
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/as -v -EL -march=armv8-a -mabi=lp64 -o CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o /tmp/ccV7TAnz.s]
-        ignore line: [GNU assembler version 2.28.2 (aarch64-linux-gnu) using BFD version (Linaro_Binutils-2019.12) 2.28.2.20170706]
-        ignore line: [COMPILER_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/]
-        ignore line: [LIBRARY_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o' '-c' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64']
-        ignore line: [Linking C executable cmTC_cc00c]
-        ignore line: [/snap/cmake/1530/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc00c.dir/link.txt --verbose=1]
+        ignore line: [Compiler executable checksum: b62ed4a2880cd4159476ea8293b72fa8]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o /tmp/ccDrioql.s]
+        ignore line: [GNU assembler version 2.30 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.30]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking C executable cmTC_637e9]
+        ignore line: [/snap/cmake/1530/bin/cmake -E cmake_link_script CMakeFiles/cmTC_637e9.dir/link.txt --verbose=1]
         ignore line: [Using built-in specs.]
-        ignore line: [COLLECT_GCC=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc]
-        ignore line: [COLLECT_LTO_WRAPPER=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper]
-        ignore line: [Target: aarch64-linux-gnu]
-        ignore line: [Configured with: '/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-7.5-2019.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --enable-fix-cortex-a53-835769 --enable-fix-cortex-a53-843419 --with-arch=armv8-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/aarch64-linux-gnu --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/aarch64-linux-gnu/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=aarch64-linux-gnu --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.5.0-3ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
         ignore line: [Thread model: posix]
-        ignore line: [gcc version 7.5.0 (Linaro GCC 7.5-2019.12) ]
-        ignore line: [COMPILER_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/]
-        ignore line: [LIBRARY_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_cc00c' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64']
-        link line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/collect2 -plugin /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/liblto_plugin.so -plugin-opt=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccx0W0GA.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -o cmTC_cc00c /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib -v CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o]
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/collect2] ==> ignore
+        ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_637e9' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWbeeLq.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_637e9 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -v CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
           arg [-plugin] ==> ignore
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/liblto_plugin.so] ==> ignore
-          arg [-plugin-opt=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccx0W0GA.res] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccWbeeLq.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
-          arg [--sysroot=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc] ==> ignore
           arg [--build-id] ==> ignore
           arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--as-needed] ==> ignore
           arg [-dynamic-linker] ==> ignore
-          arg [/lib/ld-linux-aarch64.so.1] ==> ignore
-          arg [-X] ==> ignore
-          arg [-EL] ==> ignore
-          arg [-maarch64linux] ==> ignore
-          arg [--fix-cortex-a53-835769] ==> ignore
-          arg [--fix-cortex-a53-843419] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_cc00c] ==> ignore
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o] ==> obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o]
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o] ==> obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o]
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o] ==> obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib]
+          arg [cmTC_637e9] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/7] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
           arg [--as-needed] ==> ignore
           arg [-lgcc_s] ==> lib [gcc_s]
-          arg [--no-as-needed] ==> ignore
+          arg [--pop-state] ==> ignore
           arg [-lc] ==> lib [c]
           arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
           arg [--as-needed] ==> ignore
           arg [-lgcc_s] ==> lib [gcc_s]
-          arg [--no-as-needed] ==> ignore
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o] ==> obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o]
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o] ==> obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o]
+          arg [--pop-state] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
         ignore line: [collect2 version 7.5.0]
-        ignore line: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/ld -plugin /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/liblto_plugin.so -plugin-opt=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccx0W0GA.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -o cmTC_cc00c /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib -v CMakeFiles/cmTC_cc00c.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o]
-        linker tool for 'C': /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/ld
-        collapse obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib/crt1.o]
-        collapse obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib/crti.o]
-        collapse obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o]
-        collapse obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o]
-        collapse obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib/crtn.o]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/lib64]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/lib]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/lib]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWbeeLq.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_637e9 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -v CMakeFiles/cmTC_637e9.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+        linker tool for 'C': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7] ==> [/usr/lib/gcc/x86_64-linux-gnu/7]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> [/usr/lib]
         implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
-        implicit objs: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib/crt1.o;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib/crti.o;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib/crtn.o]
-        implicit dirs: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/lib64;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/lib;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/lib;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/7;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
         implicit fwks: []
       
       
@@ -1407,8 +1304,8 @@ events:
       - "/snap/cmake/1530/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:5 (project)"
     message: |
-      Running the C compiler's linker: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/ld" "-v"
-      GNU ld (Linaro_Binutils-2019.12) 2.28.2.20170706
+      Running the C compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld (GNU Binutils for Ubuntu) 2.30
   -
     kind: "try_compile-v1"
     backtrace:
@@ -1418,8 +1315,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/mnt/hgfs/Rk3568_Code/1_\u4ea4\u53c9\u5f00\u53d1/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-hxxpev"
-      binary: "/mnt/hgfs/Rk3568_Code/1_\u4ea4\u53c9\u5f00\u53d1/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-hxxpev"
+      source: "/mnt/hgfs/Rk3568_Code/1_\u4ea4\u53c9\u5f00\u53d1/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-vxeaDM"
+      binary: "/mnt/hgfs/Rk3568_Code/1_\u4ea4\u53c9\u5f00\u53d1/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-vxeaDM"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1430,72 +1327,73 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-hxxpev'
+        Change Dir: '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-vxeaDM'
         
-        Run Build Command(s): /snap/cmake/1530/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a8cea/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_a8cea.dir/build.make CMakeFiles/cmTC_a8cea.dir/build
-        make[1]: Entering directory '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-hxxpev'
-        Building CXX object CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-c++   -v -o CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o -c /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /snap/cmake/1530/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_61d41/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_61d41.dir/build.make CMakeFiles/cmTC_61d41.dir/build
+        make[1]: Entering directory '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-vxeaDM'
+        Building CXX object CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o -c /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
-        COLLECT_GCC=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-c++
-        Target: aarch64-linux-gnu
-        Configured with: '/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-7.5-2019.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --enable-fix-cortex-a53-835769 --enable-fix-cortex-a53-843419 --with-arch=armv8-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/aarch64-linux-gnu --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/aarch64-linux-gnu/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=aarch64-linux-gnu --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu
+        COLLECT_GCC=/usr/bin/c++
+        OFFLOAD_TARGET_NAMES=nvptx-none
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.5.0-3ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
         Thread model: posix
-        gcc version 7.5.0 (Linaro GCC 7.5-2019.12) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64'
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/cc1plus -quiet -v -imultiarch aarch64-linux-gnu -iprefix /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/ -isysroot /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc -D_GNU_SOURCE /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -march=armv8-a -mlittle-endian -mabi=lp64 -auxbase-strip CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/cc2mIrSM.s
-        GNU C++14 (Linaro GCC 7.5-2019.12) version 7.5.0 (aarch64-linux-gnu)
-        	compiled by GNU C version 4.8.4, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version none
+        gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/7/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/cc5ePfYV.s
+        GNU C++14 (Ubuntu 7.5.0-3ubuntu1~18.04) version 7.5.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 7.5.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP
+        
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-        ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0"
-        ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0/aarch64-linux-gnu"
-        ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0/backward"
-        ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/include"
-        ignoring nonexistent directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/local/include/aarch64-linux-gnu"
-        ignoring nonexistent directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/local/include"
-        ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed"
-        ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include"
-        ignoring nonexistent directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/include/aarch64-linux-gnu"
+        ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/7"
+        ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/7/../../../../x86_64-linux-gnu/include"
         #include "..." search starts here:
         #include <...> search starts here:
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0/aarch64-linux-gnu
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0/backward
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/include
+         /usr/include/c++/7
+         /usr/include/x86_64-linux-gnu/c++/7
+         /usr/include/c++/7/backward
+         /usr/lib/gcc/x86_64-linux-gnu/7/include
+         /usr/local/include
+         /usr/lib/gcc/x86_64-linux-gnu/7/include-fixed
+         /usr/include/x86_64-linux-gnu
+         /usr/include
         End of search list.
-        GNU C++14 (Linaro GCC 7.5-2019.12) version 7.5.0 (aarch64-linux-gnu)
-        	compiled by GNU C version 4.8.4, GMP version 6.1.2, MPFR version 3.1.5, MPC version 1.0.3, isl version none
+        GNU C++14 (Ubuntu 7.5.0-3ubuntu1~18.04) version 7.5.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 7.5.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP
+        
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-        Compiler executable checksum: 966bcc360f46d7d0bf38230662fdbbf8
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64'
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/as -v -EL -march=armv8-a -mabi=lp64 -o CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc2mIrSM.s
-        GNU assembler version 2.28.2 (aarch64-linux-gnu) using BFD version (Linaro_Binutils-2019.12) 2.28.2.20170706
-        COMPILER_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/
-        LIBRARY_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64'
-        Linking CXX executable cmTC_a8cea
-        /snap/cmake/1530/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a8cea.dir/link.txt --verbose=1
+        Compiler executable checksum: 3eb3dc290cd5714c3e1c3ae751116f07
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc5ePfYV.s
+        GNU assembler version 2.30 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.30
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        Linking CXX executable cmTC_61d41
+        /snap/cmake/1530/bin/cmake -E cmake_link_script CMakeFiles/cmTC_61d41.dir/link.txt --verbose=1
         Using built-in specs.
-        COLLECT_GCC=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-c++
-        COLLECT_LTO_WRAPPER=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper
-        Target: aarch64-linux-gnu
-        Configured with: '/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-7.5-2019.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --enable-fix-cortex-a53-835769 --enable-fix-cortex-a53-843419 --with-arch=armv8-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/aarch64-linux-gnu --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/aarch64-linux-gnu/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=aarch64-linux-gnu --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu
+        COLLECT_GCC=/usr/bin/c++
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.5.0-3ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
         Thread model: posix
-        gcc version 7.5.0 (Linaro GCC 7.5-2019.12) 
-        COMPILER_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/
-        LIBRARY_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a8cea' '-shared-libgcc' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64'
-         /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/collect2 -plugin /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/liblto_plugin.so -plugin-opt=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccqU2RXO.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -o cmTC_a8cea /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib -v CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o
+        gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_61d41' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cccSQiJW.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_61d41 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -v CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
         collect2 version 7.5.0
-        /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/ld -plugin /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/liblto_plugin.so -plugin-opt=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccqU2RXO.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -o cmTC_a8cea /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib -v CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o
-        GNU ld (Linaro_Binutils-2019.12) 2.28.2.20170706
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a8cea' '-shared-libgcc' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64'
-        /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-c++  -v -Wl,-v CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_a8cea
-        make[1]: Leaving directory '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-hxxpev'
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cccSQiJW.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_61d41 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -v CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+        GNU ld (GNU Binutils for Ubuntu) 2.30
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_61d41' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_61d41
+        make[1]: Leaving directory '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-vxeaDM'
         
       exitCode: 0
   -
@@ -1508,22 +1406,24 @@ events:
       Parsed CXX implicit include dir info: rv=done
         found start of include info
         found start of implicit include info
-          add: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0]
-          add: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0/aarch64-linux-gnu]
-          add: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0/backward]
-          add: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include]
-          add: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed]
-          add: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include]
-          add: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/include]
+          add: [/usr/include/c++/7]
+          add: [/usr/include/x86_64-linux-gnu/c++/7]
+          add: [/usr/include/c++/7/backward]
+          add: [/usr/lib/gcc/x86_64-linux-gnu/7/include]
+          add: [/usr/local/include]
+          add: [/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
         end of search list found
-        collapse include dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/include/c++/7.5.0]
-        collapse include dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0/aarch64-linux-gnu] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/include/c++/7.5.0/aarch64-linux-gnu]
-        collapse include dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0/backward] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/include/c++/7.5.0/backward]
-        collapse include dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/include]
-        collapse include dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed]
-        collapse include dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/include]
-        collapse include dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/include] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/include]
-        implicit include dirs: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/include/c++/7.5.0;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/include/c++/7.5.0/aarch64-linux-gnu;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/include/c++/7.5.0/backward;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/include;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/include;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/include]
+        collapse include dir [/usr/include/c++/7] ==> [/usr/include/c++/7]
+        collapse include dir [/usr/include/x86_64-linux-gnu/c++/7] ==> [/usr/include/x86_64-linux-gnu/c++/7]
+        collapse include dir [/usr/include/c++/7/backward] ==> [/usr/include/c++/7/backward]
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/7/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/7/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed] ==> [/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/include/c++/7;/usr/include/x86_64-linux-gnu/c++/7;/usr/include/c++/7/backward;/usr/lib/gcc/x86_64-linux-gnu/7/include;/usr/local/include;/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed;/usr/include/x86_64-linux-gnu;/usr/include]
       
       
   -
@@ -1536,100 +1436,103 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-hxxpev']
+        ignore line: [Change Dir: '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-vxeaDM']
         ignore line: []
-        ignore line: [Run Build Command(s): /snap/cmake/1530/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a8cea/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_a8cea.dir/build.make CMakeFiles/cmTC_a8cea.dir/build]
-        ignore line: [make[1]: Entering directory '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-hxxpev']
-        ignore line: [Building CXX object CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-c++   -v -o CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o -c /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /snap/cmake/1530/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_61d41/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_61d41.dir/build.make CMakeFiles/cmTC_61d41.dir/build]
+        ignore line: [make[1]: Entering directory '/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/CMakeScratch/TryCompile-vxeaDM']
+        ignore line: [Building CXX object CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o -c /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
-        ignore line: [COLLECT_GCC=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-c++]
-        ignore line: [Target: aarch64-linux-gnu]
-        ignore line: [Configured with: '/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-7.5-2019.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --enable-fix-cortex-a53-835769 --enable-fix-cortex-a53-843419 --with-arch=armv8-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/aarch64-linux-gnu --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/aarch64-linux-gnu/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=aarch64-linux-gnu --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.5.0-3ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
         ignore line: [Thread model: posix]
-        ignore line: [gcc version 7.5.0 (Linaro GCC 7.5-2019.12) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64']
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/cc1plus -quiet -v -imultiarch aarch64-linux-gnu -iprefix /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/ -isysroot /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc -D_GNU_SOURCE /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -march=armv8-a -mlittle-endian -mabi=lp64 -auxbase-strip CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/cc2mIrSM.s]
-        ignore line: [GNU C++14 (Linaro GCC 7.5-2019.12) version 7.5.0 (aarch64-linux-gnu)]
-        ignore line: [	compiled by GNU C version 4.8.4  GMP version 6.1.2  MPFR version 3.1.5  MPC version 1.0.3  isl version none]
+        ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/7/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /snap/cmake/1530/share/cmake-4.3/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/cc5ePfYV.s]
+        ignore line: [GNU C++14 (Ubuntu 7.5.0-3ubuntu1~18.04) version 7.5.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 7.5.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.19-GMP]
+        ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
-        ignore line: [ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0"]
-        ignore line: [ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0/aarch64-linux-gnu"]
-        ignore line: [ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0/backward"]
-        ignore line: [ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/include"]
-        ignore line: [ignoring nonexistent directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/local/include/aarch64-linux-gnu"]
-        ignore line: [ignoring nonexistent directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/local/include"]
-        ignore line: [ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed"]
-        ignore line: [ignoring duplicate directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/../../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include"]
-        ignore line: [ignoring nonexistent directory "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/include/aarch64-linux-gnu"]
+        ignore line: [ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/7"]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/7/../../../../x86_64-linux-gnu/include"]
         ignore line: [#include "..." search starts here:]
         ignore line: [#include <...> search starts here:]
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0]
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0/aarch64-linux-gnu]
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include/c++/7.5.0/backward]
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include]
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/include-fixed]
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/include]
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/include]
+        ignore line: [ /usr/include/c++/7]
+        ignore line: [ /usr/include/x86_64-linux-gnu/c++/7]
+        ignore line: [ /usr/include/c++/7/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/7/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/7/include-fixed]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
         ignore line: [End of search list.]
-        ignore line: [GNU C++14 (Linaro GCC 7.5-2019.12) version 7.5.0 (aarch64-linux-gnu)]
-        ignore line: [	compiled by GNU C version 4.8.4  GMP version 6.1.2  MPFR version 3.1.5  MPC version 1.0.3  isl version none]
+        ignore line: [GNU C++14 (Ubuntu 7.5.0-3ubuntu1~18.04) version 7.5.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 7.5.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.19-GMP]
+        ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
-        ignore line: [Compiler executable checksum: 966bcc360f46d7d0bf38230662fdbbf8]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64']
-        ignore line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/as -v -EL -march=armv8-a -mabi=lp64 -o CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc2mIrSM.s]
-        ignore line: [GNU assembler version 2.28.2 (aarch64-linux-gnu) using BFD version (Linaro_Binutils-2019.12) 2.28.2.20170706]
-        ignore line: [COMPILER_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/]
-        ignore line: [LIBRARY_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64']
-        ignore line: [Linking CXX executable cmTC_a8cea]
-        ignore line: [/snap/cmake/1530/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a8cea.dir/link.txt --verbose=1]
+        ignore line: [Compiler executable checksum: 3eb3dc290cd5714c3e1c3ae751116f07]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc5ePfYV.s]
+        ignore line: [GNU assembler version 2.30 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.30]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking CXX executable cmTC_61d41]
+        ignore line: [/snap/cmake/1530/bin/cmake -E cmake_link_script CMakeFiles/cmTC_61d41.dir/link.txt --verbose=1]
         ignore line: [Using built-in specs.]
-        ignore line: [COLLECT_GCC=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-c++]
-        ignore line: [COLLECT_LTO_WRAPPER=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper]
-        ignore line: [Target: aarch64-linux-gnu]
-        ignore line: [Configured with: '/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-7.5-2019.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --enable-fix-cortex-a53-835769 --enable-fix-cortex-a53-843419 --with-arch=armv8-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/aarch64-linux-gnu --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/aarch64-linux-gnu/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=aarch64-linux-gnu --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 7.5.0-3ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-7/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-7 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
         ignore line: [Thread model: posix]
-        ignore line: [gcc version 7.5.0 (Linaro GCC 7.5-2019.12) ]
-        ignore line: [COMPILER_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/]
-        ignore line: [LIBRARY_PATH=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib/:/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a8cea' '-shared-libgcc' '-march=armv8-a' '-mlittle-endian' '-mabi=lp64']
-        link line: [ /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/collect2 -plugin /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/liblto_plugin.so -plugin-opt=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccqU2RXO.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -o cmTC_a8cea /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib -v CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o]
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/collect2] ==> ignore
+        ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_61d41' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cccSQiJW.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_61d41 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -v CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
           arg [-plugin] ==> ignore
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/liblto_plugin.so] ==> ignore
-          arg [-plugin-opt=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccqU2RXO.res] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/cccSQiJW.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
-          arg [--sysroot=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc] ==> ignore
           arg [--build-id] ==> ignore
           arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--as-needed] ==> ignore
           arg [-dynamic-linker] ==> ignore
-          arg [/lib/ld-linux-aarch64.so.1] ==> ignore
-          arg [-X] ==> ignore
-          arg [-EL] ==> ignore
-          arg [-maarch64linux] ==> ignore
-          arg [--fix-cortex-a53-835769] ==> ignore
-          arg [--fix-cortex-a53-843419] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_a8cea] ==> ignore
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o] ==> obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o]
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o] ==> obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o]
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o] ==> obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib]
-          arg [-L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib] ==> dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib]
+          arg [cmTC_61d41] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/7] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -1637,26 +1540,25 @@ events:
           arg [-lc] ==> lib [c]
           arg [-lgcc_s] ==> lib [gcc_s]
           arg [-lgcc] ==> lib [gcc]
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o] ==> obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o]
-          arg [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o] ==> obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
         ignore line: [collect2 version 7.5.0]
-        ignore line: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/ld -plugin /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/liblto_plugin.so -plugin-opt=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccqU2RXO.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-aarch64.so.1 -X -EL -maarch64linux --fix-cortex-a53-835769 --fix-cortex-a53-843419 -o cmTC_a8cea /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64 -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib -L/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib -v CMakeFiles/cmTC_a8cea.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o]
-        linker tool for 'CXX': /usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/ld
-        collapse obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crt1.o] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib/crt1.o]
-        collapse obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crti.o] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib/crti.o]
-        collapse obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o]
-        collapse obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o]
-        collapse obj [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib/crtn.o] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib/crtn.o]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib/../lib64] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/lib64]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/lib] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/lib]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/lib] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/lib]
-        collapse library dir [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../aarch64-linux-gnu/libc/usr/lib] ==> [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cccSQiJW.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_61d41 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. -v CMakeFiles/cmTC_61d41.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+        linker tool for 'CXX': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7] ==> [/usr/lib/gcc/x86_64-linux-gnu/7]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> [/usr/lib]
         implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
-        implicit objs: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib/crt1.o;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib/crti.o;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/crtbegin.o;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0/crtend.o;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib/crtn.o]
-        implicit dirs: [/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu/7.5.0;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc/aarch64-linux-gnu;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/lib/gcc;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/lib64;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/lib;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/lib;/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/7;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
         implicit fwks: []
       
       
@@ -1668,6 +1570,6 @@ events:
       - "/snap/cmake/1530/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:5 (project)"
     message: |
-      Running the CXX compiler's linker: "/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../lib/gcc/aarch64-linux-gnu/7.5.0/../../../../aarch64-linux-gnu/bin/ld" "-v"
-      GNU ld (Linaro_Binutils-2019.12) 2.28.2.20170706
+      Running the CXX compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld (GNU Binutils for Ubuntu) 2.30
 ...

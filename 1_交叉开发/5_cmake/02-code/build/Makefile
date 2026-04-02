@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/snap/cmake/1530/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/snap/cmake/1530/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/snap/cmake/1530/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/snap/cmake/1530/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/snap/cmake/1530/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/snap/cmake/1530/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build//CMakeFiles/progress.marks
@@ -117,19 +162,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named bst
-
-# Build rule for target.
-bst: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bst
-.PHONY : bst
-
-# fast build rule for target.
-bst/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bst.dir/build.make CMakeFiles/bst.dir/build
-.PHONY : bst/fast
-
-#=============================================================================
 # Target rules for targets named app
 
 # Build rule for target.
@@ -147,7 +179,7 @@ bst.o: bst.c.o
 
 # target to build an object file
 bst.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bst.dir/build.make CMakeFiles/bst.dir/bst.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/bst.c.o
 .PHONY : bst.c.o
 
 bst.i: bst.c.i
@@ -155,7 +187,7 @@ bst.i: bst.c.i
 
 # target to preprocess a source file
 bst.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bst.dir/build.make CMakeFiles/bst.dir/bst.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/bst.c.i
 .PHONY : bst.c.i
 
 bst.s: bst.c.s
@@ -163,7 +195,7 @@ bst.s: bst.c.s
 
 # target to generate assembly for a file
 bst.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bst.dir/build.make CMakeFiles/bst.dir/bst.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/bst.c.s
 .PHONY : bst.c.s
 
 linkqueue.o: linkqueue.c.o
@@ -171,7 +203,7 @@ linkqueue.o: linkqueue.c.o
 
 # target to build an object file
 linkqueue.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bst.dir/build.make CMakeFiles/bst.dir/linkqueue.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/linkqueue.c.o
 .PHONY : linkqueue.c.o
 
 linkqueue.i: linkqueue.c.i
@@ -179,7 +211,7 @@ linkqueue.i: linkqueue.c.i
 
 # target to preprocess a source file
 linkqueue.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bst.dir/build.make CMakeFiles/bst.dir/linkqueue.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/linkqueue.c.i
 .PHONY : linkqueue.c.i
 
 linkqueue.s: linkqueue.c.s
@@ -187,7 +219,7 @@ linkqueue.s: linkqueue.c.s
 
 # target to generate assembly for a file
 linkqueue.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bst.dir/build.make CMakeFiles/bst.dir/linkqueue.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/linkqueue.c.s
 .PHONY : linkqueue.c.s
 
 main.o: main.c.o
@@ -221,9 +253,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... app"
-	@echo "... bst"
 	@echo "... bst.o"
 	@echo "... bst.i"
 	@echo "... bst.s"

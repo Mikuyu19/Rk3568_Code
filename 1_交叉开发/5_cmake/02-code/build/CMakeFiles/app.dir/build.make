@@ -76,28 +76,59 @@ CMakeFiles/app.dir/main.c.o: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/main.c.o: /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/main.c
 CMakeFiles/app.dir/main.c.o: CMakeFiles/app.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/app.dir/main.c.o"
-	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/app.dir/main.c.o -MF CMakeFiles/app.dir/main.c.o.d -o CMakeFiles/app.dir/main.c.o -c /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/main.c
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/app.dir/main.c.o -MF CMakeFiles/app.dir/main.c.o.d -o CMakeFiles/app.dir/main.c.o -c /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/main.c
 
 CMakeFiles/app.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/app.dir/main.c.i"
-	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/main.c > CMakeFiles/app.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/main.c > CMakeFiles/app.dir/main.c.i
 
 CMakeFiles/app.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/app.dir/main.c.s"
-	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/main.c -o CMakeFiles/app.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/main.c -o CMakeFiles/app.dir/main.c.s
+
+CMakeFiles/app.dir/bst.c.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/bst.c.o: /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/bst.c
+CMakeFiles/app.dir/bst.c.o: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/app.dir/bst.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/app.dir/bst.c.o -MF CMakeFiles/app.dir/bst.c.o.d -o CMakeFiles/app.dir/bst.c.o -c /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/bst.c
+
+CMakeFiles/app.dir/bst.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/app.dir/bst.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/bst.c > CMakeFiles/app.dir/bst.c.i
+
+CMakeFiles/app.dir/bst.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/app.dir/bst.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/bst.c -o CMakeFiles/app.dir/bst.c.s
+
+CMakeFiles/app.dir/linkqueue.c.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/linkqueue.c.o: /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/linkqueue.c
+CMakeFiles/app.dir/linkqueue.c.o: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/app.dir/linkqueue.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/app.dir/linkqueue.c.o -MF CMakeFiles/app.dir/linkqueue.c.o.d -o CMakeFiles/app.dir/linkqueue.c.o -c /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/linkqueue.c
+
+CMakeFiles/app.dir/linkqueue.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/app.dir/linkqueue.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/linkqueue.c > CMakeFiles/app.dir/linkqueue.c.i
+
+CMakeFiles/app.dir/linkqueue.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/app.dir/linkqueue.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/linkqueue.c -o CMakeFiles/app.dir/linkqueue.c.s
 
 # Object files for target app
 app_OBJECTS = \
-"CMakeFiles/app.dir/main.c.o"
+"CMakeFiles/app.dir/main.c.o" \
+"CMakeFiles/app.dir/bst.c.o" \
+"CMakeFiles/app.dir/linkqueue.c.o"
 
 # External object files for target app
 app_EXTERNAL_OBJECTS =
 
 app: CMakeFiles/app.dir/main.c.o
+app: CMakeFiles/app.dir/bst.c.o
+app: CMakeFiles/app.dir/linkqueue.c.o
 app: CMakeFiles/app.dir/build.make
-app: libbst.so
 app: CMakeFiles/app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/app.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

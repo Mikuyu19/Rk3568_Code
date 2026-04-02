@@ -57,6 +57,7 @@ make (-n)或(-s) 目标名
 make -f makefile所在的路径名 目标名 	=>makefile的名字可以任意起
 	make首先会在makefile所在的路径去查找，然后再到makefile这个文件找 目标名 执行
 
+
 -n	只打印执行的命令，不显示结果
 -s	执行命令显示结果，但是不显示执行的命令
 ```

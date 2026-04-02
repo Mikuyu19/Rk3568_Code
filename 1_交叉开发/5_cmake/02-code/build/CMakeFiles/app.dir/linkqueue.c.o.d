@@ -1,5 +1,5 @@
-CMakeFiles/app.dir/main.c.o: \
- /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/main.c \
+CMakeFiles/app.dir/linkqueue.c.o: \
+ /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/linkqueue.c \
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -44,4 +44,6 @@ CMakeFiles/app.dir/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/linkqueue.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include/stdbool.h \
  /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/bst.h

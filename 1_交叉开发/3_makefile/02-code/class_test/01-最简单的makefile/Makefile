@@ -1,0 +1,15 @@
+# #目标：依赖文件
+# #命令(前面必须是Tab键，不能用空格!)
+# main:main.c
+# 	gcc main.c -o main 
+
+# #清理生成的可执行文件(自定义目标)
+# clean:
+# 	rm main   #删除main文件    
+
+test:test1 test2
+	echo "test"
+test1:
+	echo "test1"
+test2:
+	echo "test2"

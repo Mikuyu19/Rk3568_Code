@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/app.dir/bst.c.o"
+  "CMakeFiles/app.dir/bst.c.o.d"
+  "CMakeFiles/app.dir/linkqueue.c.o"
+  "CMakeFiles/app.dir/linkqueue.c.o.d"
   "CMakeFiles/app.dir/main.c.o"
   "CMakeFiles/app.dir/main.c.o.d"
   "app"

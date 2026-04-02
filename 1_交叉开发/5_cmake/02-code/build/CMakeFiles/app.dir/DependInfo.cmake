@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/bst.c" "CMakeFiles/app.dir/bst.c.o" "gcc" "CMakeFiles/app.dir/bst.c.o.d"
+  "/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/linkqueue.c" "CMakeFiles/app.dir/linkqueue.c.o" "gcc" "CMakeFiles/app.dir/linkqueue.c.o.d"
   "/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/main.c" "CMakeFiles/app.dir/main.c.o" "gcc" "CMakeFiles/app.dir/main.c.o.d"
   )
 
