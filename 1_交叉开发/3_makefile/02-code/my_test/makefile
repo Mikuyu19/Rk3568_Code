@@ -29,7 +29,7 @@ CC = gcc
 
 # 2. 定义目标和依赖
 TARGET = app
-SRCS = $(wildcard *.c)
+SRCS = $(wildcard ./src/*.c)
 OBJS = $(patsubst %.c, %.o, $(SRCS))
 
 # 3. 最终目标
