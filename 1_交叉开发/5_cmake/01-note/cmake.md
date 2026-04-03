@@ -2,6 +2,10 @@
 
 cmake是一款跨平台的免费的开源软件工具，用于使用与编译器无关的方法来管理软件的构建的过程，LInux环境下有大量的项目的时候，都使用cmake来管理
 
+cmake最重要的作用就是协助我们自动生成项目所需的Makefile,以便工程管理器make可以指导编译器的工作
+
+![1775178195897](cmake.assets/1775178195897.png)
+
 # 2.安装cmake
 
 1.在线安装
@@ -9,7 +13,7 @@ cmake是一款跨平台的免费的开源软件工具，用于使用与编译器
 ubuntu有网的情况下下载cmake
 
 ```
-sudo snap install cmake --classic
+sudo snap install cmake --classic 
 ```
 
 如果失败请更新源(请参考linux基本命令章节)
@@ -48,6 +52,21 @@ source ~/.bashrc
 
 # 3.cmake的构建
 
+编译一个简单的helloworld的程序
+
+1.新建文件夹example1
+
+```
+mkdir example1
+cd example1
+```
+
+2.新建两个文件main.c 和 CMakeLists.txt
+
+```
+touch main.c CMakeLists.txt
+```
+
 文件结构如下
 
 ```
@@ -56,7 +75,32 @@ example1
 └── main.c
 ```
 
-**执行 cmake命令**
+main.c
+
+```
+#include <stdio.h>
+
+int main()
+{
+	printf("helloworld!\n");
+	return 0;
+}
+```
+
+CMakeLists.txt
+
+```
+#cmake 最低版本号的要求
+cmake_minimum_required(VERSION 3.10)
+
+#项目名称 可以是任意的名字
+project(demo1)
+
+#指定生成目标
+add_executable(main main.c)
+```
+
+3.执行 cmake命令
 
 注意：一般不会直接在当前的目录执行cmake,因为生成的文件跟源文件放在一起，若要删除要单独找出来再删除
 
@@ -68,12 +112,24 @@ cd build //进入build目录
 cmake ..	//编译上一层的CMakeLists.txt文件
 ```
 
+![1775180166472](cmake.assets/1775180166472.png)
+
 **执行make命令**
 
 ```
 make 		//编译Makefile文件，得到可执行程序main
 ./main		//运行可执行文件
 ```
+
+![1775180226307](cmake.assets/1775180226307.png)
+
+**重新编译：**
+
+当cmake执行后，生成的makefile文件会固定当前工程的绝对路径。所以当源文件的路径发生修改(如工程目录被复制或者移动，环境变量发送变化)，需要删除build目录下所有cmake缓存的文件，然后重新执行cmake指令生成新的makefile文件
+
+![1775181048798](cmake.assets/1775181048798.png)
+
+但如果仅仅只是源代码的内容发生变化，则无需删除build文件夹下的缓存文件，直接用make clean清除中间文件，再用make编译即可
 
 ## 设定cmake的最低版本号
 
@@ -89,7 +145,7 @@ make 		//编译Makefile文件，得到可执行程序main
 > project(PRO_NAME)
 >
 
-多文件编译
+## 多文件编译
 
 > 语法：
 >
@@ -97,6 +153,20 @@ make 		//编译Makefile文件，得到可执行程序main
 > add_executable(可执行文件名 源文件1 源文件2 ...)
 > ```
 >
+
+文件结构如下
+
+```c
+example3
+├── add.c
+├── add.h
+├── CMakeLists.txt
+├── main.c
+├── sub.c
+└── sub.h
+```
+
+
 
 ## 查找源文件保存到变量中
 

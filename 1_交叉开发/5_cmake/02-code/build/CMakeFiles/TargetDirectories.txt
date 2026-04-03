@@ -1,7 +1,0 @@
-/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/app.dir
-/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/edit_cache.dir
-/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/rebuild_cache.dir
-/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/list_install_components.dir
-/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/install.dir
-/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/install/local.dir
-/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/build/CMakeFiles/install/strip.dir

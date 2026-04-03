@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/app.dir/main.c.o CMakeFiles/app.dir/bst.c.o CMakeFiles/app.dir/linkqueue.c.o -o app  -lm

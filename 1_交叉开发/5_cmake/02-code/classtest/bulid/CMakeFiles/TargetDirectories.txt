@@ -1,0 +1,3 @@
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/bulid/CMakeFiles/classtest.dir
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/bulid/CMakeFiles/edit_cache.dir
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/bulid/CMakeFiles/rebuild_cache.dir

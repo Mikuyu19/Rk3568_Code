@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/classtest.dir/src/add.c.o CMakeFiles/classtest.dir/src/main.c.o CMakeFiles/classtest.dir/src/sub.c.o -o classtest
