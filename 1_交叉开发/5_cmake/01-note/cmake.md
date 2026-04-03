@@ -166,7 +166,20 @@ example3
 └── sub.h
 ```
 
+CMakeLists.txt
 
+```
+#cmake 最低版本号的要求
+cmake_minimum_required(VERSION 3.10)
+
+#项目名称 可以是任意的名字
+project(demo1)
+
+#指定生成目标
+add_executable(main main.c add.c sub.c)
+```
+
+![1775182158120](cmake.assets/1775182158120.png)
 
 ## 查找源文件保存到变量中
 
@@ -180,11 +193,58 @@ example3
 >
 > 功能：把dir目录中查找到的源文件的名字保存到变量variable
 
+```cmake
+#cmake 最低版本号的要求
+cmake_minimum_required(VERSION 3.10)
+
+#项目名称 可以是任意的名字
+project(demo1)
+
+#查找当前目录下所有的源文件，并且保存到DIR_SRCS变量中
+aux_source_directory(. DIR_SRCS)
+
+#指定生成目标
+# ${ xx } 表示取变量xx的值
+add_executable(main ${DIR_SRCS})
+```
+
 ## 指定头文件路径
 
 > 语法：
 >
 > include_directories(头文件所在的路径)
+
+文件结构
+
+```c
+example4
+├── CMakeLists.txt
+├── inc
+│   ├── add.h
+│   └── sub.h
+└── src
+    ├── add.c
+    ├── main.c
+    └── sub.c 
+```
+
+```cmake
+#cmake 最低版本号的要求
+cmake_minimum_required(VERSION 3.10)
+
+#项目名称 可以是任意的名字
+project(demo1)
+
+#查找当前目录下src目录中所有的源文件，并且保存到DIR_SRCS变量中
+aux_source_directory(./src DIR_SRCS)
+
+#指定头文件路径
+include_directories(./inc)
+
+#指定生成目标
+# ${ xx } 表示取变量xx的值
+add_executable(main ${DIR_SRCS})
+```
 
 ## 指定库路径和链接指定的库文件
 
@@ -193,6 +253,74 @@ example3
 > link_directories(库所在的路径)
 >
 > target_link_libraries(可执行文件名 库名1 库名2 ...)
+
+文件夹结构如下
+
+```
+example5
+├── CMakeLists.txt
+├── inc
+│   ├── add.h
+│   ├── bst.h
+│   └── sub.h
+├── lib
+│   └── libbst.so
+└── src
+    ├── add.c
+    ├── main.c
+    └── sub.c
+```
+
+改一下main.c
+
+```c
+#include <stdio.h>
+#include "add.h"
+#include "sub.h"
+#include "bst.h"
+
+int main()
+{
+	printf("3 + 4 = %d\n",add(3,4));
+    printf("3 - 4 = %d\n",sub(3,4));
+	binode *r = create_bst();
+	print_order(r);
+	return 0;
+}
+```
+
+请你完成CmakeLists.txt文件的编写
+
+```
+添加库所在的路径的语法放在 指定生成可执行文件语法之前
+链接库的语法 放在指定生成可执行文件语法之后
+```
+
+```cmake
+#cmake 最低版本号的要求
+cmake_minimum_required(VERSION 3.10)
+
+#项目名称 可以是任意的名字
+project(demo1)
+
+#查找当前目录下src目录中所有的源文件，并且保存到DIR_SRCS变量中
+aux_source_directory(./src DIR_SRCS)
+
+#指定头文件路径
+include_directories(./inc)
+
+#指定库文件所在的路径
+link_directories(./lib)
+
+#指定生成目标
+# ${ xx } 表示取变量xx的值
+add_executable(main ${DIR_SRCS})
+
+#指定链接的库的名字
+target_link_libraries(main bst)
+```
+
+
 
 ## 添加工程子目录和编译库文件
 
@@ -208,9 +336,69 @@ example3
 >
 > 公开头文件目录(提供给外部使用)
 >
-> target_include_directories(库名 PULIC 头文件所在的路径名)
+> target_include_directories(库名 PUBLIC 头文件所在的路径名)
 >
 > 
+
+假设在工程目录中有一个lib子目录，里面包含了多干源码，需要将其编译成动态库或静态库，文件夹结构如下
+
+```
+example6
+├── CMakeLists.txt
+├── inc
+│   ├── add.h
+│   └── sub.h
+├── lib
+│   ├── add.c		#假设要编译成动态库
+│   ├── CMakeLists.txt
+│   └── sub.c		#假设要编译成静态库
+└── src
+    └── main.c
+
+```
+
+lib/CMakeLists.txt
+
+```cmake
+#添加库 进行编译生成库
+add_library(add SHARED add.c)
+add_library(sub STATIC sub.c) #静态库是默认的 此处的 STATIC 可以不写
+
+#公开头文件目录(供外部使用) 
+target_include_directories(add PUBLIC ../inc)
+target_include_directories(sub PUBLIC ../inc)
+```
+
+CMakeLists.txt
+
+```cmake
+#cmake 最低版本号的要求
+cmake_minimum_required(VERSION 3.10)
+
+#项目名称 可以是任意的名字
+project(demo1)
+
+#查找当前目录下src目录中所有的源文件，并且保存到DIR_SRCS变量中
+aux_source_directory(./src DIR_SRCS)
+
+#指定头文件路径
+include_directories(./inc)
+
+#指定库文件所在的路径
+link_directories(./lib)
+
+#添加lib子目录
+add_subdirectory(./lib)
+
+#指定生成目标
+# ${ xx } 表示取变量xx的值
+add_executable(main ${DIR_SRCS})
+    
+#指定链接的库的名字
+target_link_libraries(main add sub)
+```
+
+
 
 ## 设置变量和调用shell命令
 

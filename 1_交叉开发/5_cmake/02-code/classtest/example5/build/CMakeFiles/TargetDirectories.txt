@@ -1,0 +1,3 @@
+/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example5/build/CMakeFiles/main.dir
+/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example5/build/CMakeFiles/edit_cache.dir
+/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example5/build/CMakeFiles/rebuild_cache.dir
