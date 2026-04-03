@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example6/lib/sub.c" "lib/CMakeFiles/sub.dir/sub.c.o" "gcc" "lib/CMakeFiles/sub.dir/sub.c.o.d"
+  "/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/example6/lib/sub.c" "lib/CMakeFiles/sub.dir/sub.c.o" "gcc" "lib/CMakeFiles/sub.dir/sub.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

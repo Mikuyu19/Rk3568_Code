@@ -1,1 +1,1 @@
-/usr/bin/cc -fPIC -shared -Wl,-soname,libadd.so -o libadd.so CMakeFiles/add.dir/add.c.o   -L/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example6/./lib
+/usr/bin/cc -fPIC -shared -Wl,-soname,libadd.so -o libadd.so CMakeFiles/add.dir/add.c.o   -L/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/example6/./lib

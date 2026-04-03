@@ -13,7 +13,7 @@ include_directories(./inc)
 #指定库文件所在的路径
 link_directories(./lib)
 
-#添加lib子目录
+#添加lib子目录                           
 add_subdirectory(./lib)
 
 #指定生成目标

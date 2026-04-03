@@ -1,5 +1,5 @@
 CMakeFiles/main.dir/src/main.c.o: \
- /mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example6/src/main.c \
+ /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/example6/src/main.c \
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -18,5 +18,5 @@ CMakeFiles/main.dir/src/main.c.o: \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example6/./inc/add.h \
- /mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example6/./inc/sub.h
+ /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/example6/./inc/add.h \
+ /mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/example6/./inc/sub.h

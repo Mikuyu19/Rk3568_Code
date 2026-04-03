@@ -1,7 +1,7 @@
-/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example6/build/CMakeFiles/main.dir
-/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example6/build/CMakeFiles/edit_cache.dir
-/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example6/build/CMakeFiles/rebuild_cache.dir
-/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example6/build/lib/CMakeFiles/add.dir
-/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example6/build/lib/CMakeFiles/sub.dir
-/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example6/build/lib/CMakeFiles/edit_cache.dir
-/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example6/build/lib/CMakeFiles/rebuild_cache.dir
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/example6/build/CMakeFiles/main.dir
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/example6/build/CMakeFiles/edit_cache.dir
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/example6/build/CMakeFiles/rebuild_cache.dir
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/example6/build/lib/CMakeFiles/add.dir
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/example6/build/lib/CMakeFiles/sub.dir
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/example6/build/lib/CMakeFiles/edit_cache.dir
+/mnt/hgfs/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/example6/build/lib/CMakeFiles/rebuild_cache.dir
