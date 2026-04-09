@@ -700,22 +700,89 @@ man 2 stat 或 man 7 inode找到示例
 
 练习：判断一个文件的类型，文件名的名字从命令行传入
 
-```
-    int main(int argc,char **argv)
-    {
-            struct stat sb;//保存属性
-            stat(argv[1], &sb);
-            //....
+```c
+//编译：gcc xxx.c     -> a.out
+//运行：./a.out 1.c
+/*
+	argc是命令行传入字符串的个数，argc = 2
+	argv是指针数组
+		char *argv[] = {"./a.out","1.c"};
+		=>argv[0]:"./a.out"
+		=>argv[1]:"1.c"
+*/
+#include <sys/stat.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+int main(int argc,char **argv)
+{
+    //获取属性
+    struct stat sb;//保存属性
+    stat(argv[1], &sb);
+    //判断类型
+
+#if 0
+    if ((sb.st_mode & S_IFMT) == S_IFREG) {
+        printf("普通文件\n");
     }
+    else if ((sb.st_mode & S_IFMT) == S_IFDIR) {
+        printf("目录\n");
+    }    
+    else if ((sb.st_mode & S_IFMT) == S_IFCHR) {
+        printf("字符设备文件\n");
+    }  
+    else if ((sb.st_mode & S_IFMT) == S_IFIFO) {
+        printf("管道文件\n");
+    }  
+    else if ((sb.st_mode & S_IFMT) == S_IFBLK) {
+        printf("块设备文件\n");
+    }  
+    else if ((sb.st_mode & S_IFMT) == S_IFSOCK) {
+        printf("套接字文件\n");
+    }  
+    else if ((sb.st_mode & S_IFMT) == S_IFLNK) {
+        printf("链接文件\n");
+    }  
+#else
+    if (S_ISREG(sb.st_mode)) {
+        printf("普通文件\n");
+    }
+    else if (S_ISDIR(sb.st_mode)) {
+        printf("目录\n");
+    }    
+    else if (S_ISCHR(sb.st_mode)) {
+        printf("字符设备文件\n");
+    }  
+    else if (S_ISFIFO(sb.st_mode)) {
+        printf("管道文件\n");
+    }  
+    else if (S_ISBLK(sb.st_mode)) {
+        printf("块设备文件\n");
+    }  
+    else if (S_ISSOCK(sb.st_mode)) {
+        printf("套接字文件\n");
+    }  
+    else if (S_ISLNK(sb.st_mode)) {
+        printf("链接文件\n");
+    } 
+#endif
+}
 ```
 
+作业：
 
+(1)因为用write进行显示颜色，显示较慢，请参考01-图片显示笔记，使用mmap映射的方式进行显示颜色到开发板上
+
+(2)请参考01-图片显示笔记，请在ubunu中获取bmp图片的宽高色深，并进行打印
+
+(3)找到笔记中lvgl资料里面的lvgl工程搭建，请参考里面的视频和笔记，完成lvgl工程的搭建
 
 # 7.读取目录的内容
 
-打开目录opendir	
+打开目录opendir
 
-```
+```c
 #include <sys/types.h>
 #include <dirent.h>
 
@@ -725,6 +792,20 @@ name:打开目录的路径
 	成功：返回一个DIR*指针，用来表示一个被打开的目录
 	失败：NULL，errno被设置
 DIR *fdopendir(int fd);
+
+eg:
+	DIR *dir = opendir("/home/china");
+	if(dir == NULL)//失败
+	{
+		
+	}
+eg:
+	int fd = open("/home/china",0);
+	DIR *dir = fdopendir(fd);
+	if(dir == NULL)//失败
+	{
+		
+	}
 ```
 
 读取目录readdir
@@ -737,6 +818,33 @@ dirp:一个打开的目录的指针
 返回值：
 	成功：指向下一个目录项的指针
 	失败：没有更多的目录或出错 NULL
+eg:循环读取一个目录中的所有文件
+	struct dirent *p = NULL;
+	while(1)
+	{
+		p = readdir(dir);
+		if(p == NULL)
+			break;
+		printf("%s\n",p->d_name);//打印当前目录下的所有文件的名字
+	}
+
+eg:
+    //  在这个路径下/mnt/hgfs/share/运行  a.out
+    int main()
+    {
+        //1 打开 /home/china   -> 1.c  2.c
+
+        //2 读取目录项的内容 1.c   p->d_name
+
+        //3 拼接 /home/china/1.c
+        char pathname[100] = {0};//保存完整路径文件名
+        sprintf(pathname,"%s/%s","/home/china",p->d_name);
+
+        //4 获取文件的属性 stat(pathname,&sb);
+
+        //5 判断文件的类型
+
+    }
 ```
 
 每一个目录项由一个结构体struct dirent来描述的，存储的就是一个个的struct dirent的结构体的数据
@@ -763,15 +871,134 @@ struct dirent {
 #include <dirent.h>
 
 int closedir(DIR *dirp);
+eg:
+	closedir(dir);
 ```
 
-练习1：打印/home/china的子文件以及子目录的名字
+练习1：把一个目录下面所有的文件名(普通文件或目录)都打印出来(打印路径:包括路径+名字)
+
+```c
+#include <stdio.h>
+#include <sys/types.h>
+#include <dirent.h>
+#include <unistd.h>
+
+//./a.out  /home/china
+int main(int argc,char **argv)
+{
+    if(argc < 2)
+    {
+        printf("Usage:%s <pathname>\n",argv[0]);
+        return -1;
+    }
+
+    //改变当前的工作路径
+    chdir(argv[1]);
+    //获取当前的工作路径
+    char buf[512] = {0};
+    getcwd(buf,sizeof(buf)-1);
+    printf("当前工作路径为:%s\n",buf);
+
+    //打开目录
+    DIR *dir = opendir(argv[1]);
+    if(dir == NULL)
+    {
+        perror("open dir fail");
+        return -1;
+    }
+    //循环读取目录
+    while(1)
+    {
+        //读取目录中的一个文件
+        struct dirent *p = readdir(dir);
+        if(p == NULL)
+            break;
+
+        //拼接
+        char pathname[1024] = {0};//保存完整路径
+        sprintf(pathname,"%s/%s",buf,p->d_name);
+
+        //打印这个文件的完整路径
+        printf("%s\n",pathname);
+    }
+    //关闭目录
+    closedir(dir);
+}
+```
 
 练习2：计算给定目录下面，有多少普通文件和目录文件
 
-练习3：把一个目录下面所有的文件名(普通文件或目录)都打印出来(打印路径:包括路径+名字)
+```c
+#include <stdio.h>
+#include <sys/types.h>
+#include <dirent.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+//./a.out  /home/china
+int main(int argc,char **argv)
+{
+    if(argc < 2)
+    {
+        printf("Usage:%s <pathname>\n",argv[0]);
+        return -1;
+    }
 
-练习4：假设一个目录的大小为：该目录下面及目录的目录下面...的所有普通文件的大小之和，写一个函数，求一个目录的大小(递归)
+    //改变当前的工作路径
+    chdir(argv[1]);
+    //获取当前的工作路径
+    char buf[512] = {0};
+    getcwd(buf,sizeof(buf)-1);
+    printf("当前工作路径为:%s\n",buf);
 
-练习5：写一个双向循环链表，把一个目录下面所有的.c文件(包含其子目录下面的.c)的路径作为是一个结点的数据，最后打印出来这条链表
+    //定义两个变量，保存普通文件和目录的个数
+    int dir_count = 0;
+    int file_count = 0;
+
+    //打开目录
+    DIR *dir = opendir(argv[1]);
+    if(dir == NULL)
+    {
+        perror("open dir fail");
+        return -1;
+    }
+    //循环读取目录
+    while(1)
+    {
+        //读取目录中的一个文件
+        struct dirent *p = readdir(dir);
+        if(p == NULL)
+            break;
+
+        //拼接
+        char pathname[1024] = {0};//保存完整路径
+        sprintf(pathname,"%s/%s",buf,p->d_name);
+
+        //打印这个文件的完整路径
+        printf("%s\n",pathname);
+
+        //获取属性
+        struct stat st;
+        stat(pathname,&st);
+
+        //判断文件的类型
+        if (S_ISREG(st.st_mode)) {
+        	file_count++;
+        }
+        else if (S_ISDIR(st.st_mode)) {
+        	dir_count++;
+        }	
+    }
+
+    //打印结束
+    printf("普通文件%d个 目录%d个\n",file_count,dir_count);
+    //关闭目录
+    closedir(dir);
+}
+```
+
+练习3：假设一个目录的大小为：该目录下面及目录的目录下面...的所有普通文件的大小之和，写一个函数，求一个目录的大小(递归)
+
+练习4：写一个双向循环链表，把一个目录下面所有的.c文件(包含其子目录下面的.c)的路径作为是一个结点的数据，最后打印出来这条链表
 

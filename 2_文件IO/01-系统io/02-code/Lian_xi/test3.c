@@ -15,6 +15,7 @@ void print_all_paths(const char *base_path)
 
     while ((ep = readdir(dp)) != NULL)
     {
+        // 跳过当前目录和父目录
         if (strcmp(ep->d_name, ".") == 0 || strcmp(ep->d_name, "..") == 0)
         {
             continue;
