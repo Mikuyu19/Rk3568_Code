@@ -410,73 +410,16 @@ CMakeFiles/main.dir/main.c.o: \
  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/core/../font/lv_font_fmt_txt.h \
  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/core/../tick/lv_tick.h \
  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/core/../layouts/lv_layout.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/lv_demos.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/../lvgl.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/benchmark/lv_demo_benchmark.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/benchmark/../lv_demos.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/stress/lv_demo_stress.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/stress/../lv_demos.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/widgets/lv_demo_widgets.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/widgets/../lv_demos.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/flex_layout/lv_demo_flex_layout.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/transform/lv_demo_transform.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/transform/../lv_demos.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/scroll/lv_demo_scroll.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/scroll/../lv_demos.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/multilang/lv_demo_multilang.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/multilang/../lv_demos.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/vector_graphic/lv_demo_vector_graphic.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/vector_graphic/../lv_demos.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/render/lv_demo_render.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/demos/render/../lv_demos.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
- /usr/include/x86_64-linux-gnu/bits/getopt_core.h /usr/include/pthread.h \
- /usr/include/sched.h /usr/include/x86_64-linux-gnu/bits/sched.h \
- /usr/include/x86_64-linux-gnu/bits/cpu-set.h /usr/include/time.h \
- /usr/include/x86_64-linux-gnu/bits/time.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
- /usr/include/x86_64-linux-gnu/bits/setjmp.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/lv_examples.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/../lvgl.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/anim/lv_example_anim.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/event/lv_example_event.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/get_started/lv_example_get_started.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/layouts/lv_example_layout.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/layouts/flex/lv_example_flex.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/layouts/grid/lv_example_grid.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/lv_example_libs.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/barcode/lv_example_barcode.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/bmp/lv_example_bmp.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/ffmpeg/lv_example_ffmpeg.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/freetype/lv_example_freetype.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/gif/lv_example_gif.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/lodepng/lv_example_lodepng.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/libpng/lv_example_libpng.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/qrcode/lv_example_qrcode.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/rlottie/lv_example_rlottie.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/tjpgd/lv_example_tjpgd.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/libjpeg_turbo/lv_example_libjpeg_turbo.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/tiny_ttf/lv_example_tiny_ttf.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/lv_example_others.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/file_explorer/lv_example_file_explorer.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/fragment/lv_example_fragment.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/gridnav/lv_example_gridnav.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/ime/lv_example_ime_pinyin.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/imgfont/lv_example_imgfont.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/monkey/lv_example_monkey.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/observer/lv_example_observer.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/snapshot/lv_example_snapshot.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/scroll/lv_example_scroll.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/styles/lv_example_style.h \
- /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/widgets/lv_example_widgets.h \
- /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_core.h /usr/include/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/libio.h \
  /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/sys_errlist.h
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/mycode/app_ui.h

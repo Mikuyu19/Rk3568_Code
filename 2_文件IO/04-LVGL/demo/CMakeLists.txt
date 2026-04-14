@@ -29,8 +29,9 @@ add_subdirectory(freetype-2.13.3)
 add_subdirectory(lvgl)
 target_include_directories(lvgl PUBLIC ${PROJECT_SOURCE_DIR} PRIVATE freetype-2.13.3/include/freetype)
 
+aux_source_directory(mycode SRC_FILE)
 include_directories(mycode)
-add_executable(main main.c mouse_cursor_icon.c)
+add_executable(main main.c mouse_cursor_icon.c ${SRC_FILE})
 
 # 注释掉这行，如果要使用DRM驱动，则需要放开这行
 # include(${CMAKE_CURRENT_LIST_DIR}/lvgl/tests/FindLibDRM.cmake)

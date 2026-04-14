@@ -10,6 +10,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/main.c" "CMakeFiles/main.dir/main.c.o" "gcc" "CMakeFiles/main.dir/main.c.o.d"
   "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/mouse_cursor_icon.c" "CMakeFiles/main.dir/mouse_cursor_icon.c.o" "gcc" "CMakeFiles/main.dir/mouse_cursor_icon.c.o.d"
+  "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/mycode/2048.c" "CMakeFiles/main.dir/mycode/2048.c.o" "gcc" "CMakeFiles/main.dir/mycode/2048.c.o.d"
+  "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/mycode/album.c" "CMakeFiles/main.dir/mycode/album.c.o" "gcc" "CMakeFiles/main.dir/mycode/album.c.o.d"
+  "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/mycode/app_ui.c" "CMakeFiles/main.dir/mycode/app_ui.c.o" "gcc" "CMakeFiles/main.dir/mycode/app_ui.c.o.d"
+  "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/mycode/my_ziti_28.c" "CMakeFiles/main.dir/mycode/my_ziti_28.c.o" "gcc" "CMakeFiles/main.dir/mycode/my_ziti_28.c.o.d"
+  "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/mycode/ui_font.c" "CMakeFiles/main.dir/mycode/ui_font.c.o" "gcc" "CMakeFiles/main.dir/mycode/ui_font.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
