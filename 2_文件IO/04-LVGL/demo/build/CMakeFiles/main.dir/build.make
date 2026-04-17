@@ -100,16 +100,112 @@ CMakeFiles/main.dir/mouse_cursor_icon.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/mouse_cursor_icon.c.s"
 	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mouse_cursor_icon.c -o CMakeFiles/main.dir/mouse_cursor_icon.c.s
 
+CMakeFiles/main.dir/mycode/2048.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/mycode/2048.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/2048.c
+CMakeFiles/main.dir/mycode/2048.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/main.dir/mycode/2048.c.o"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/mycode/2048.c.o -MF CMakeFiles/main.dir/mycode/2048.c.o.d -o CMakeFiles/main.dir/mycode/2048.c.o -c /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/2048.c
+
+CMakeFiles/main.dir/mycode/2048.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/mycode/2048.c.i"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/2048.c > CMakeFiles/main.dir/mycode/2048.c.i
+
+CMakeFiles/main.dir/mycode/2048.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/mycode/2048.c.s"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/2048.c -o CMakeFiles/main.dir/mycode/2048.c.s
+
+CMakeFiles/main.dir/mycode/album.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/mycode/album.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/album.c
+CMakeFiles/main.dir/mycode/album.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/main.dir/mycode/album.c.o"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/mycode/album.c.o -MF CMakeFiles/main.dir/mycode/album.c.o.d -o CMakeFiles/main.dir/mycode/album.c.o -c /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/album.c
+
+CMakeFiles/main.dir/mycode/album.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/mycode/album.c.i"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/album.c > CMakeFiles/main.dir/mycode/album.c.i
+
+CMakeFiles/main.dir/mycode/album.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/mycode/album.c.s"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/album.c -o CMakeFiles/main.dir/mycode/album.c.s
+
+CMakeFiles/main.dir/mycode/app_ui.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/mycode/app_ui.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/app_ui.c
+CMakeFiles/main.dir/mycode/app_ui.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/main.dir/mycode/app_ui.c.o"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/mycode/app_ui.c.o -MF CMakeFiles/main.dir/mycode/app_ui.c.o.d -o CMakeFiles/main.dir/mycode/app_ui.c.o -c /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/app_ui.c
+
+CMakeFiles/main.dir/mycode/app_ui.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/mycode/app_ui.c.i"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/app_ui.c > CMakeFiles/main.dir/mycode/app_ui.c.i
+
+CMakeFiles/main.dir/mycode/app_ui.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/mycode/app_ui.c.s"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/app_ui.c -o CMakeFiles/main.dir/mycode/app_ui.c.s
+
+CMakeFiles/main.dir/mycode/my_ziti_28.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/mycode/my_ziti_28.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/my_ziti_28.c
+CMakeFiles/main.dir/mycode/my_ziti_28.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/main.dir/mycode/my_ziti_28.c.o"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/mycode/my_ziti_28.c.o -MF CMakeFiles/main.dir/mycode/my_ziti_28.c.o.d -o CMakeFiles/main.dir/mycode/my_ziti_28.c.o -c /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/my_ziti_28.c
+
+CMakeFiles/main.dir/mycode/my_ziti_28.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/mycode/my_ziti_28.c.i"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/my_ziti_28.c > CMakeFiles/main.dir/mycode/my_ziti_28.c.i
+
+CMakeFiles/main.dir/mycode/my_ziti_28.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/mycode/my_ziti_28.c.s"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/my_ziti_28.c -o CMakeFiles/main.dir/mycode/my_ziti_28.c.s
+
+CMakeFiles/main.dir/mycode/ui_font.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/mycode/ui_font.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/ui_font.c
+CMakeFiles/main.dir/mycode/ui_font.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/main.dir/mycode/ui_font.c.o"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/mycode/ui_font.c.o -MF CMakeFiles/main.dir/mycode/ui_font.c.o.d -o CMakeFiles/main.dir/mycode/ui_font.c.o -c /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/ui_font.c
+
+CMakeFiles/main.dir/mycode/ui_font.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/mycode/ui_font.c.i"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/ui_font.c > CMakeFiles/main.dir/mycode/ui_font.c.i
+
+CMakeFiles/main.dir/mycode/ui_font.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/mycode/ui_font.c.s"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/ui_font.c -o CMakeFiles/main.dir/mycode/ui_font.c.s
+
+CMakeFiles/main.dir/mycode/user_data.c.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/mycode/user_data.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/user_data.c
+CMakeFiles/main.dir/mycode/user_data.c.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/main.dir/mycode/user_data.c.o"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/mycode/user_data.c.o -MF CMakeFiles/main.dir/mycode/user_data.c.o.d -o CMakeFiles/main.dir/mycode/user_data.c.o -c /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/user_data.c
+
+CMakeFiles/main.dir/mycode/user_data.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/mycode/user_data.c.i"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/user_data.c > CMakeFiles/main.dir/mycode/user_data.c.i
+
+CMakeFiles/main.dir/mycode/user_data.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/mycode/user_data.c.s"
+	/usr/local/arm/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/user_data.c -o CMakeFiles/main.dir/mycode/user_data.c.s
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/main.c.o" \
-"CMakeFiles/main.dir/mouse_cursor_icon.c.o"
+"CMakeFiles/main.dir/mouse_cursor_icon.c.o" \
+"CMakeFiles/main.dir/mycode/2048.c.o" \
+"CMakeFiles/main.dir/mycode/album.c.o" \
+"CMakeFiles/main.dir/mycode/app_ui.c.o" \
+"CMakeFiles/main.dir/mycode/my_ziti_28.c.o" \
+"CMakeFiles/main.dir/mycode/ui_font.c.o" \
+"CMakeFiles/main.dir/mycode/user_data.c.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: CMakeFiles/main.dir/main.c.o
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: CMakeFiles/main.dir/mouse_cursor_icon.c.o
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: CMakeFiles/main.dir/mycode/2048.c.o
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: CMakeFiles/main.dir/mycode/album.c.o
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: CMakeFiles/main.dir/mycode/app_ui.c.o
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: CMakeFiles/main.dir/mycode/my_ziti_28.c.o
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: CMakeFiles/main.dir/mycode/ui_font.c.o
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: CMakeFiles/main.dir/mycode/user_data.c.o
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: CMakeFiles/main.dir/build.make
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: lib/liblvgl.a
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: lvgl/liblvgl_examples.a
@@ -118,7 +214,7 @@ main_EXTERNAL_OBJECTS =
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: freetype-2.13.3/libfreetype.a
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: lib/liblvgl.a
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/bin/main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

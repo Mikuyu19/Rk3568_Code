@@ -1340,6 +1340,87 @@ void test()
 
 作业：完成电子相册，点击左边的按钮，切换上一张图片，点击右边的按钮，切换下一张图片，顺便做一个返回按钮，放在界面的右上角，在2048的界面中也做一个返回按钮，再做一个界面，里面包含了2048和电子相册的按钮
 
+```c
+static char *bmp_path[3] = {
+    "A:/mnt/hgfs/CS2612/二阶段/02-文件IO/04-LVGL/02-code/ubuntu_demo/pic/2.bmp",
+    "A:/mnt/hgfs/CS2612/二阶段/02-文件IO/04-LVGL/02-code/ubuntu_demo/pic/4.bmp",
+    "A:/mnt/hgfs/CS2612/二阶段/02-文件IO/04-LVGL/02-code/ubuntu_demo/pic/8.bmp"
+};
+//当前显示图片的下标
+static int curren_bmp_index = 0;
+static void change_button_cb(lv_event_t *e)
+{
+    //获取传入的参数
+    lv_obj_t *win = lv_event_get_user_data(e);
+    //获取win的第0个子对象
+    lv_obj_t *image = lv_obj_get_child(win,0);
+    //获取win的第一个子对象
+    lv_obj_t *prev_btn = lv_obj_get_child(win,1);
+    //获取win的第二个子对象
+    lv_obj_t *next_btn = lv_obj_get_child(win,2);
+
+    //获取当前点击的对象
+    lv_obj_t*button = lv_event_get_target(e);
+    if(button == prev_btn)
+    {
+        curren_bmp_index=(curren_bmp_index-1+3)%3;
+    }
+    else if(button == next_btn)
+    {
+        curren_bmp_index=(curren_bmp_index+1+3)%3;
+    }
+
+     //显示图片
+    lv_image_set_src(image,bmp_path[curren_bmp_index]);
+}
+
+//电子相册界面初始化
+static void ui_album_screen_init()
+{
+	//创建一个活动屏幕
+    lv_obj_t *scr = lv_screen_active();
+
+    //创建基本对象
+    lv_obj_t *win = lv_obj_create(scr);    
+    //设置宽高
+    lv_obj_set_size(win,1024,600);    
+
+    //创建图片控件
+    lv_obj_t *image = lv_image_create(win);
+    lv_image_set_src(image,bmp_path[curren_bmp_index]);
+
+    //创建两个按钮
+    lv_obj_t*prev_btn = lv_button_create(win);
+    lv_obj_t*next_btn = lv_button_create(win);
+    //设置按钮的位置
+    lv_obj_set_align(prev_btn,LV_ALIGN_BOTTOM_LEFT);
+    lv_obj_set_align(next_btn,LV_ALIGN_BOTTOM_RIGHT);
+    //为两个按钮创建标签
+    lv_obj_t*prev_btn_lab = lv_label_create(prev_btn);
+    lv_label_set_text(prev_btn_lab,"prev");
+    lv_obj_t*next_btn_lab = lv_label_create(next_btn);
+    lv_label_set_text(next_btn_lab,"next");
+    //为两个按钮设置回调函数
+    lv_obj_add_event_cb(prev_btn,change_button_cb,LV_EVENT_CLICKED,win);
+    lv_obj_add_event_cb(next_btn,change_button_cb,LV_EVENT_CLICKED,win);
+
+    //创建返回按钮
+    lv_obj_t*return_btn = lv_button_create(win);
+    lv_obj_set_align(return_btn,LV_ALIGN_TOP_RIGHT);
+    lv_obj_t*return_btn_lab = lv_label_create(return_btn);
+    lv_label_set_text(return_btn_lab,"return");
+
+}
+
+void test()
+{
+    //想调用那个测试函数 就用哪个测试函数名字
+    ui_album_screen_init();
+}
+```
+
+
+
 # 十二、界面的切换
 
 - 添加控件属性
@@ -1373,11 +1454,689 @@ void test()
 	->界面1的效果
 ```
 
+方式1：
+
+```c
+//显示页面
+lv_obj_t *test11_win1 = NULL;
+lv_obj_t *test11_win2 = NULL;
+void test11_display_page(lv_obj_t *screen)
+{
+    //隐藏
+    lv_obj_add_flag(test11_win1,LV_OBJ_FLAG_HIDDEN);
+    lv_obj_add_flag(test11_win2,LV_OBJ_FLAG_HIDDEN);
+    //显示
+    lv_obj_remove_flag(screen, LV_OBJ_FLAG_HIDDEN);
+}
+
+//切换界面2
+void test11_change_win2_cb(lv_event_t *e)
+{
+    test11_display_page(test11_win2);
+}
+
+//切换界面1
+void test11_change_win1_cb(lv_event_t *e)
+{
+    test11_display_page(test11_win1);
+}
+//方式1 切换界面
+void test11()
+{
+	//创建一个活动屏幕
+    lv_obj_t *scr = lv_screen_active();
+
+    //创建基本对象
+    test11_win1 = lv_obj_create(scr);    
+    //设置宽高
+    lv_obj_set_size(test11_win1,1024,600); 
+    //创建标签
+    lv_obj_t *lab1 = lv_label_create(test11_win1);
+    lv_label_set_text(lab1,"this is screen1");
+    //创建按钮
+    lv_obj_t *but1 = lv_button_create(test11_win1);
+    lv_obj_set_size(but1,150,50); 
+    lv_obj_set_align(but1,9);
+    lv_obj_t *but1_lab = lv_label_create(but1);  
+    lv_label_set_text(but1_lab,"change screen2"); 
+    lv_obj_add_event_cb(but1,test11_change_win2_cb,LV_EVENT_CLICKED,NULL); 
+
+    //创建基本对象
+    test11_win2 = lv_obj_create(scr);    
+    //设置宽高
+    lv_obj_set_size(test11_win2,1024,600); 
+    //创建标签
+    lv_obj_t *lab2 = lv_label_create(test11_win2);
+    lv_label_set_text(lab2,"this is screen2");
+    //创建按钮
+    lv_obj_t *but2 = lv_button_create(test11_win2);
+    lv_obj_set_size(but2,150,50); 
+    lv_obj_set_align(but2,9);
+    lv_obj_t *but2_lab = lv_label_create(but2);  
+    lv_label_set_text(but2_lab,"change screen1"); 
+    lv_obj_add_event_cb(but2,test11_change_win1_cb,LV_EVENT_CLICKED,NULL); 
+
+    //显示页面
+    test11_display_page(test11_win1);
+}
+```
+
+方式2:（推荐的方式）
+
+```
+//加载界面
+lv_screen_load(放你要加载的页面名字，一定要要注意，加载的页面的父对象一定NULL,会直接把页面作为活动屏幕)
+
+```
+
+```c
+//显示页面
+lv_obj_t *test12_win1 = NULL;
+lv_obj_t *test12_win2 = NULL;
+void init_scr1();
+void init_scr2();
+
+//切换界面2
+void test12_change_win2_cb(lv_event_t *e)
+{
+    //界面2不存在则创建
+    if(test12_win2 == NULL)
+    {
+        init_scr2();
+    }
+
+    //加载界面2并删除界面1
+    lv_screen_load(test12_win2);
+    lv_obj_delete(test12_win1);
+    test12_win1 = NULL;
+}
+
+//切换界面1
+void test12_change_win1_cb(lv_event_t *e)
+{
+    //界面1不存在则创建
+    if(test12_win1 == NULL)
+    {
+        init_scr1();
+    }
+
+    //加载界面1并删除界面2
+    lv_screen_load(test12_win1);
+    lv_obj_delete(test12_win2);
+    test12_win2 = NULL;
+}
+
+//初始化界面1
+void init_scr1()
+{
+    //创建基本对象
+    test12_win1 = lv_obj_create(NULL);    
+    // //设置宽高
+    // lv_obj_set_size(test12_win1,1024,600); 
+    //创建标签
+    lv_obj_t *lab1 = lv_label_create(test12_win1);
+    lv_label_set_text(lab1,"this is screen1");
+    //创建按钮
+    lv_obj_t *but1 = lv_button_create(test12_win1);
+    lv_obj_set_size(but1,150,50); 
+    lv_obj_set_align(but1,9);
+    lv_obj_t *but1_lab = lv_label_create(but1);  
+    lv_label_set_text(but1_lab,"change screen2"); 
+    lv_obj_add_event_cb(but1,test12_change_win2_cb,LV_EVENT_CLICKED,NULL); 
+    
+    //加载界面1
+    lv_screen_load(test12_win1);//test12_win1作为活动屏幕
+}
+//初始化界面2
+void init_scr2()
+{
+    //创建基本对象
+    test12_win2 = lv_obj_create(NULL);    
+    // //设置宽高
+    // lv_obj_set_size(test12_win2,1024,600); 
+    //创建标签
+    lv_obj_t *lab2 = lv_label_create(test12_win2);
+    lv_label_set_text(lab2,"this is screen2");
+    //创建按钮
+    lv_obj_t *but2 = lv_button_create(test12_win2);
+    lv_obj_set_size(but2,150,50); 
+    lv_obj_set_align(but2,9);
+    lv_obj_t *but2_lab = lv_label_create(but2);  
+    lv_label_set_text(but2_lab,"change screen1"); 
+    lv_obj_add_event_cb(but2,test12_change_win1_cb,LV_EVENT_CLICKED,NULL); 
+    //加载界面2
+    lv_screen_load(test12_win2);//test12_win2作为活动屏幕
+
+}
+
+//两个界面切换示例
+void test12()
+{
+    init_scr1();
+}
+```
+
+练习：实现三个界面的切换
+
+2048.c
+
+```c
+#include "2048.h"
+#include <stdio.h>
+#include "main_interface.h"
+#define TILE_SIZE 60
+
+//定义2048游戏数组
+static int game_grid[4][4] = {
+	0,0,2,4,
+	0,0,0,2,
+	2,2,0,0,
+	0,0,0,0
+};
+
+//保存图片控件的数组
+static lv_obj_t *tile_image[4][4];
+
+static void to_select_app_screen_cb(lv_event_t *e)
+{
+    //选择界面不存在则创建
+    if(select_app_screen == NULL)
+    {
+        //初始化选择界面
+        select_app_screen = ui_select_app_screen_init();
+    }
+
+    //加载选择界面并删除2048界面
+    lv_screen_load(select_app_screen);
+    if(game_2048_screen!=NULL)
+    {
+        lv_obj_delete(game_2048_screen);
+        game_2048_screen = NULL;
+    }
+}
+
+
+//初始化2048游戏界面
+lv_obj_t * ui_2048_init()
+{
+	//初始化游戏4*4格子的数据 (可以先不写，手动修改上面的数据)
+    
+    //创建窗口win
+    lv_obj_t *game_2048_screen = lv_obj_create(NULL);
+
+    lv_obj_t *win = lv_obj_create(game_2048_screen);
+    //设置大小
+    lv_obj_set_size(win,300,300);
+    //设置位置
+    lv_obj_set_align(win,9);
+    
+    //给win设置内边距
+    lv_obj_set_style_pad_all(win,0,0);
+    
+    //在win中创建4*4的图像控件
+    for(int i = 0;i<4;i++)
+    {
+    	for(int j = 0;j<4;j++)
+    	{
+    		//创建图片控件
+            tile_image[i][j] = lv_image_create(win);
+    		
+    		//设置图片控件位置lv_obj_set_pos
+            lv_obj_set_pos(tile_image[i][j],10+(TILE_SIZE+10)*j,10+(TILE_SIZE+10)*i);
+    		
+    		//获取图片的路径保存到字符数组sprintf
+            char bmppathname[1024] = {0};
+    		sprintf(bmppathname,"A:/mnt/hgfs/CS2612/二阶段/02-文件IO/04-LVGL/02-code/ubuntu_demo/pic/%d.bmp",game_grid[i][j]);
+    		//设置图片控件显示哪张图片
+            lv_image_set_src(tile_image[i][j],bmppathname);
+    	}
+    }
+
+
+    //创建返回按钮
+    lv_obj_t*return_btn = lv_button_create(game_2048_screen);
+    lv_obj_set_align(return_btn,LV_ALIGN_TOP_RIGHT);
+    lv_obj_t*return_btn_lab = lv_label_create(return_btn);
+    lv_label_set_text(return_btn_lab,"return");
+     lv_obj_add_event_cb(return_btn,to_select_app_screen_cb,LV_EVENT_CLICKED,NULL); 
+
+
+    //加载活动屏幕
+    lv_screen_load(game_2048_screen);
+    
+    return game_2048_screen;
+}
+```
+
+2048.h
+
+```c
+#ifndef _2048_H_
+#define _2048_H_
+#include "../lvgl/lvgl.h"
+
+//初始化2048游戏界面
+lv_obj_t * ui_2048_init();
+
+#endif
+```
+
+album.c
+
+```c
+#include "album.h"
+#include "main_interface.h"
+static char *bmp_path[3] = {
+    "A:/mnt/hgfs/CS2612/二阶段/02-文件IO/04-LVGL/02-code/ubuntu_demo/pic/2.bmp",
+    "A:/mnt/hgfs/CS2612/二阶段/02-文件IO/04-LVGL/02-code/ubuntu_demo/pic/4.bmp",
+    "A:/mnt/hgfs/CS2612/二阶段/02-文件IO/04-LVGL/02-code/ubuntu_demo/pic/8.bmp"
+};
+//当前显示图片的下标
+static int curren_bmp_index = 0;
+static void change_button_cb(lv_event_t *e)
+{
+    //获取传入的参数
+    lv_obj_t *win = lv_event_get_user_data(e);
+    //获取win的第0个子对象
+    lv_obj_t *image = lv_obj_get_child(win,0);
+    //获取win的第一个子对象
+    lv_obj_t *prev_btn = lv_obj_get_child(win,1);
+    //获取win的第二个子对象
+    lv_obj_t *next_btn = lv_obj_get_child(win,2);
+
+    //获取当前点击的对象
+    lv_obj_t*button = lv_event_get_target(e);
+    if(button == prev_btn)
+    {
+        curren_bmp_index=(curren_bmp_index-1+3)%3;
+    }
+    else if(button == next_btn)
+    {
+        curren_bmp_index=(curren_bmp_index+1+3)%3;
+    }
+
+     //显示图片
+    lv_image_set_src(image,bmp_path[curren_bmp_index]);
+}
+
+static void to_select_app_screen_cb(lv_event_t *e)
+{
+    //选择界面不存在则创建
+    if(select_app_screen == NULL)
+    {
+        //初始化选择界面
+        select_app_screen = ui_select_app_screen_init();
+    }
+
+    //加载选择界面并删除电子相册界面
+    lv_screen_load(select_app_screen);
+    if(album_screen!=NULL)
+    {
+        lv_obj_delete(album_screen);
+        album_screen = NULL;
+    }
+}
+
+//电子相册界面初始化
+lv_obj_t* ui_album_screen_init()
+{
+	//创建一个活动屏幕
+    lv_obj_t *scr = lv_obj_create(NULL);
+
+    //创建基本对象
+    lv_obj_t *win = lv_obj_create(scr);    
+    //设置宽高
+    lv_obj_set_size(win,1024,600);    
+
+    //创建图片控件
+    lv_obj_t *image = lv_image_create(win);
+    lv_image_set_src(image,bmp_path[curren_bmp_index]);
+
+    //创建两个按钮
+    lv_obj_t*prev_btn = lv_button_create(win);
+    lv_obj_t*next_btn = lv_button_create(win);
+    //设置按钮的位置
+    lv_obj_set_align(prev_btn,LV_ALIGN_BOTTOM_LEFT);
+    lv_obj_set_align(next_btn,LV_ALIGN_BOTTOM_RIGHT);
+    //为两个按钮创建标签
+    lv_obj_t*prev_btn_lab = lv_label_create(prev_btn);
+    lv_label_set_text(prev_btn_lab,"prev");
+    lv_obj_t*next_btn_lab = lv_label_create(next_btn);
+    lv_label_set_text(next_btn_lab,"next");
+    //为两个按钮设置回调函数
+    lv_obj_add_event_cb(prev_btn,change_button_cb,LV_EVENT_CLICKED,win);
+    lv_obj_add_event_cb(next_btn,change_button_cb,LV_EVENT_CLICKED,win);
+
+    //创建返回按钮
+    lv_obj_t*return_btn = lv_button_create(win);
+    lv_obj_set_align(return_btn,LV_ALIGN_TOP_RIGHT);
+    lv_obj_t*return_btn_lab = lv_label_create(return_btn);
+    lv_label_set_text(return_btn_lab,"return");
+    lv_obj_add_event_cb(return_btn,to_select_app_screen_cb,LV_EVENT_CLICKED,NULL); 
+
+    //加载活动屏幕
+    lv_screen_load(scr);
+
+    //返回界面
+    return scr;
+}
+```
+
+album.h
+
+```c
+#ifndef _ALBUM_H_
+#define _ALBUM_H_
+#include "../lvgl/lvgl.h"
+lv_obj_t* ui_album_screen_init();
+
+#endif
+```
+
+main_interface.c
+
+```c
+#include "main_interface.h"
+#include "2048.h"
+#include "stdio.h"
+#include "album.h"
+lv_obj_t *game_2048_screen = NULL;
+lv_obj_t *album_screen = NULL;
+lv_obj_t *select_app_screen = NULL;
+static void to_game_2048_screen_cb(lv_event_t *e)
+{
+    //2048界面不存在则创建
+    if(game_2048_screen == NULL)
+    {
+        //初始化2048界面
+        game_2048_screen = ui_2048_init();
+    }
+
+    //加载2048界面并删除选择app界面
+    lv_screen_load(game_2048_screen);
+    if(select_app_screen!=NULL)
+    {
+        lv_obj_delete(select_app_screen);
+        select_app_screen = NULL;
+    }
+}
+
+static void to_album_screen_cb(lv_event_t *e)
+{
+    //电子相册界面不存在则创建
+    if(album_screen == NULL)
+    {
+        //初始化电子相册界面
+        album_screen = ui_album_screen_init();
+    }
+
+    //加载电子相册并删除选择app界面
+    lv_screen_load(album_screen);
+    if(select_app_screen!=NULL)
+    {
+        lv_obj_delete(select_app_screen);
+        select_app_screen = NULL;
+    }
+}
+
+//初始化选择app界面
+lv_obj_t * ui_select_app_screen_init()
+{
+	//创建一个活动屏幕
+    lv_obj_t *select_app_screen = lv_obj_create(NULL);
+
+    //创建基本对象
+    lv_obj_t *win = lv_obj_create(select_app_screen);    
+    //设置宽高
+    lv_obj_set_size(win,1024,600);    
+
+    //添加2048按钮
+    lv_obj_t*bt_2048 = lv_button_create(win);
+    lv_obj_set_size(bt_2048,120,40);
+    lv_obj_align(bt_2048,9,0,-50);
+    //添加标签
+    lv_obj_t*bt_2048_lab = lv_label_create(bt_2048);
+    lv_label_set_text(bt_2048_lab,"2048");
+    lv_obj_center(bt_2048_lab);
+    lv_obj_add_event_cb(bt_2048,to_game_2048_screen_cb,LV_EVENT_CLICKED,NULL); 
+
+    //添加电子相册按钮
+    lv_obj_t*bt_album = lv_button_create(win);
+    lv_obj_set_size(bt_album,120,40);
+    lv_obj_align(bt_album,9,0,50);
+    //添加标签
+    lv_obj_t*bt_album_lab = lv_label_create(bt_album);
+    lv_label_set_text(bt_album_lab,"album");
+    lv_obj_center(bt_album_lab);
+    lv_obj_add_event_cb(bt_album,to_album_screen_cb,LV_EVENT_CLICKED,NULL); 
+
+    //加载活动屏幕
+    lv_screen_load(select_app_screen);
+
+    return select_app_screen;
+}
+```
+
+main_interface.h
+
+```c
+#ifndef _MAIN_INTERFACE_H_
+#define _MAIN_INTERFACE_H_
+#include "../lvgl/lvgl.h"
+extern lv_obj_t *game_2048_screen;
+extern lv_obj_t *album_screen;
+extern lv_obj_t *select_app_screen;
+lv_obj_t * ui_select_app_screen_init();
+
+#endif
+```
+
 
 
 # 十二、输入文本框
 
+## 1.创建软键盘
+
+```c
+//创建软键盘
+lv_obj_t * lv_keyboard_create(lv_obj_t * parent);
+```
+
+## 2.创建文本输入框
+
 用户可以在此输入，默认是多行输入，可以设置为单行输入，还可以设置为密码输入模式
+
+```c
+//创建文本输入框
+lv_obj_t * lv_textarea_create(lv_obj_t * parent);
+//设置单行显示
+void lv_textarea_set_one_line(lv_obj_t * obj, bool en);
+@en 布尔类型 true/false
+//设置为密码输入模式
+void lv_textarea_set_password_mode(lv_obj_t * obj, bool en);
+@en 布尔类型 true/false
+//在没有输入的时候情况下，默认显示字符串
+void lv_textarea_set_placeholder_text(lv_obj_t * obj, const char * txt);
+@txt:需要默认显示的字符串
+```
+
+## 3.关联键盘和文本区域
+
+```c
+//将键盘与文本框建立关联 键盘输入的字符就会显示到这个文本框中
+void lv_keyboard_set_textarea(lv_obj_t * obj, lv_obj_t * ta)
+@obj：要关联的软键盘的控件结构体指针
+@ta：要关联的文本输入框空间的结构体指针
+
+//获取文本框的内容
+const char * lv_textarea_get_text(const lv_obj_t * obj);
+```
+
+## 4.处理键盘事件 (可选)
+
+```c
+lv_event_dsc_t * lv_obj_add_event_cb(lv_obj_t * obj, lv_event_cb_t event_cb, lv_event_code_t filter, void * user_data);
+@filter：
+	LV_EVENT_FOCUSED :当对象成为输入焦点时(例如用户点击输入框)
+	LV_EVENT_DEFOCUSED :当对象失去输入焦点时(例如用户点击其他区域)
+	LV_EVENT_READY :点击键盘上的勾
+	常用于点击输入框，显示软键盘，点击其他的区域，隐藏软键盘
+```
+
+登录界面
+
+```c
+//键盘事件回调
+static void textarea_event_cb(lv_event_t *e)
+{
+    //获取是是什么事件
+    lv_event_code_t code = lv_event_get_code(e);
+    //获取传入的参数  软键盘
+    lv_obj_t *key = lv_event_get_user_data(e);
+    //获取点击的对象  文本框
+    lv_obj_t *ta = lv_event_get_target(e);
+
+    if(code == LV_EVENT_FOCUSED)
+    {
+        //让你的键盘会文本框建立关系
+        lv_keyboard_set_textarea(key,ta);
+        //显示键盘
+        lv_obj_remove_flag(key,LV_OBJ_FLAG_HIDDEN);
+    }
+    else if(code == LV_EVENT_DEFOCUSED || code == LV_EVENT_READY)
+    {
+        //让你的键盘会文本框断开关系
+        lv_keyboard_set_textarea(key,NULL);
+        //隐藏键盘
+        lv_obj_add_flag(key,LV_OBJ_FLAG_HIDDEN);        
+    }
+}
+
+static void login_btn_click_cb(lv_event_t *e)
+{
+    //获取传入的参数
+    lv_obj_t * win = lv_event_get_user_data(e);
+    //获取win的第2个子对象
+    lv_obj_t *username_text = lv_obj_get_child(win,2);
+    //获取win的第3个子对象
+    lv_obj_t *passwd_text = lv_obj_get_child(win,3);
+    const char *usrname_str = lv_textarea_get_text(username_text);
+    const char *passwd_str = lv_textarea_get_text(passwd_text);
+    printf("usr:%s passwd:%s\n",usrname_str,passwd_str);
+
+    if(strcmp(usrname_str,"admin")==0 && strcmp(passwd_str,"123456")==0)
+    {
+        //登录成功
+        printf("登录成功\n");
+        //跳转到选择app界面
+        select_app_screen = ui_select_app_screen_init();
+    }
+    else
+    {
+        printf("登录失败\n");
+    }
+    /*
+        FILE*fp = fopen("user.txt","r");
+
+        char usrname[50] = {0};
+        char passwd[50] = {0};
+
+        int flag = 0;
+        while(!feof(fp))
+        {
+            fscanf(fp,"%s %s\n",usrname,passwd);
+            if(strcmp(usrname_str,usrname)==0 && strcmp(passwd_str,passwd)==0)
+            {
+                flag = 1;
+                break;
+            }         
+        }
+
+        if(flag == 1)
+        {
+            //登录成功
+            printf("登录成功\n");
+            //跳转到选择app界面
+            select_app_screen = ui_select_app_screen_init();
+        }
+        else
+        {
+            printf("登录失败\n");
+        }
+
+    */
+}
+
+static void test13()
+{
+    lv_obj_t *login_screen = lv_obj_create(NULL);
+    lv_obj_t *win = lv_obj_create(login_screen);
+    lv_obj_set_size(win,1024,600);
+
+    //设计窗口的样式
+
+    //创建用户名的标签
+    lv_obj_t *username_lab = lv_label_create(win);
+    //设置标签大小
+    lv_obj_set_size(username_lab,100,50);
+    //设置标签相对于父对象的位置
+    lv_obj_set_pos(username_lab,250,100);
+    lv_label_set_text(username_lab,"username");
+
+    //创建密码的标签
+    lv_obj_t *passwd_lab = lv_label_create(win);
+    //设置标签大小
+    lv_obj_set_size(passwd_lab,100,50);
+    //设置标签相对于父对象的位置
+    lv_obj_set_pos(passwd_lab,250,200);
+    lv_label_set_text(passwd_lab,"password");
+
+    //创建用户名的输入框
+    lv_obj_t *username_text = lv_textarea_create(win);
+    lv_obj_set_size(username_text,200,60);
+    lv_obj_set_pos(username_text,350,100);
+    //设置单行输入模式
+    lv_textarea_set_one_line(username_text,true);
+
+    //创建密码的输入框
+    lv_obj_t *passwd_text = lv_textarea_create(win);
+    lv_obj_set_size(passwd_text,200,60);
+    lv_obj_set_pos(passwd_text,350,200);
+    //设置单行输入模式
+    lv_textarea_set_one_line(passwd_text,true);   
+    //设置为密码输入模式
+    lv_textarea_set_password_mode(passwd_text, true);
+
+    //创建登录按钮
+    lv_obj_t*login_btn = lv_button_create(win);
+    lv_obj_set_pos(login_btn,300,300);
+    lv_obj_t*login_btn_lab = lv_label_create(login_btn);
+    lv_label_set_text(login_btn_lab,"login");
+    lv_obj_add_event_cb(login_btn,login_btn_click_cb,LV_EVENT_CLICKED,win); 
+
+
+    //创建软键盘
+    lv_obj_t*key = lv_keyboard_create(login_screen);
+    //一开始软键盘应该是隐藏的
+    lv_obj_add_flag(key,LV_OBJ_FLAG_HIDDEN);
+    //用户文本框
+    lv_obj_add_event_cb(username_text,textarea_event_cb,LV_EVENT_ALL,key);   
+    //密码文本框
+    lv_obj_add_event_cb(passwd_text,textarea_event_cb,LV_EVENT_ALL,key);   
+
+    //加载活动屏幕
+    lv_screen_load(login_screen);
+}
+
+
+void test()
+{
+    //想调用那个测试函数 就用哪个测试函数名字
+    test13();
+}
+```
+
+
 
 ### **中文汉字输入键盘**
 
@@ -1413,8 +2172,47 @@ void test()
    }
    ```
    
-   若你要选择自己的词典，再lv_conf.h中关闭 LV_IME_PINYIN_USE_DEFAULT_DICT
+   ![1776155470028](LVGL.assets/1776155470028.png)
 
+   参考代码：
+   
+   ```c
+   static void test14(void)
+   {
+       //创建字体
+       lv_font_t * font = lv_freetype_font_create("/mnt/hgfs/CS2612/二阶段/02-文件IO/04-LVGL/02-code/ubuntu_demo/SIMKAI.TTF",
+                                                  LV_FREETYPE_FONT_RENDER_MODE_BITMAP,
+                                                  16,
+                                                  LV_FREETYPE_FONT_STYLE_NORMAL);
+   
+       //创建拼音
+       lv_obj_t * pinyin_ime = lv_ime_pinyin_create(lv_screen_active());
+       //设置字体
+       lv_obj_set_style_text_font(pinyin_ime, font, 0);
+       //设置你词典
+       //lv_ime_pinyin_set_dict(pinyin_ime, your_dict); // Use a custom dictionary. If it is not set, the built-in dictionary will be used.
+   
+       /* 文本框 */
+       lv_obj_t * ta1 = lv_textarea_create(lv_screen_active());
+       //设置单行输入模式
+       lv_textarea_set_one_line(ta1, true);
+       //设置文本框的字体
+       lv_obj_set_style_text_font(ta1, font, 0);
+       lv_obj_align(ta1, LV_ALIGN_TOP_LEFT, 0, 0);
+   
+       /*键盘*/
+       lv_obj_t * kb = lv_keyboard_create(lv_screen_active());
+       //把拼音输入法加入到键盘中
+       lv_ime_pinyin_set_keyboard(pinyin_ime, kb);
+       //让键盘与文本框建立关系
+       lv_keyboard_set_textarea(kb, ta1);
+   
+       lv_obj_add_event_cb(ta1, textarea_event_cb, LV_EVENT_ALL, kb);
+   }
+   ```
+   
+   若你要选择自己的词典，再lv_conf.h中关闭 LV_IME_PINYIN_USE_DEFAULT_DICT
+   
    ```
    #define LV_IME_PINYIN_USE_DEFAULT_DICT 0
    ```
@@ -2527,3 +3325,47 @@ lv_obj_set_scroll_elastic(obj, LV_SCROLL_ELASTIC_ON);
 // 设置当滚动到边界时是否传播到父对象
 lv_obj_set_scroll_propagation(obj, true);
 ```
+
+# 2048
+
+```
+//计算棋盘中0的个数
+int get_arr_zero_count()
+{
+
+}
+
+//产生一个随机数
+void rand_num()
+{
+	//计算棋盘中0的个数
+	//随机生成1-count之间的随机数k k表示生成2或4是第几个0的位置
+	//找k的位置 放置2或4
+}
+
+//初始化2048游戏棋盘数字的值
+void init_2048_game()
+{
+	//设置随机种子
+	//把游戏棋盘数字的值变成0
+	//生成两个随机数
+}
+
+/*
+	去二维数组中一行的0 把其他数字放左边，0放右边
+	
+*/
+void rm_zero()
+{
+	
+}
+
+/*
+	把二维数组中一行的数组，相邻且相同进行合并
+*/
+void hebing()
+{
+	
+}
+```
+

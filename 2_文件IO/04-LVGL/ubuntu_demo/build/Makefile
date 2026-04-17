@@ -272,6 +272,30 @@ lvgl_demos/fast:
 	$(MAKE) $(MAKESILENT) -f lvgl/CMakeFiles/lvgl_demos.dir/build.make lvgl/CMakeFiles/lvgl_demos.dir/build
 .PHONY : lvgl_demos/fast
 
+code/medical.o: code/medical.c.o
+.PHONY : code/medical.o
+
+# target to build an object file
+code/medical.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/medical.c.o
+.PHONY : code/medical.c.o
+
+code/medical.i: code/medical.c.i
+.PHONY : code/medical.i
+
+# target to preprocess a source file
+code/medical.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/medical.c.i
+.PHONY : code/medical.c.i
+
+code/medical.s: code/medical.c.s
+.PHONY : code/medical.s
+
+# target to generate assembly for a file
+code/medical.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/code/medical.c.s
+.PHONY : code/medical.c.s
+
 main.o: main.c.o
 .PHONY : main.o
 
@@ -440,6 +464,30 @@ mycode/ui_font.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/ui_font.c.s
 .PHONY : mycode/ui_font.c.s
 
+mycode/user_data.o: mycode/user_data.c.o
+.PHONY : mycode/user_data.o
+
+# target to build an object file
+mycode/user_data.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/user_data.c.o
+.PHONY : mycode/user_data.c.o
+
+mycode/user_data.i: mycode/user_data.c.i
+.PHONY : mycode/user_data.i
+
+# target to preprocess a source file
+mycode/user_data.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/user_data.c.i
+.PHONY : mycode/user_data.c.i
+
+mycode/user_data.s: mycode/user_data.c.s
+.PHONY : mycode/user_data.s
+
+# target to generate assembly for a file
+mycode/user_data.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/user_data.c.s
+.PHONY : mycode/user_data.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -461,6 +509,9 @@ help:
 	@echo "... lvgl_examples"
 	@echo "... lvgl_thorvg"
 	@echo "... main"
+	@echo "... code/medical.o"
+	@echo "... code/medical.i"
+	@echo "... code/medical.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -482,6 +533,9 @@ help:
 	@echo "... mycode/ui_font.o"
 	@echo "... mycode/ui_font.i"
 	@echo "... mycode/ui_font.s"
+	@echo "... mycode/user_data.o"
+	@echo "... mycode/user_data.i"
+	@echo "... mycode/user_data.s"
 .PHONY : help
 
 

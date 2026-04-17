@@ -320,6 +320,150 @@ mouse_cursor_icon.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mouse_cursor_icon.c.s
 .PHONY : mouse_cursor_icon.c.s
 
+mycode/2048.o: mycode/2048.c.o
+.PHONY : mycode/2048.o
+
+# target to build an object file
+mycode/2048.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/2048.c.o
+.PHONY : mycode/2048.c.o
+
+mycode/2048.i: mycode/2048.c.i
+.PHONY : mycode/2048.i
+
+# target to preprocess a source file
+mycode/2048.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/2048.c.i
+.PHONY : mycode/2048.c.i
+
+mycode/2048.s: mycode/2048.c.s
+.PHONY : mycode/2048.s
+
+# target to generate assembly for a file
+mycode/2048.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/2048.c.s
+.PHONY : mycode/2048.c.s
+
+mycode/album.o: mycode/album.c.o
+.PHONY : mycode/album.o
+
+# target to build an object file
+mycode/album.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/album.c.o
+.PHONY : mycode/album.c.o
+
+mycode/album.i: mycode/album.c.i
+.PHONY : mycode/album.i
+
+# target to preprocess a source file
+mycode/album.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/album.c.i
+.PHONY : mycode/album.c.i
+
+mycode/album.s: mycode/album.c.s
+.PHONY : mycode/album.s
+
+# target to generate assembly for a file
+mycode/album.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/album.c.s
+.PHONY : mycode/album.c.s
+
+mycode/app_ui.o: mycode/app_ui.c.o
+.PHONY : mycode/app_ui.o
+
+# target to build an object file
+mycode/app_ui.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/app_ui.c.o
+.PHONY : mycode/app_ui.c.o
+
+mycode/app_ui.i: mycode/app_ui.c.i
+.PHONY : mycode/app_ui.i
+
+# target to preprocess a source file
+mycode/app_ui.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/app_ui.c.i
+.PHONY : mycode/app_ui.c.i
+
+mycode/app_ui.s: mycode/app_ui.c.s
+.PHONY : mycode/app_ui.s
+
+# target to generate assembly for a file
+mycode/app_ui.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/app_ui.c.s
+.PHONY : mycode/app_ui.c.s
+
+mycode/my_ziti_28.o: mycode/my_ziti_28.c.o
+.PHONY : mycode/my_ziti_28.o
+
+# target to build an object file
+mycode/my_ziti_28.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/my_ziti_28.c.o
+.PHONY : mycode/my_ziti_28.c.o
+
+mycode/my_ziti_28.i: mycode/my_ziti_28.c.i
+.PHONY : mycode/my_ziti_28.i
+
+# target to preprocess a source file
+mycode/my_ziti_28.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/my_ziti_28.c.i
+.PHONY : mycode/my_ziti_28.c.i
+
+mycode/my_ziti_28.s: mycode/my_ziti_28.c.s
+.PHONY : mycode/my_ziti_28.s
+
+# target to generate assembly for a file
+mycode/my_ziti_28.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/my_ziti_28.c.s
+.PHONY : mycode/my_ziti_28.c.s
+
+mycode/ui_font.o: mycode/ui_font.c.o
+.PHONY : mycode/ui_font.o
+
+# target to build an object file
+mycode/ui_font.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/ui_font.c.o
+.PHONY : mycode/ui_font.c.o
+
+mycode/ui_font.i: mycode/ui_font.c.i
+.PHONY : mycode/ui_font.i
+
+# target to preprocess a source file
+mycode/ui_font.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/ui_font.c.i
+.PHONY : mycode/ui_font.c.i
+
+mycode/ui_font.s: mycode/ui_font.c.s
+.PHONY : mycode/ui_font.s
+
+# target to generate assembly for a file
+mycode/ui_font.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/ui_font.c.s
+.PHONY : mycode/ui_font.c.s
+
+mycode/user_data.o: mycode/user_data.c.o
+.PHONY : mycode/user_data.o
+
+# target to build an object file
+mycode/user_data.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/user_data.c.o
+.PHONY : mycode/user_data.c.o
+
+mycode/user_data.i: mycode/user_data.c.i
+.PHONY : mycode/user_data.i
+
+# target to preprocess a source file
+mycode/user_data.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/user_data.c.i
+.PHONY : mycode/user_data.c.i
+
+mycode/user_data.s: mycode/user_data.c.s
+.PHONY : mycode/user_data.s
+
+# target to generate assembly for a file
+mycode/user_data.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/user_data.c.s
+.PHONY : mycode/user_data.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -347,6 +491,24 @@ help:
 	@echo "... mouse_cursor_icon.o"
 	@echo "... mouse_cursor_icon.i"
 	@echo "... mouse_cursor_icon.s"
+	@echo "... mycode/2048.o"
+	@echo "... mycode/2048.i"
+	@echo "... mycode/2048.s"
+	@echo "... mycode/album.o"
+	@echo "... mycode/album.i"
+	@echo "... mycode/album.s"
+	@echo "... mycode/app_ui.o"
+	@echo "... mycode/app_ui.i"
+	@echo "... mycode/app_ui.s"
+	@echo "... mycode/my_ziti_28.o"
+	@echo "... mycode/my_ziti_28.i"
+	@echo "... mycode/my_ziti_28.s"
+	@echo "... mycode/ui_font.o"
+	@echo "... mycode/ui_font.i"
+	@echo "... mycode/ui_font.s"
+	@echo "... mycode/user_data.o"
+	@echo "... mycode/user_data.i"
+	@echo "... mycode/user_data.s"
 .PHONY : help
 
 

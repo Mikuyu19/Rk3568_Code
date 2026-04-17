@@ -1,232 +1,538 @@
 #include "2048.h"
+#include "ui_font.h" // 引入自定义字体模块
+#include "user_data.h"
 
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <unistd.h>
 
 #define GRID_SIZE 4
-#define TILE_CELL_SIZE 72
-#define TILE_GAP 8
-#define BOARD_PADDING 12
-#define TILE_STEP (TILE_CELL_SIZE + TILE_GAP)
-#define BOARD_SIZE (BOARD_PADDING * 2 + GRID_SIZE * TILE_CELL_SIZE + (GRID_SIZE - 1) * TILE_GAP)
+#define TILE_SIZE 60   // 每个方块的尺寸（宽和高）
+#define TILE_GAP 10    // 方块之间的间距
+#define BOARD_SIZE 300 // 整个棋盘底板的尺寸
+// 固定的图片绝对路径前缀（结合你当前的 Ubuntu 虚拟机共享目录）
+#define IMAGE_DIR "A:/yu/2048_project/pic"
 
-/* 2048 棋盘数据。
- * 老师这道练习要求“根据数组值显示对应图片”，
- * 所以这里每个数字都会对应 pic 目录里的一个 bmp 文件：
- * 0 -> 0.bmp
- * 2 -> 2.bmp
- * 4 -> 4.bmp
- * ...
- * 2048 -> 2048.bmp
- *
- * 你后面只要修改这个数组，再调用 refresh_2048_board()，
- * 界面上的图片就会跟着变化。
- */
-static int game_grid[GRID_SIZE][GRID_SIZE] = {
-    {0, 0, 2, 4},
-    {0, 0, 0, 2},
-    {2, 2, 0, 0},
-    {0, 0, 0, 0}};
-
-/* 2048 模块的运行时状态。
- * 这里集中保存：
- * 1. 两个页面对象：主菜单页、游戏页
- * 2. 动态刷新的标签：当前分数、最高分、状态提示
- * 3. 16 个图片控件的指针
- * 4. 每个格子图片对应的路径缓存
- * 5. 图片目录路径
- * 6. 分数数据
- */
+/* 2048 游戏全局状态结构体 */
 typedef struct
 {
-    lv_obj_t *menu_screen;
-    lv_obj_t *game_screen;
-    lv_obj_t *score_label;
-    lv_obj_t *best_label;
-    lv_obj_t *status_label;
-    lv_obj_t *tile_image[GRID_SIZE][GRID_SIZE];
-    char tile_path[GRID_SIZE][GRID_SIZE][PATH_MAX];
-    char pic_dir[PATH_MAX];
-    int score;
-    int best_score;
-} app_ui_t;
+    lv_obj_t *screen;                           // 2048 整个页面的根屏幕
+    lv_obj_t *board_win;                        // 棋盘的底板容器
+    lv_obj_t *tile_image[GRID_SIZE][GRID_SIZE]; // 存放 16 个图片控件的指针
+    lv_obj_t *score_label;                      // 显示当前分数的标签
+    lv_obj_t *best_label;                       // 显示最高分数的标签
+    lv_obj_t *status_label;                     // 屏幕底部的状态提示语
+    lv_point_t start_point;                     // 记录手指按下的坐标
+    lv_point_t end_point;                       // 记录手指松开的坐标
+    int game_grid[GRID_SIZE][GRID_SIZE];        // 底层 4x4 逻辑矩阵数据
+    int score;                                  // 当前得分
+    int best_score;                             // 历史最高得分
+    int game_over;                              // 游戏结束标志位 (1:结束, 0:进行中)
+    int game_win;                               // 游戏胜利标志位 (1:胜利, 0:未胜利)
+    int win_popup_done;                         // 胜利弹窗是否已经弹过
+    int fail_popup_done;                        // 失败弹窗是否已经弹过
+} game_2048_t;
 
-static app_ui_t g_app;
+static game_2048_t g_game;
 
-/* 创建一个统一风格的按钮。
- * 这样 Back、Reset 这类按钮都可以复用这一套样式和写法。
- */
-static lv_obj_t *create_text_button(lv_obj_t *parent, const char *text, lv_event_cb_t cb)
+static void popup_close_cb(lv_event_t *e)
 {
-    lv_obj_t *button = lv_button_create(parent);
-    lv_obj_set_size(button, 110, 42);
-    lv_obj_set_style_radius(button, 14, 0);
-    lv_obj_set_style_bg_color(button, lv_color_hex(0x4C7CF0), 0);
-    lv_obj_set_style_bg_opa(button, LV_OPA_COVER, 0);
-    lv_obj_add_event_cb(button, cb, LV_EVENT_CLICKED, NULL);
-
-    lv_obj_t *label = lv_label_create(button);
-    lv_label_set_text(label, text);
-    lv_obj_set_style_text_color(label, lv_color_white(), 0);
-    lv_obj_center(label);
-
-    return button;
+    lv_obj_t *mbox = lv_event_get_user_data(e);
+    lv_msgbox_close(mbox);
 }
 
-/* 初始化图片目录。
- *
- * LVGL 从文件系统读取图片时，路径一般要带盘符，例如：
- * A:/mnt/hgfs/.../ubuntu_demo/pic/2.bmp
- *
- * 这里的逻辑是：
- * 1. 如果你手动设置了环境变量 LV_2048_PIC_DIR，就直接用它
- * 2. 否则默认取“当前工作目录 + /pic”
- * 3. 如果当前目录都取不到，就给一个兜底路径
- */
-static void init_pic_dir(void)
+/* 创建通用按钮的封装函数 */
+static lv_obj_t *create_button(lv_obj_t *parent, const char *text, lv_event_cb_t cb)
 {
-    if (g_app.pic_dir[0] != '\0')
-    {
-        return;
-    }
+    lv_obj_t *btn = lv_button_create(parent);
+    lv_obj_set_size(btn, 108, 42);                             // 设置按钮大小
+    lv_obj_set_style_radius(btn, 14, 0);                       // 圆角半径
+    lv_obj_set_style_bg_color(btn, lv_color_hex(0xAEEEEE), 0); // 浅蓝色背景
+    lv_obj_set_style_bg_opa(btn, LV_OPA_COVER, 0);             // 完全不透明
+    lv_obj_add_event_cb(btn, cb, LV_EVENT_CLICKED, NULL);      // 绑定点击事件
 
-    const char *custom_dir = getenv("LV_2048_PIC_DIR");
-    if (custom_dir && custom_dir[0] != '\0')
-    {
-        snprintf(g_app.pic_dir, sizeof(g_app.pic_dir), "%s", custom_dir);
-        return;
-    }
+    lv_obj_t *lab = lv_label_create(btn); // 按钮上的文本标签
+    lv_label_set_text(lab, text);
+    lv_obj_set_style_text_color(lab, lv_color_black(), 0);
+    lv_obj_set_style_text_font(lab, ui_font_get_22(), 0); // 22号字体
+    lv_obj_center(lab);                                   // 文本居中
 
-    char cwd[PATH_MAX];
-    if (getcwd(cwd, sizeof(cwd)) != NULL)
-    {
-        snprintf(g_app.pic_dir, sizeof(g_app.pic_dir), "A:%s/pic", cwd);
-        return;
-    }
-
-    snprintf(g_app.pic_dir, sizeof(g_app.pic_dir), "A:/tmp/pic");
+    return btn;
 }
 
-/* 根据棋盘坐标拼出当前格子对应的 bmp 文件路径。
- * 例如：
- * game_grid[0][0] = 2048
- * 拼出来的路径就是：
- * A:/.../pic/2048.bmp
- */
-static void build_tile_path(int row, int col)
+/* 创建分数显示卡片 */
+static lv_obj_t *create_score_card(lv_obj_t *parent, lv_obj_t **out_label)
 {
-    char *dst = g_app.tile_path[row][col];
-    size_t dst_size = sizeof(g_app.tile_path[row][col]);
-    size_t dir_len = strlen(g_app.pic_dir);
+    lv_obj_t *card = lv_obj_create(parent);
+    lv_obj_set_size(card, 150, 60);
+    lv_obj_set_style_radius(card, 16, 0);
+    lv_obj_set_style_bg_color(card, lv_color_hex(0xBBADA0), 0); // 灰褐色背景
+    lv_obj_set_style_bg_opa(card, LV_OPA_COVER, 0);
+    lv_obj_set_style_border_width(card, 0, 0);       // 无边框
+    lv_obj_set_style_pad_all(card, 0, 0);            // 无内边距
+    lv_obj_clear_flag(card, LV_OBJ_FLAG_SCROLLABLE); // 禁用滚动
 
-    if (dir_len > dst_size - 16)
+    *out_label = lv_label_create(card); // 内部的文字标签
+    lv_obj_set_style_text_align(*out_label, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_style_text_color(*out_label, lv_color_white(), 0);
+    lv_obj_set_style_text_font(*out_label, ui_font_get_22(), 0);
+    lv_obj_center(*out_label);
+
+    return card;
+}
+
+/* 快捷设置底部状态提示语 */
+static void set_status(const char *text)
+{
+    lv_label_set_text(g_game.status_label, text);
+}
+
+static void show_popup(const char *title, const char *text)
+{
+    lv_obj_t *mbox = lv_msgbox_create(NULL);
+    lv_obj_t *title_label;
+    lv_obj_t *text_label;
+    lv_obj_t *ok_btn;
+    lv_obj_set_style_radius(mbox, 18, 0);
+    lv_obj_set_style_bg_opa(mbox, LV_OPA_COVER, 0);
+    lv_obj_set_style_border_width(mbox, 0, 0);
+
+    title_label = lv_msgbox_add_title(mbox, title);
+    text_label = lv_msgbox_add_text(mbox, text);
+    lv_obj_set_style_text_font(title_label, ui_font_get_22(), 0);
+    lv_obj_set_style_text_font(text_label, ui_font_get_22(), 0);
+    ok_btn = lv_msgbox_add_footer_button(mbox, "确定");
+    lv_obj_set_style_text_font(ok_btn, ui_font_get_22(), 0);
+    lv_obj_set_style_bg_color(ok_btn, lv_color_hex(0xAEEEEE), 0);
+    lv_obj_set_style_bg_opa(ok_btn, LV_OPA_COVER, 0);
+    lv_obj_set_style_text_color(ok_btn, lv_color_black(), 0);
+    lv_obj_add_event_cb(ok_btn, popup_close_cb, LV_EVENT_CLICKED, mbox);
+    lv_obj_center(mbox);
+}
+
+/* 刷新UI上的分数面板 */
+static void refresh_score(void)
+{
+    // 使用格式化输出更新分数文本，\n 实现换行效果
+    lv_label_set_text_fmt(g_game.score_label, "当前分数\n%d", g_game.score);
+    lv_label_set_text_fmt(g_game.best_label, "最高分\n%d", g_game.best_score);
+}
+
+/* 根据矩阵里的数字拼接出图片绝对路径 (如: A:.../pic/2.bmp) */
+static void build_img_path(char *buf, size_t size, int value)
+{
+    size_t dir_len = strlen(IMAGE_DIR);
+    if (dir_len > size - 16)
     {
-        dir_len = dst_size - 16;
+        dir_len = size - 16; // 防止路径超长溢出
     }
 
-    memcpy(dst, g_app.pic_dir, dir_len);
-    dst[dir_len] = '\0';
-
-    snprintf(dst + dir_len, dst_size - dir_len, "/%d.bmp", game_grid[row][col]);
+    memcpy(buf, IMAGE_DIR, dir_len); // 拷贝目录前缀
+    buf[dir_len] = '\0';
+    // 拼上文件名
+    snprintf(buf + dir_len, size - dir_len, "/%d.bmp", value);
 }
 
-/* 刷新分数显示区 */
-static void refresh_score_labels(void)
+/* 将底层游戏矩阵的数据同步渲染到界面的 16 个图片控件上 */
+static void update_2048_game(void)
 {
-    lv_label_set_text_fmt(g_app.score_label, "Score\n%d", g_app.score);
-    lv_label_set_text_fmt(g_app.best_label, "Best\n%d", g_app.best_score);
-}
+    char path[PATH_MAX];
 
-/* 这是图片版 2048 的核心刷新函数。
- * 普通 2048 常见做法是：
- * - 每个格子放一个 label
- * - label 里显示数字
- *
- * 但老师这题要求的是：
- * - 每个格子显示一张 bmp 图片
- * - 图片由数组值决定
- *
- * 所以这个函数做的就是：
- * 1. 遍历 4x4 数组
- * 2. 给每个格子拼路径
- * 3. 调用 lv_image_set_src() 切换图片
- * 4. 最后刷新分数
- */
-static void refresh_2048_board(void)
-{
-    for (int row = 0; row < GRID_SIZE; row++)
+    for (int i = 0; i < GRID_SIZE; i++)
     {
-        for (int col = 0; col < GRID_SIZE; col++)
+        for (int j = 0; j < GRID_SIZE; j++)
         {
-            build_tile_path(row, col);
-            lv_image_set_src(g_app.tile_image[row][col], g_app.tile_path[row][col]);
+            build_img_path(path, sizeof(path), g_game.game_grid[i][j]);
+            lv_image_set_src(g_game.tile_image[i][j], path); // 刷新单张图片
         }
     }
 
-    refresh_score_labels();
+    refresh_score(); // 同步刷新分数
 }
 
-/* 初始化当前演示局面。
- * 现在这版不去重置 game_grid，
- * 这样你直接改数组初始值就能立刻看到变化。
- * 这里主要做的是：
- * 1. 分数清零
- * 2. 按当前数组刷新图片
- * 3. 更新底部提示语
+/* 统计当前棋盘上数字为 0（空位）的数量 */
+static int get_arr_zero_count(void)
+{
+    int count = 0;
+    for (int i = 0; i < GRID_SIZE; i++)
+    {
+        for (int j = 0; j < GRID_SIZE; j++)
+        {
+            if (g_game.game_grid[i][j] == 0)
+            {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+/* 在随机的空位上生成一个 2 或者 4 */
+static void rand_num(void)
+{
+    int count = get_arr_zero_count();
+    if (count == 0)
+    {
+        return; // 没空位了直接返回
+    }
+
+    // 随机选择第几个空位产生数字
+    int k = rand() % count + 1;
+    int q = 0;
+
+    for (int i = 0; i < GRID_SIZE; i++)
+    {
+        for (int j = 0; j < GRID_SIZE; j++)
+        {
+            if (g_game.game_grid[i][j] == 0)
+            {
+                q++;
+                if (q == k) // 找到了被选中的空位
+                {
+                    // 70% 的概率出 2，30% 的概率出 4 (利用取模 > 2)
+                    g_game.game_grid[i][j] = (rand() % 10 > 2) ? 2 : 4;
+                    return;
+                }
+            }
+        }
+    }
+}
+
+/* 初始化游戏数据（只复位逻辑数据，不碰UI界面） */
+static void init_2048_game(void)
+{
+    static int rand_inited = 0;
+
+    // 确保随机数种子只初始化一次
+    if (!rand_inited)
+    {
+        srand((unsigned int)time(NULL));
+        rand_inited = 1;
+    }
+
+    // 数据清零
+    memset(g_game.game_grid, 0, sizeof(g_game.game_grid));
+    g_game.score = 0;
+    g_game.game_over = 0;
+    g_game.game_win = 0;
+    g_game.win_popup_done = 0;
+    g_game.fail_popup_done = 0;
+
+    // 开局生成两个数字
+    rand_num();
+    rand_num();
+}
+
+/* 更新最高分逻辑 */
+static void update_best_score(void)
+{
+    if (g_game.score > g_game.best_score)
+    {
+        g_game.best_score = g_game.score;
+        user_update_current_best(g_game.best_score);
+    }
+}
+
+/* 【核心算法】将一维数组中的非 0 数字全部挤到左边，右边补 0 */
+static void rm_zero(int temp_arr[], int *flag)
+{
+    int k = 0; // 记录目前该填入数据的真实下标
+
+    for (int i = 0; i < GRID_SIZE; i++)
+    {
+        if (temp_arr[i] != 0)
+        {
+            temp_arr[k] = temp_arr[i]; // 把非0数挪到 k 的位置
+            if (k != i)
+            {
+                temp_arr[i] = 0; // 原来的位置清 0
+                *flag = 1;       // 标记数组发生了改变
+            }
+            k++;
+        }
+    }
+}
+
+/* 【核心算法】将一维数组中相邻且相同的数字合并（从左向右判断） */
+static void hebing(int temp_arr[], int *flag)
+{
+    for (int i = 0; i < GRID_SIZE - 1; i++)
+    {
+        if (temp_arr[i] == temp_arr[i + 1] && temp_arr[i] != 0)
+        {
+            temp_arr[i] *= 2;            // 左边数字翻倍
+            temp_arr[i + 1] = 0;         // 右边数字清0
+            g_game.score += temp_arr[i]; // 累加得分
+            update_best_score();
+            *flag = 1; // 标记数组发生了改变
+
+            if (temp_arr[i] == 2048)
+            {
+                g_game.game_win = 1; // 达到 2048，触发胜利标志位
+            }
+        }
+    }
+}
+
+/* 向左滑动控制 */
+static int slide_left(void)
+{
+    int temp_arr[GRID_SIZE];
+    int flag = 0;
+
+    for (int i = 0; i < GRID_SIZE; i++)
+    {
+        // 1. 取出一行的数据
+        for (int j = 0; j < GRID_SIZE; j++)
+        {
+            temp_arr[j] = g_game.game_grid[i][j];
+        }
+
+        // 2. 核心操作：去0 -> 合并 -> 再去0
+        rm_zero(temp_arr, &flag);
+        hebing(temp_arr, &flag);
+        rm_zero(temp_arr, &flag);
+
+        // 3. 把处理好的数据放回矩阵
+        for (int j = 0; j < GRID_SIZE; j++)
+        {
+            g_game.game_grid[i][j] = temp_arr[j];
+        }
+    }
+
+    if (flag)
+        rand_num(); // 如果盘面发生了有效改变，则生成新数字
+    return flag;
+}
+
+/* 向右滑动控制（与向左同理，只不过是反着取数据） */
+static int slide_right(void)
+{
+    int temp_arr[GRID_SIZE];
+    int flag = 0;
+
+    for (int i = 0; i < GRID_SIZE; i++)
+    {
+        for (int j = 0; j < GRID_SIZE; j++)
+        {
+            temp_arr[GRID_SIZE - 1 - j] = g_game.game_grid[i][j]; // 反向装填
+        }
+
+        rm_zero(temp_arr, &flag);
+        hebing(temp_arr, &flag);
+        rm_zero(temp_arr, &flag);
+
+        for (int j = 0; j < GRID_SIZE; j++)
+        {
+            g_game.game_grid[i][j] = temp_arr[GRID_SIZE - 1 - j]; // 反向放回
+        }
+    }
+
+    if (flag)
+        rand_num();
+    return flag;
+}
+
+/* 向上滑动控制（按列取数据） */
+static int slide_up(void)
+{
+    int temp_arr[GRID_SIZE];
+    int flag = 0;
+
+    for (int j = 0; j < GRID_SIZE; j++)
+    {
+        for (int i = 0; i < GRID_SIZE; i++)
+        {
+            temp_arr[i] = g_game.game_grid[i][j]; // 取出一列
+        }
+
+        rm_zero(temp_arr, &flag);
+        hebing(temp_arr, &flag);
+        rm_zero(temp_arr, &flag);
+
+        for (int i = 0; i < GRID_SIZE; i++)
+        {
+            g_game.game_grid[i][j] = temp_arr[i]; // 放回一列
+        }
+    }
+
+    if (flag)
+        rand_num();
+    return flag;
+}
+
+/* 向下滑动控制（反向按列取数据） */
+static int slide_down(void)
+{
+    int temp_arr[GRID_SIZE];
+    int flag = 0;
+
+    for (int j = 0; j < GRID_SIZE; j++)
+    {
+        for (int i = 0; i < GRID_SIZE; i++)
+        {
+            temp_arr[GRID_SIZE - 1 - i] = g_game.game_grid[i][j];
+        }
+
+        rm_zero(temp_arr, &flag);
+        hebing(temp_arr, &flag);
+        rm_zero(temp_arr, &flag);
+
+        for (int i = 0; i < GRID_SIZE; i++)
+        {
+            g_game.game_grid[i][j] = temp_arr[GRID_SIZE - 1 - i];
+        }
+    }
+
+    if (flag)
+        rand_num();
+    return flag;
+}
+
+/* 根据按下和松开的坐标差，计算滑动方向
+ * 返回值: 0:无效点击, 1:上, 2:下, 3:左, 4:右
  */
-static void start_2048_preview(void)
+static int get_slide(lv_point_t start_point, lv_point_t end_point)
 {
-    g_app.score = 0;
-    refresh_2048_board();
-    lv_label_set_text(g_app.status_label, "Image mode ready. Edit game_grid[][] and refresh.");
+    int x = end_point.x - start_point.x;
+    int y = end_point.y - start_point.y;
+
+    // 过滤掉手指点击时的微小抖动（误差10像素以内算作原地点击）
+    if (abs(x) < 10 && abs(y) < 10)
+    {
+        return 0;
+    }
+    // X轴偏移大于Y轴偏移，判定为横向滑动
+    else if (abs(x) > abs(y))
+    {
+        return x > 0 ? 4 : 3; // 右 : 左
+    }
+    // 否则为纵向滑动
+    else
+    {
+        return y > 0 ? 2 : 1; // 下 : 上
+    }
 }
 
-/* 切换回主菜单 */
-static void show_menu_screen(void)
+/* 检测游戏是否失败 (即盘面填满且无法再合并) */
+static int game_fail(void)
 {
-    lv_screen_load(g_app.menu_screen);
+    if (get_arr_zero_count() != 0)
+    {
+        return 0; // 还有空位，未失败
+    }
+
+    // 遍历棋盘，看有没有相邻相同的数字
+    for (int i = 0; i < GRID_SIZE; i++)
+    {
+        for (int j = 0; j < GRID_SIZE; j++)
+        {
+            // 检查右侧相邻
+            if (j < GRID_SIZE - 1 &&
+                g_game.game_grid[i][j] == g_game.game_grid[i][j + 1] &&
+                g_game.game_grid[i][j] != 0)
+            {
+                return 0; // 可以合并，未失败
+            }
+
+            // 检查下方相邻
+            if (i < GRID_SIZE - 1 &&
+                g_game.game_grid[i][j] == g_game.game_grid[i + 1][j] &&
+                g_game.game_grid[i][j] != 0)
+            {
+                return 0; // 可以合并，未失败
+            }
+        }
+    }
+
+    return 1; // 死局了，游戏失败
 }
 
-/* 进入 2048 游戏页面。
- * 先刷新一次棋盘，确保数组变化已经同步到界面上，
- * 然后再切页。
- */
-static void show_2048_screen(void)
+/* 根据游戏标志位更新底部提示信息 */
+static void check_game_state(void)
 {
-    refresh_2048_board();
-    lv_screen_load(g_app.game_screen);
+    if (g_game.game_win)
+    {
+        set_status("恭喜你，已经合成 2048");
+        if (!g_game.win_popup_done)
+        {
+            g_game.win_popup_done = 1;
+            show_popup("游戏胜利", "恭喜你，已经合成 2048");
+        }
+        return;
+    }
+
+    if (game_fail())
+    {
+        g_game.game_over = 1;
+        set_status("游戏结束");
+        if (!g_game.fail_popup_done)
+        {
+            g_game.fail_popup_done = 1;
+            show_popup("游戏结束", "当前棋盘已经无法继续移动");
+        }
+        return;
+    }
+
+    set_status("继续游戏");
 }
 
-/* 主菜单里点击“2048”按钮时触发 */
-static void on_open_2048(lv_event_t *e)
+/* 绑定在棋盘底板上的触摸事件回调 */
+static void on_board_event(lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    int changed = 0;
+    int dir = 0;
+
+    if (code == LV_EVENT_PRESSED) // 手指按下时触发
+    {
+        lv_indev_get_point(lv_indev_active(), &g_game.start_point); // 记录起点
+    }
+    else if (code == LV_EVENT_RELEASED) // 手指松开时触发
+    {
+        if (g_game.game_over)
+        {
+            set_status("游戏已结束，请点击重置");
+            return; // 游戏结束后屏蔽一切滑动操作
+        }
+
+        lv_indev_get_point(lv_indev_active(), &g_game.end_point); // 记录终点
+        dir = get_slide(g_game.start_point, g_game.end_point);    // 计算滑动方向
+
+        // 根据方向执行对应的滑动算法
+        if (dir == 1)
+            changed = slide_up();
+        else if (dir == 2)
+            changed = slide_down();
+        else if (dir == 3)
+            changed = slide_left();
+        else if (dir == 4)
+            changed = slide_right();
+
+        if (changed) // 如果底层数据发生了位移或合并
+        {
+            update_2048_game(); // 刷新屏幕上的图片
+            check_game_state(); // 检测死局或胜利
+        }
+        else if (dir != 0) // 滑了，但是已经滑不动了（靠墙了）
+        {
+            set_status("这次滑动没有变化");
+        }
+    }
+}
+
+/* 点击重置按钮的回调 */
+static void on_reset_2048(lv_event_t *e)
 {
     LV_UNUSED(e);
-    show_2048_screen();
+    init_2048_game();   // 初始化底层数据
+    update_2048_game(); // 刷新UI
+    set_status("滑动棋盘开始游戏");
 }
 
-/* 点击 Back 按钮时触发，返回主菜单 */
-static void on_back_to_menu(lv_event_t *e)
-{
-    LV_UNUSED(e);
-    show_menu_screen();
-}
-
-/* 点击 Reset 按钮时触发，重新显示当前数组状态 */
-static void on_restart_2048(lv_event_t *e)
-{
-    LV_UNUSED(e);
-    start_2048_preview();
-}
-
-/* 给页面设置统一基础风格：
- * 1. 设置背景色
- * 2. 设置背景完全不透明
- * 3. 关闭页面本身滚动
- */
+/* 设置基础屏幕风格的共用函数 */
 static void style_base_screen(lv_obj_t *screen)
 {
     lv_obj_set_style_bg_color(screen, lv_color_hex(0xFAF8EF), 0);
@@ -234,98 +540,34 @@ static void style_base_screen(lv_obj_t *screen)
     lv_obj_clear_flag(screen, LV_OBJ_FLAG_SCROLLABLE);
 }
 
-/* 创建一个“分数卡片”小组件。
- * 返回值是整个卡片对象；
- * out_label 返回的是卡片内部的 label 指针，
- * 方便后面直接更新分数文字。
- */
-static lv_obj_t *create_score_card(lv_obj_t *parent, lv_obj_t **out_label)
+/* 2048 应用的创建主入口 */
+lv_obj_t *app_2048_create_screen(lv_event_cb_t back_cb)
 {
-    lv_obj_t *card = lv_obj_create(parent);
-    lv_obj_set_size(card, 150, 60);
-    lv_obj_set_style_radius(card, 16, 0);
-    lv_obj_set_style_bg_color(card, lv_color_hex(0xBBADA0), 0);
-    lv_obj_set_style_bg_opa(card, LV_OPA_COVER, 0);
-    lv_obj_set_style_border_width(card, 0, 0);
-    lv_obj_set_style_pad_all(card, 0, 0);
-    lv_obj_clear_flag(card, LV_OBJ_FLAG_SCROLLABLE);
+    memset(&g_game, 0, sizeof(g_game)); // 清空全局结构体，防脏数据
+    g_game.best_score = user_get_current_best();
+    init_2048_game(); // 初始化游戏逻辑盘
 
-    *out_label = lv_label_create(card);
-    lv_obj_set_style_text_align(*out_label, LV_TEXT_ALIGN_CENTER, 0);
-    lv_obj_set_style_text_color(*out_label, lv_color_white(), 0);
-    lv_obj_center(*out_label);
+    g_game.screen = lv_obj_create(NULL);
+    style_base_screen(g_game.screen);
 
-    return card;
-}
-
-/* 创建主菜单页面。
- * 当前版本比较简单，主菜单里只有一个“2048”入口。
- * 后面如果你想扩展推箱子、五子棋，也可以继续在这里加按钮。
- */
-static void create_menu_screen(void)
-{
-    g_app.menu_screen = lv_obj_create(NULL);
-    style_base_screen(g_app.menu_screen);
-
-    /* 主标题 */
-    lv_obj_t *title = lv_label_create(g_app.menu_screen);
-    lv_label_set_text(title, "LVGL Game Box");
-    lv_obj_set_style_text_color(title, lv_color_hex(0x776E65), 0);
-    lv_obj_align(title, LV_ALIGN_TOP_MID, 0, 28);
-
-    /* 列表菜单容器 */
-    lv_obj_t *menu_list = lv_list_create(g_app.menu_screen);
-    lv_obj_set_size(menu_list, 360, 250);
-    lv_obj_align(menu_list, LV_ALIGN_CENTER, 0, 30);
-    lv_obj_set_style_radius(menu_list, 20, 0);
-    lv_obj_set_style_border_width(menu_list, 0, 0);
-    lv_obj_set_style_pad_all(menu_list, 12, 0);
-
-    /* 2048 按钮 */
-    lv_obj_t *game_2048_btn = lv_list_add_button(menu_list, NULL, "2048");
-    lv_obj_add_event_cb(game_2048_btn, on_open_2048, LV_EVENT_CLICKED, NULL);
-}
-
-/* 创建 2048 游戏页面。
- * 页面从上到下分成三层：
- * 1. 顶部栏：标题、返回、重置
- * 2. 信息栏：当前分数、最高分
- * 3. 棋盘区：4x4 格子，每格中间放一张数字图片
- */
-static void create_game_screen(void)
-{
-    g_app.game_screen = lv_obj_create(NULL);
-    style_base_screen(g_app.game_screen);
-
-    /* 顶部标题栏 */
-    lv_obj_t *header = lv_obj_create(g_app.game_screen);
-    lv_obj_set_size(header, lv_pct(94), 66);
-    lv_obj_align(header, LV_ALIGN_TOP_MID, 0, 12);
-    lv_obj_set_style_radius(header, 18, 0);
-    lv_obj_set_style_bg_color(header, lv_color_hex(0xEEE4DA), 0);
-    lv_obj_set_style_bg_opa(header, LV_OPA_COVER, 0);
-    lv_obj_set_style_border_width(header, 0, 0);
-    lv_obj_set_style_pad_all(header, 10, 0);
-    lv_obj_clear_flag(header, LV_OBJ_FLAG_SCROLLABLE);
-
-    /* 游戏标题 */
-    lv_obj_t *title = lv_label_create(header);
+    // 1. 顶部标题
+    lv_obj_t *title = lv_label_create(g_game.screen);
     lv_label_set_text(title, "2048");
     lv_obj_set_style_text_color(title, lv_color_hex(0x776E65), 0);
-    lv_obj_align(title, LV_ALIGN_LEFT_MID, 18, 0);
+    lv_obj_set_style_text_font(title, ui_font_get_34(), 0);
+    lv_obj_align(title, LV_ALIGN_TOP_MID, 0, 20);
 
-    /* 返回按钮 */
-    lv_obj_t *back_button = create_text_button(header, "Back", on_back_to_menu);
-    lv_obj_align(back_button, LV_ALIGN_RIGHT_MID, -132, 0);
+    // 2. 左上重置和右上返回按键
+    lv_obj_t *back_btn = create_button(g_game.screen, "返回", back_cb);
+    lv_obj_align(back_btn, LV_ALIGN_TOP_RIGHT, -20, 16);
 
-    /* 重置按钮 */
-    lv_obj_t *restart_button = create_text_button(header, "Reset", on_restart_2048);
-    lv_obj_align(restart_button, LV_ALIGN_RIGHT_MID, -10, 0);
+    lv_obj_t *reset_btn = create_button(g_game.screen, "重置", on_reset_2048);
+    lv_obj_align(reset_btn, LV_ALIGN_TOP_LEFT, 20, 16);
 
-    /* 分数信息栏 */
-    lv_obj_t *info_row = lv_obj_create(g_app.game_screen);
-    lv_obj_set_size(info_row, lv_pct(94), 78);
-    lv_obj_align_to(info_row, header, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
+    // 3. 分数显示栏区域
+    lv_obj_t *info_row = lv_obj_create(g_game.screen);
+    lv_obj_set_size(info_row, 360, 78);
+    lv_obj_align(info_row, LV_ALIGN_TOP_MID, 0, 80);
     lv_obj_set_style_radius(info_row, 18, 0);
     lv_obj_set_style_bg_color(info_row, lv_color_hex(0xEEE4DA), 0);
     lv_obj_set_style_bg_opa(info_row, LV_OPA_COVER, 0);
@@ -333,82 +575,50 @@ static void create_game_screen(void)
     lv_obj_set_style_pad_all(info_row, 10, 0);
     lv_obj_clear_flag(info_row, LV_OBJ_FLAG_SCROLLABLE);
 
-    /* 当前分数卡片 */
-    lv_obj_t *score_card = create_score_card(info_row, &g_app.score_label);
+    // 左右两个分数小卡片
+    lv_obj_t *score_card = create_score_card(info_row, &g_game.score_label);
     lv_obj_align(score_card, LV_ALIGN_LEFT_MID, 18, 0);
 
-    /* 最高分卡片 */
-    lv_obj_t *best_card = create_score_card(info_row, &g_app.best_label);
-    lv_obj_align(best_card, LV_ALIGN_LEFT_MID, 184, 0);
+    lv_obj_t *best_card = create_score_card(info_row, &g_game.best_label);
+    lv_obj_align(best_card, LV_ALIGN_RIGHT_MID, -18, 0);
 
-    /* 棋盘底板 */
-    lv_obj_t *board = lv_obj_create(g_app.game_screen);
-    lv_obj_set_size(board, BOARD_SIZE, BOARD_SIZE);
-    lv_obj_align_to(board, info_row, LV_ALIGN_OUT_BOTTOM_MID, 0, 16);
-    lv_obj_set_style_radius(board, 18, 0);
-    lv_obj_set_style_bg_color(board, lv_color_hex(0xBBADA0), 0);
-    lv_obj_set_style_bg_opa(board, LV_OPA_COVER, 0);
-    lv_obj_set_style_border_width(board, 0, 0);
-    lv_obj_set_style_pad_all(board, 0, 0);
-    lv_obj_clear_flag(board, LV_OBJ_FLAG_SCROLLABLE);
+    // 4. 棋盘大底板
+    g_game.board_win = lv_obj_create(g_game.screen);
+    lv_obj_set_size(g_game.board_win, BOARD_SIZE, BOARD_SIZE);
+    lv_obj_align_to(g_game.board_win, info_row, LV_ALIGN_OUT_BOTTOM_MID, 0, 16);
+    lv_obj_set_style_radius(g_game.board_win, 18, 0);
+    lv_obj_set_style_bg_color(g_game.board_win, lv_color_hex(0xBBADA0), 0);
+    lv_obj_set_style_bg_opa(g_game.board_win, LV_OPA_COVER, 0);
+    lv_obj_set_style_border_width(g_game.board_win, 0, 0);
+    lv_obj_set_style_pad_all(g_game.board_win, 0, 0);
+    lv_obj_clear_flag(g_game.board_win, LV_OBJ_FLAG_SCROLLABLE);
+    // 【关键绑定】将触摸手势监听事件绑定到整个棋盘面板上
+    lv_obj_add_event_cb(g_game.board_win, on_board_event, LV_EVENT_ALL, NULL);
 
-    /* 创建 4x4 棋盘格子 */
-    for (int row = 0; row < GRID_SIZE; row++)
+    // 5. 生成 16 个图片控件坑位
+    for (int i = 0; i < GRID_SIZE; i++)
     {
-        for (int col = 0; col < GRID_SIZE; col++)
+        for (int j = 0; j < GRID_SIZE; j++)
         {
-            /* 每个 cell 是一个浅色底格，
-             * 作用是给 60x60 bmp 图片提供一个居中的显示槽位。
-             */
-            lv_obj_t *cell = lv_obj_create(board);
-            lv_obj_set_size(cell, TILE_CELL_SIZE, TILE_CELL_SIZE);
-            lv_obj_set_pos(
-                cell,
-                BOARD_PADDING + col * TILE_STEP,
-                BOARD_PADDING + row * TILE_STEP);
-            lv_obj_set_style_radius(cell, 12, 0);
-            lv_obj_set_style_bg_color(cell, lv_color_hex(0xCDC1B4), 0);
-            lv_obj_set_style_bg_opa(cell, LV_OPA_COVER, 0);
-            lv_obj_set_style_border_width(cell, 0, 0);
-            lv_obj_set_style_pad_all(cell, 0, 0);
-            lv_obj_clear_flag(cell, LV_OBJ_FLAG_SCROLLABLE);
-
-            /* 真正显示数字图片的控件 */
-            lv_obj_t *image = lv_image_create(cell);
-            lv_obj_set_align(image, LV_ALIGN_CENTER);
-
-            /* 保存图片控件指针，刷新棋盘时要用 */
-            g_app.tile_image[row][col] = image;
+            lv_obj_t *img = lv_image_create(g_game.board_win);
+            // 计算每个图片的摆放位置
+            lv_obj_set_pos(img, 10 + (TILE_SIZE + TILE_GAP) * j, 10 + (TILE_SIZE + TILE_GAP) * i);
+            // 【事件透传机制】让图片不拦截触摸事件，把触摸事件冒泡（透传）给底下的 board_win
+            lv_obj_add_flag(img, LV_OBJ_FLAG_EVENT_BUBBLE);
+            g_game.tile_image[i][j] = img;
         }
     }
 
-    /* 棋盘下方的状态提示 */
-    g_app.status_label = lv_label_create(g_app.game_screen);
-    lv_obj_set_width(g_app.status_label, 560);
-    lv_obj_set_style_text_align(g_app.status_label, LV_TEXT_ALIGN_CENTER, 0);
-    lv_obj_set_style_text_color(g_app.status_label, lv_color_hex(0x8F7A66), 0);
-    lv_obj_set_style_text_font(g_app.status_label, &lv_font_montserrat_30, 0);
-    lv_obj_align_to(g_app.status_label, board, LV_ALIGN_OUT_BOTTOM_MID, 0, 18);
-}
+    // 6. 底部状态栏
+    g_game.status_label = lv_label_create(g_game.screen);
+    lv_obj_set_width(g_game.status_label, 520);
+    lv_obj_set_style_text_align(g_game.status_label, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_style_text_color(g_game.status_label, lv_color_hex(0x8F7A66), 0);
+    lv_obj_set_style_text_font(g_game.status_label, ui_font_get_22(), 0);
+    lv_obj_align_to(g_game.status_label, g_game.board_win, LV_ALIGN_OUT_BOTTOM_MID, 0, 18);
 
-/* 2048 模块入口函数。
- * 执行顺序如下：
- * 1. 清空全局状态结构体
- * 2. 初始化随机数种子
- * 3. 初始化最高分和图片目录
- * 4. 创建主菜单和游戏页
- * 5. 按当前数组刷新一遍棋盘
- * 6. 默认显示主菜单
- */
-void app_2048_create(void)
-{
-    memset(&g_app, 0, sizeof(g_app));
-    srand((unsigned int)time(NULL));
-    g_app.best_score = 0;
-    init_pic_dir();
+    update_2048_game(); // 强制刷新一次，将刚生成的数字显示出来
+    set_status("滑动棋盘开始游戏");
 
-    create_menu_screen();
-    create_game_screen();
-    start_2048_preview();
-    show_menu_screen();
+    return g_game.screen;
 }

@@ -304,12 +304,12 @@ lvgl/CMakeFiles/lvgl_thorvg.dir/clean:
 lvgl/CMakeFiles/lvgl_examples.dir/all: lvgl/CMakeFiles/lvgl.dir/all
 	$(MAKE) $(MAKESILENT) -f lvgl/CMakeFiles/lvgl_examples.dir/build.make lvgl/CMakeFiles/lvgl_examples.dir/depend
 	$(MAKE) $(MAKESILENT) -f lvgl/CMakeFiles/lvgl_examples.dir/build.make lvgl/CMakeFiles/lvgl_examples.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles --progress-num=66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93 "Built target lvgl_examples"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles --progress-num=65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93 "Built target lvgl_examples"
 .PHONY : lvgl/CMakeFiles/lvgl_examples.dir/all
 
 # Build rule for subdir invocation for target.
 lvgl/CMakeFiles/lvgl_examples.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles 69
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles 70
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lvgl/CMakeFiles/lvgl_examples.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles 0
 .PHONY : lvgl/CMakeFiles/lvgl_examples.dir/rule
@@ -321,7 +321,7 @@ lvgl_examples: lvgl/CMakeFiles/lvgl_examples.dir/rule
 # codegen rule for target.
 lvgl/CMakeFiles/lvgl_examples.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f lvgl/CMakeFiles/lvgl_examples.dir/build.make lvgl/CMakeFiles/lvgl_examples.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles --progress-num=66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93 "Finished codegen for target lvgl_examples"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles --progress-num=65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93 "Finished codegen for target lvgl_examples"
 .PHONY : lvgl/CMakeFiles/lvgl_examples.dir/codegen
 
 # clean rule for target.
@@ -336,12 +336,12 @@ lvgl/CMakeFiles/lvgl_examples.dir/clean:
 lvgl/CMakeFiles/lvgl_demos.dir/all: lvgl/CMakeFiles/lvgl.dir/all
 	$(MAKE) $(MAKESILENT) -f lvgl/CMakeFiles/lvgl_demos.dir/build.make lvgl/CMakeFiles/lvgl_demos.dir/depend
 	$(MAKE) $(MAKESILENT) -f lvgl/CMakeFiles/lvgl_demos.dir/build.make lvgl/CMakeFiles/lvgl_demos.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles --progress-num=48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65 "Built target lvgl_demos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles --progress-num=48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64 "Built target lvgl_demos"
 .PHONY : lvgl/CMakeFiles/lvgl_demos.dir/all
 
 # Build rule for subdir invocation for target.
 lvgl/CMakeFiles/lvgl_demos.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles 59
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles 58
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lvgl/CMakeFiles/lvgl_demos.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles 0
 .PHONY : lvgl/CMakeFiles/lvgl_demos.dir/rule
@@ -353,7 +353,7 @@ lvgl_demos: lvgl/CMakeFiles/lvgl_demos.dir/rule
 # codegen rule for target.
 lvgl/CMakeFiles/lvgl_demos.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f lvgl/CMakeFiles/lvgl_demos.dir/build.make lvgl/CMakeFiles/lvgl_demos.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles --progress-num=48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65 "Finished codegen for target lvgl_demos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/build/CMakeFiles --progress-num=48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64 "Finished codegen for target lvgl_demos"
 .PHONY : lvgl/CMakeFiles/lvgl_demos.dir/codegen
 
 # clean rule for target.

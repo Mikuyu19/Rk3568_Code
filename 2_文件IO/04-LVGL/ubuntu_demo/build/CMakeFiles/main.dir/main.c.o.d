@@ -410,16 +410,16 @@ CMakeFiles/main.dir/main.c.o: \
  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/core/../font/lv_font_fmt_txt.h \
  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/core/../tick/lv_tick.h \
  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/core/../layouts/lv_layout.h \
- /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
- /usr/include/x86_64-linux-gnu/bits/environments.h \
- /usr/include/x86_64-linux-gnu/bits/confname.h \
- /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
- /usr/include/x86_64-linux-gnu/bits/getopt_core.h /usr/include/stdio.h \
- /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/libio.h \
  /usr/include/x86_64-linux-gnu/bits/_G_config.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/mycode/app_ui.h

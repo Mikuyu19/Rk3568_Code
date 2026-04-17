@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/bin/main"
   "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/bin/main.pdb"
+  "CMakeFiles/main.dir/code/medical.c.o"
+  "CMakeFiles/main.dir/code/medical.c.o.d"
   "CMakeFiles/main.dir/main.c.o"
   "CMakeFiles/main.dir/main.c.o.d"
   "CMakeFiles/main.dir/mouse_cursor_icon.c.o"
@@ -15,6 +17,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/mycode/my_ziti_28.c.o.d"
   "CMakeFiles/main.dir/mycode/ui_font.c.o"
   "CMakeFiles/main.dir/mycode/ui_font.c.o.d"
+  "CMakeFiles/main.dir/mycode/user_data.c.o"
+  "CMakeFiles/main.dir/mycode/user_data.c.o.d"
 )
 
 # Per-language clean rules from dependency scanning.
