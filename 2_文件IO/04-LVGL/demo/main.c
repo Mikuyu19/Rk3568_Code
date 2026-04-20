@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <pthread.h>
 #include <time.h>
-#include "lvgl/examples/lv_examples.h"                                                                                                                                                                                                     
+#include "lvgl/examples/lv_examples.h"
 #include <stdio.h>
 #include "mycode/app_ui.h"
 
@@ -62,18 +62,6 @@ int main(void)
 
     /* 第二步：初始化显示设备和输入设备 */
     lv_linux_disp_init();
-
-    /* 这里原本是 LVGL 官方自带 demo。
-     * 现在先注释掉了，后面你可以在这里替换成自己的 UI 入口函数，
-     * 比如 game_box_create() 或 ui_main_create()。
-     */
-    // lv_demo_widgets();
-    // lv_demo_widgets_start_slideshow();
-
-    /* LVGL 程序的主循环：
-     * 必须不断调用 lv_timer_handler()，
-     * 它会负责处理界面刷新、动画、输入事件等。
-     */
 
     app_ui_create();
     while (1)

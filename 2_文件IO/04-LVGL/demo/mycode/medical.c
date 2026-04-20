@@ -786,10 +786,10 @@ lv_obj_t *medical_create_screen(lv_event_cb_t back_cb)
     // 【重要】当它被点击，去执行从 app_ui.c 里传过来的 back_cb 函数（退回主界面）
     lv_obj_add_event_cb(btn, back_cb, LV_EVENT_CLICKED, NULL);
     lab = lv_label_create(btn);
-#if 0
+#if 1
 // lv_label_set_text(lab, "返回菜单");
 #endif
-#if 1
+#if 0
     lv_label_set_text(lab, "退出登录");
 #endif
     lv_obj_set_style_text_font(lab, ui_font_get_22(), 0);

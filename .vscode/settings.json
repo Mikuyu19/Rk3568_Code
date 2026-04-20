@@ -4,6 +4,7 @@
         "stdio.h": "c",
         "stdlib.h": "c",
         "lvgl.h": "c",
-        "curses.h": "c"
+        "curses.h": "c",
+        "fcntl.h": "c"
     }
 }

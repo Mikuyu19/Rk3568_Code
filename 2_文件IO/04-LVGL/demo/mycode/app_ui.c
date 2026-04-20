@@ -343,14 +343,14 @@ static void on_login(lv_event_t *e)
     if (user_login(user, pwd))
     { // 调用后端验证
         lv_obj_add_flag(g_ui.msg_label, LV_OBJ_FLAG_HIDDEN);
-#if 0
+#if 1
         // 需要刷新主菜单的用户名标签
         update_current_user_label();
 
         // 跳转到大厅(主菜单)
-        lv_screen_load_anim(g_ui.menu_screen, LV_SCR_LOAD_ANIM_FADE_ON,300,0,false);
+        lv_screen_load_anim(g_ui.menu_screen, LV_SCR_LOAD_ANIM_FADE_ON, 300, 0, false);
 #endif
-#if 1
+#if 0
         // 创建并直接加载医疗叫号页面
         if (g_ui.medical_screen == NULL)
         {
