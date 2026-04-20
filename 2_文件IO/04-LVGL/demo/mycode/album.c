@@ -16,16 +16,19 @@ static const char *g_album_files[ALBUM_IMAGE_COUNT] = {
 /* 电子相册系统的状态结构体 */
 typedef struct
 {
-    lv_obj_t *screen;          // 指向相册界面的根对象
-    lv_obj_t *image;           // 指向展示照片的大图片控件
-    lv_obj_t *tip_label;       // 指向底部提示页码信息的文字标签
-    int current_index;         // 记录当前浏览到了哪一张图片的索引 (0 ~ 2)
-    char pic_dir[PATH_MAX];    // 缓存相册图片所在的硬编码绝对路径
+    lv_obj_t *screen;    // 指向相册界面的根对象
+    lv_obj_t *image;     // 指向展示照片的大图片控件
+    lv_obj_t *tip_label; // 指向底部提示页码信息的文字标签
+    int current_index;
+    char pic_dir[PATH_MAX];
     char image_path[PATH_MAX]; // 缓存当前展示的完整图片路径
 } album_ui_t;
 
 // 定义静态全局变量，实例化相册系统状态
 static album_ui_t g_album;
+
+static lv_timer_t *auto_play_timer = NULL;
+static lv_obj_t *auto_play_label = NULL; // 控制按钮上的文字变化
 
 /* 通用按钮创建工厂函数 */
 static lv_obj_t *create_text_button(lv_obj_t *parent, const char *text, lv_event_cb_t cb)
@@ -124,6 +127,45 @@ static void on_next_image(lv_event_t *e)
     refresh_album_image(); // 重新加载 UI
 }
 
+// 幻灯片定时器到了：直接强行调用“下一张”逻辑
+static void on_auto_play_timer_cb(lv_timer_t *timer)
+{
+    // 因为 on_next_image 里面第一句是 LV_UNUSED(e)，所以传 NULL 是安全的
+    on_next_image(NULL);
+}
+
+// 点击自动播放按钮的逻辑
+static void on_auto_play_click(lv_event_t *e)
+{
+    LV_UNUSED(e);
+
+    if (auto_play_timer == NULL)
+    {
+        // 开启轮播：创建一个 3000ms 触发一次的定时器
+        auto_play_timer = lv_timer_create(on_auto_play_timer_cb, 3000, NULL);
+        lv_label_set_text(auto_play_label, "停止播放"); // 改变按钮文字
+    }
+    else
+    {
+        // 停止轮播：删掉定时器
+        lv_timer_del(auto_play_timer);
+        auto_play_timer = NULL;
+        lv_label_set_text(auto_play_label, "自动播放"); // 恢复按钮文字
+    }
+}
+
+// 页面销毁回调：退出相册时必须干掉定时器，否则后台会野指针报错！
+static void album_delete_cb(lv_event_t *e)
+{
+    LV_UNUSED(e);
+    if (auto_play_timer != NULL)
+    {
+        lv_timer_del(auto_play_timer);
+        auto_play_timer = NULL;
+    }
+    g_album.screen = NULL;
+}
+
 /* 设置相册屏幕的通用背景风格 */
 static void style_base_screen(lv_obj_t *screen)
 {
@@ -140,6 +182,9 @@ lv_obj_t *album_create_screen(lv_event_cb_t back_cb)
 
     g_album.screen = lv_obj_create(NULL); // 创建属于相册模块的独立屏幕
     style_base_screen(g_album.screen);    // 上底色
+
+    // 给相册主屏幕绑定销毁事件，用来回收自动播放的定时器
+    lv_obj_add_event_cb(g_album.screen, album_delete_cb, LV_EVENT_DELETE, NULL);
 
     /* 顶部大标题 */
     lv_obj_t *title = lv_label_create(g_album.screen);
@@ -183,6 +228,21 @@ lv_obj_t *album_create_screen(lv_event_cb_t back_cb)
     lv_obj_set_style_text_font(g_album.tip_label, ui_font_get_22(), 0);
     // 依附在画框的正下方，向下偏移 18 像素
     lv_obj_align_to(g_album.tip_label, frame, LV_ALIGN_OUT_BOTTOM_MID, 0, 18);
+
+    // 自动播放
+    lv_obj_t *auto_play_btn = lv_button_create(g_album.screen);
+    lv_obj_set_size(auto_play_btn, 140, 46);
+    lv_obj_set_style_radius(auto_play_btn, 14, 0);
+    lv_obj_set_style_bg_color(auto_play_btn, lv_color_hex(0xAEEEEE), 0);
+    // 把它钉在相册屏幕的正下方偏上一点点
+    lv_obj_align(auto_play_btn, LV_ALIGN_BOTTOM_MID, 0, -20);
+    lv_obj_add_event_cb(auto_play_btn, on_auto_play_click, LV_EVENT_CLICKED, NULL);
+
+    auto_play_label = lv_label_create(auto_play_btn);
+    lv_label_set_text(auto_play_label, "自动播放");
+    lv_obj_set_style_text_color(auto_play_label, lv_color_black(), 0);
+    lv_obj_set_style_text_font(auto_play_label, ui_font_get_22(), 0);
+    lv_obj_center(auto_play_label);
 
     g_album.current_index = 0; // 程序一运行，默认显示下标为 0 的第一张图
     refresh_album_image();     // 初始化调用加载图片

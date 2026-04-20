@@ -421,6 +421,39 @@ CMakeFiles/main.dir/code/medical.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/u
 CMakeFiles/main.dir/main.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/main.c \
   /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lv_conf.h \
   /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/lvgl.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/anim/lv_example_anim.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/event/lv_example_event.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/get_started/lv_example_get_started.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/layouts/flex/lv_example_flex.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/layouts/grid/lv_example_grid.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/layouts/lv_example_layout.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/barcode/lv_example_barcode.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/bmp/lv_example_bmp.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/ffmpeg/lv_example_ffmpeg.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/freetype/lv_example_freetype.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/gif/lv_example_gif.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/libjpeg_turbo/lv_example_libjpeg_turbo.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/libpng/lv_example_libpng.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/lodepng/lv_example_lodepng.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/lv_example_libs.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/qrcode/lv_example_qrcode.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/rlottie/lv_example_rlottie.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/tiny_ttf/lv_example_tiny_ttf.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/tjpgd/lv_example_tjpgd.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/lv_examples.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/file_explorer/lv_example_file_explorer.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/fragment/lv_example_fragment.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/gridnav/lv_example_gridnav.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/ime/lv_example_ime_pinyin.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/imgfont/lv_example_imgfont.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/lv_example_others.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/monkey/lv_example_monkey.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/observer/lv_example_observer.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/snapshot/lv_example_snapshot.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/scroll/lv_example_scroll.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/styles/lv_example_style.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/widgets/lv_example_widgets.h \
+  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/lvgl.h \
   /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/lvgl.h \
   /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/core/lv_obj_style.h \
   /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/lv_conf_internal.h \
@@ -3162,6 +3195,46 @@ CMakeFiles/main.dir/mycode/user_data.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LV
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/mouse_cursor_icon.c:
 
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/snapshot/lv_example_snapshot.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/monkey/lv_example_monkey.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/ime/lv_example_ime_pinyin.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/gridnav/lv_example_gridnav.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/fragment/lv_example_fragment.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/file_explorer/lv_example_file_explorer.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/lv_examples.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/tiny_ttf/lv_example_tiny_ttf.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/rlottie/lv_example_rlottie.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/qrcode/lv_example_qrcode.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/lv_example_libs.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/lodepng/lv_example_lodepng.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/libjpeg_turbo/lv_example_libjpeg_turbo.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/gif/lv_example_gif.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/freetype/lv_example_freetype.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/bmp/lv_example_bmp.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/barcode/lv_example_barcode.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/layouts/grid/lv_example_grid.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/get_started/lv_example_get_started.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/anim/lv_example_anim.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/7/include/stdarg.h:
@@ -3171,6 +3244,12 @@ CMakeFiles/main.dir/mycode/user_data.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LV
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/widgets/lv_example_widgets.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/scroll/lv_example_scroll.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/event/lv_example_event.h:
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
@@ -3209,6 +3288,8 @@ CMakeFiles/main.dir/mycode/user_data.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LV
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/mycode/2048.c:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/tjpgd/lv_example_tjpgd.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
@@ -3279,6 +3360,8 @@ CMakeFiles/main.dir/mycode/user_data.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LV
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/lv_conf_internal.h:
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/misc/lv_style_gen.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/styles/lv_example_style.h:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
@@ -3360,6 +3443,8 @@ CMakeFiles/main.dir/mycode/user_data.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LV
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/misc/lv_array.h:
 
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/observer/lv_example_observer.h:
+
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/draw/lv_draw_arc.h:
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/font/lv_binfont_loader.h:
@@ -3402,6 +3487,8 @@ CMakeFiles/main.dir/mycode/user_data.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LV
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/font/lv_font_fmt_txt.h:
 
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/imgfont/lv_example_imgfont.h:
+
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/draw/sw/lv_draw_sw_gradient.h:
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/widgets/msgbox/lv_msgbox.h:
@@ -3419,6 +3506,8 @@ CMakeFiles/main.dir/mycode/user_data.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LV
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/misc/cache/lv_cache_entry.h:
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/others/ime/lv_ime_pinyin.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/layouts/flex/lv_example_flex.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/7/include/stdbool.h:
 
@@ -3464,11 +3553,15 @@ CMakeFiles/main.dir/mycode/user_data.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LV
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/drivers/lv_drivers.h:
 
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/libpng/lv_example_libpng.h:
+
 /usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/drivers/nuttx/lv_nuttx_entry.h:
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/drivers/nuttx/lv_nuttx_fbdev.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/libs/ffmpeg/lv_example_ffmpeg.h:
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/draw/lv_draw_line.h:
 
@@ -3533,6 +3626,8 @@ CMakeFiles/main.dir/mycode/user_data.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LV
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/misc/lv_async.h:
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/misc/lv_rb.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/layouts/lv_example_layout.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
@@ -3607,6 +3702,8 @@ CMakeFiles/main.dir/mycode/user_data.c.o: /mnt/hgfs/Rk3568_Code/2_文件IO/04-LV
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/src/widgets/switch/lv_switch.h:
 
 /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/mycode/user_data.h:
+
+/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/ubuntu_demo/lvgl/examples/others/lv_example_others.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 

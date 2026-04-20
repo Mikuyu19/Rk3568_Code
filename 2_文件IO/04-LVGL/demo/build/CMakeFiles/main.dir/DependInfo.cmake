@@ -13,7 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/2048.c" "CMakeFiles/main.dir/mycode/2048.c.o" "gcc" "CMakeFiles/main.dir/mycode/2048.c.o.d"
   "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/album.c" "CMakeFiles/main.dir/mycode/album.c.o" "gcc" "CMakeFiles/main.dir/mycode/album.c.o.d"
   "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/app_ui.c" "CMakeFiles/main.dir/mycode/app_ui.c.o" "gcc" "CMakeFiles/main.dir/mycode/app_ui.c.o.d"
-  "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/my_ziti_28.c" "CMakeFiles/main.dir/mycode/my_ziti_28.c.o" "gcc" "CMakeFiles/main.dir/mycode/my_ziti_28.c.o.d"
+  "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/medical.c" "CMakeFiles/main.dir/mycode/medical.c.o" "gcc" "CMakeFiles/main.dir/mycode/medical.c.o.d"
   "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/ui_font.c" "CMakeFiles/main.dir/mycode/ui_font.c.o" "gcc" "CMakeFiles/main.dir/mycode/ui_font.c.o.d"
   "/mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/user_data.c" "CMakeFiles/main.dir/mycode/user_data.c.o" "gcc" "CMakeFiles/main.dir/mycode/user_data.c.o.d"
   )

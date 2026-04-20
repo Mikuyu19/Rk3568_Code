@@ -14,6 +14,7 @@ typedef struct
     lv_font_t *font_26;       // 缓存 26 像素高的字体结构体指针
     lv_font_t *font_30;       // 缓存 30 像素高的字体结构体指针
     lv_font_t *font_34;       // 缓存 34 像素高的字体结构体指针
+    lv_font_t *font_48;       // 缓存 48 像素高的字体结构体指针
 } ui_font_state_t;
 
 // 静态全局变量管理字体
@@ -26,11 +27,6 @@ static void init_font_path(void)
     {
         return;
     }
-
-    /* 你给的路径是：
-     * Rk3568_Code\2_文件IO\04-LVGL\ubuntu_demo\STSONG.TTF
-     * 在 Ubuntu 共享目录里实际对应 /mnt/hgfs/... 这条绝对路径。
-     */
     snprintf(
         g_ui_font.font_path,
         sizeof(g_ui_font.font_path),
@@ -86,4 +82,13 @@ const lv_font_t *ui_font_get_34(void)
         g_ui_font.font_34 = load_font(34);
     }
     return g_ui_font.font_34 ? g_ui_font.font_34 : LV_FONT_DEFAULT;
+}
+
+const lv_font_t *ui_font_get_48(void)
+{
+    if (g_ui_font.font_48 == NULL)
+    {
+        g_ui_font.font_48 = load_font(48);
+    }
+    return g_ui_font.font_48 ? g_ui_font.font_48 : LV_FONT_DEFAULT;
 }

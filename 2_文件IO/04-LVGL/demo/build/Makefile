@@ -392,29 +392,29 @@ mycode/app_ui.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/app_ui.c.s
 .PHONY : mycode/app_ui.c.s
 
-mycode/my_ziti_28.o: mycode/my_ziti_28.c.o
-.PHONY : mycode/my_ziti_28.o
+mycode/medical.o: mycode/medical.c.o
+.PHONY : mycode/medical.o
 
 # target to build an object file
-mycode/my_ziti_28.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/my_ziti_28.c.o
-.PHONY : mycode/my_ziti_28.c.o
+mycode/medical.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/medical.c.o
+.PHONY : mycode/medical.c.o
 
-mycode/my_ziti_28.i: mycode/my_ziti_28.c.i
-.PHONY : mycode/my_ziti_28.i
+mycode/medical.i: mycode/medical.c.i
+.PHONY : mycode/medical.i
 
 # target to preprocess a source file
-mycode/my_ziti_28.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/my_ziti_28.c.i
-.PHONY : mycode/my_ziti_28.c.i
+mycode/medical.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/medical.c.i
+.PHONY : mycode/medical.c.i
 
-mycode/my_ziti_28.s: mycode/my_ziti_28.c.s
-.PHONY : mycode/my_ziti_28.s
+mycode/medical.s: mycode/medical.c.s
+.PHONY : mycode/medical.s
 
 # target to generate assembly for a file
-mycode/my_ziti_28.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/my_ziti_28.c.s
-.PHONY : mycode/my_ziti_28.c.s
+mycode/medical.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/mycode/medical.c.s
+.PHONY : mycode/medical.c.s
 
 mycode/ui_font.o: mycode/ui_font.c.o
 .PHONY : mycode/ui_font.o
@@ -500,9 +500,9 @@ help:
 	@echo "... mycode/app_ui.o"
 	@echo "... mycode/app_ui.i"
 	@echo "... mycode/app_ui.s"
-	@echo "... mycode/my_ziti_28.o"
-	@echo "... mycode/my_ziti_28.i"
-	@echo "... mycode/my_ziti_28.s"
+	@echo "... mycode/medical.o"
+	@echo "... mycode/medical.i"
+	@echo "... mycode/medical.s"
 	@echo "... mycode/ui_font.o"
 	@echo "... mycode/ui_font.i"
 	@echo "... mycode/ui_font.s"

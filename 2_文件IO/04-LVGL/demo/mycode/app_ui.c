@@ -2,6 +2,7 @@
 
 #include "2048.h"
 #include "album.h"
+#include "medical.h"
 #include "ui_font.h"
 #include "user_data.h"
 
@@ -15,6 +16,7 @@ typedef struct
     lv_obj_t *rank_screen;      // 排行榜页面
     lv_obj_t *game_2048_screen; // 2048 游戏页面
     lv_obj_t *album_screen;     // 电子相册页面
+    lv_obj_t *medical_screen;   // 医疗叫号页面
 
     lv_obj_t *user_ta;   // 账号输入框
     lv_obj_t *pwd_ta;    // 密码输入框
@@ -106,27 +108,30 @@ static void clear_login_input(void)
     lv_obj_add_flag(g_ui.msg_label, LV_OBJ_FLAG_HIDDEN); // 隐藏报错信息
 }
 
-/* 【核心内存管理】登出时销毁所有子页面
- * 防止 A 用户玩的游戏分数/进度被 B 用户登入后看到，
- * 同时也释放了宝贵的内存资源，等待下次点击懒加载重建。
- */
 static void delete_user_screens(void)
 {
     if (g_ui.game_2048_screen != NULL)
     {
-        lv_obj_delete(g_ui.game_2048_screen); // 彻底销毁页面及上面的所有控件
-        g_ui.game_2048_screen = NULL;         // 指针复位，触发下次的重新创建
+        // lv_obj_delete(g_ui.game_2048_screen); // 彻底销毁页面及上面的所有控件
+        lv_obj_delete_async(g_ui.game_2048_screen); // 换成 _async 异步安全删除
+        g_ui.game_2048_screen = NULL;
     }
 
     if (g_ui.album_screen != NULL)
     {
-        lv_obj_delete(g_ui.album_screen);
+        lv_obj_delete_async(g_ui.album_screen); // 换成 _async 异步安全删除
         g_ui.album_screen = NULL;
+    }
+
+    if (g_ui.medical_screen != NULL)
+    {
+        lv_obj_delete_async(g_ui.medical_screen);
+        g_ui.medical_screen = NULL;
     }
 
     if (g_ui.rank_screen != NULL)
     {
-        lv_obj_delete(g_ui.rank_screen);
+        lv_obj_delete_async(g_ui.rank_screen);
         g_ui.rank_screen = NULL;
         g_ui.rank_panel = NULL;
     }
@@ -178,7 +183,8 @@ static void on_open_2048(lv_event_t *e)
     {
         g_ui.game_2048_screen = app_2048_create_screen(on_back_to_menu);
     }
-    lv_screen_load(g_ui.game_2048_screen);
+    // lv_screen_load(g_ui.game_2048_screen);
+    lv_screen_load_anim(g_ui.game_2048_screen, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, false);
 }
 
 /* 进入 相册 */
@@ -189,7 +195,20 @@ static void on_open_album(lv_event_t *e)
     {
         g_ui.album_screen = album_create_screen(on_back_to_menu);
     }
-    lv_screen_load(g_ui.album_screen);
+    // lv_screen_load(g_ui.album_screen);
+    lv_screen_load_anim(g_ui.album_screen, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, false);
+}
+
+/* 进入 医疗叫号系统 */
+static void on_open_medical(lv_event_t *e)
+{
+    LV_UNUSED(e);
+    if (g_ui.medical_screen == NULL)
+    {
+        g_ui.medical_screen = medical_create_screen(on_back_to_menu);
+    }
+    // lv_screen_load(g_ui.medical_screen);
+    lv_screen_load_anim(g_ui.medical_screen, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, false);
 }
 
 /* 读取后端排行榜数据并在界面上动态生成列表 */
@@ -256,7 +275,8 @@ static void on_open_rank(lv_event_t *e)
         refresh_rank_list();
     }
 
-    lv_screen_load(g_ui.rank_screen);
+    // lv_screen_load(g_ui.rank_screen);
+    lv_screen_load_anim(g_ui.rank_screen, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, false);
 }
 
 /* 登出账号操作 */
@@ -264,11 +284,16 @@ static void on_logout(lv_event_t *e)
 {
     LV_UNUSED(e);
 
-    user_logout();                     // 后端状态登出
-    delete_user_screens();             // 清空该用户打开的所有私人页面和数据缓存
-    clear_login_input();               // 清空登录框上的账号密码痕迹
-    hide_keyboard();                   // 收起键盘
+    user_logout();         // 后端状态登出
+    delete_user_screens(); // 清空该用户打开的所有私人页面和数据缓存
+    clear_login_input();   // 清空登录框上的账号密码痕迹
+    hide_keyboard();       // 收起键盘
+
     lv_screen_load(g_ui.login_screen); // 踢回登录页
+    // 1. 【核心修复】必须先将画面切回登录页，让旧页面失去 active (激活) 状态！
+    // 登出动作直接使用 lv_screen_load 硬切，避免动画期间旧页面被销毁导致崩溃
+    // 2. 等安全切走之后，再执行清空销毁操作
+    delete_user_screens();
 }
 
 /* 构建主菜单 */
@@ -296,11 +321,13 @@ static void create_menu_screen(void)
     lv_obj_align(game_btn, LV_ALIGN_CENTER, 0, -70);
 
     lv_obj_t *album_btn = create_button(g_ui.menu_screen, "电子相册", on_open_album);
-    lv_obj_align(album_btn, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_align(album_btn, LV_ALIGN_CENTER, 0, -10);
 
-    // 新增一个去排行榜的按键
+    lv_obj_t *medical_btn = create_button(g_ui.menu_screen, "医疗叫号系统", on_open_medical);
+    lv_obj_align(medical_btn, LV_ALIGN_CENTER, 0, 60);
+
     lv_obj_t *rank_btn = create_button(g_ui.menu_screen, "排行榜", on_open_rank);
-    lv_obj_align(rank_btn, LV_ALIGN_CENTER, 0, 70);
+    lv_obj_align(rank_btn, LV_ALIGN_CENTER, 0, 130);
 }
 
 /* 尝试登录 */
@@ -316,8 +343,25 @@ static void on_login(lv_event_t *e)
     if (user_login(user, pwd))
     { // 调用后端验证
         lv_obj_add_flag(g_ui.msg_label, LV_OBJ_FLAG_HIDDEN);
-        update_current_user_label();      // 刷新左上角显示的用户名
-        lv_screen_load(g_ui.menu_screen); // 验证通过进入大厅
+#if 0
+        // 需要刷新主菜单的用户名标签
+        update_current_user_label();
+
+        // 跳转到大厅(主菜单)
+        lv_screen_load_anim(g_ui.menu_screen, LV_SCR_LOAD_ANIM_FADE_ON,300,0,false);
+#endif
+#if 1
+        // 创建并直接加载医疗叫号页面
+        if (g_ui.medical_screen == NULL)
+        {
+            // 注意这里：我们将右上角按钮绑定的回调函数改成了 on_logout (退出登录)
+            // 这样在医疗界面点右上角就会直接退回登录页
+            g_ui.medical_screen = medical_create_screen(on_logout);
+        }
+
+        // lv_screen_load(g_ui.medical_screen); // 直接进入医疗系统
+        lv_screen_load_anim(g_ui.medical_screen, LV_SCR_LOAD_ANIM_FADE_ON, 300, 0, false);
+#endif
     }
     else
     {
@@ -432,4 +476,17 @@ void app_ui_create(void)
     create_login_screen();
 
     lv_screen_load(g_ui.login_screen); // 默认进入登录画面
+}
+
+void app_ui_open_menu(void)
+{
+    if (g_ui.menu_screen == NULL)
+    {
+        memset(&g_ui, 0, sizeof(g_ui));
+        user_data_init();
+        create_menu_screen();
+    }
+
+    update_current_user_label();
+    lv_screen_load(g_ui.menu_screen);
 }

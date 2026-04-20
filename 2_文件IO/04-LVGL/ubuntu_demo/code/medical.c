@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdbool.h>
 
 #define QUEUE_MAX_COUNT 10
 
@@ -33,11 +34,14 @@ static lv_obj_t *doctor_title_label;
 static lv_obj_t *doctor_avatar_label;
 static lv_obj_t *queue_list;
 static lv_obj_t *emergency_box;
+static lv_obj_t *add_form_pinyin_ime = NULL; // 拼音输入法候选框
 
 static lv_obj_t *add_form_mask;
 static lv_obj_t *add_form_name_ta;
+
 static lv_obj_t *add_form_room_dd;
 static lv_obj_t *add_form_kb;
+static lv_obj_t *add_form_urgent_sw; // 急诊开关指针
 
 static lv_timer_t *blink_timer;
 static lv_timer_t *idle_timer;
@@ -427,6 +431,9 @@ static void close_add_form(void)
         add_form_name_ta = NULL;
         add_form_room_dd = NULL;
         add_form_kb = NULL;
+
+        add_form_pinyin_ime = NULL;
+        add_form_urgent_sw = NULL;
     }
 }
 
@@ -490,18 +497,35 @@ static void on_add_form_ok(lv_event_t *e)
         snprintf(room, sizeof(room), "2诊室");
     }
 
+    // 判断是否为插队急诊
+    int insert_idx = queue_count;
+    // 如果是急诊，就需要插到最前面呼号 --插队算法
+    bool is_urgent = lv_obj_has_state(add_form_urgent_sw, LV_STATE_CHECKED);
+
+    if (is_urgent && queue_count > 0)
+    {
+        insert_idx = 0;
+
+        // 把原来队伍里的人，从最后一名开始，全部往后挪一个位置
+        for (int i = queue_count; i > 0; i--)
+        {
+            wait_queue[i] = wait_queue[i - 1];
+        }
+    }
+
     // 把名字拷贝进去
-    snprintf(wait_queue[queue_count].name, sizeof(wait_queue[queue_count].name), "%s", name);
+    snprintf(wait_queue[insert_idx].name, sizeof(wait_queue[insert_idx].name), "%s", name);
     // 把诊室拷贝进去
-    snprintf(wait_queue[queue_count].room, sizeof(wait_queue[queue_count].room), "%s", room);
+    snprintf(wait_queue[insert_idx].room, sizeof(wait_queue[insert_idx].room), "%s", room);
     // 把排号派给他，派完后号码递增备用
-    wait_queue[queue_count].number = next_number++;
+    wait_queue[insert_idx].number = next_number++;
     // 队列人数 +1
     queue_count++;
 
     update_wait_queue();
     close_add_form();
-    show_popup("添加成功", "病人已加入等待队列");
+    show_popup("添加成功", is_urgent ? "急诊病人已插队至最前！" : "病人已加入等待队列");
+
     reset_idle(NULL);
 }
 
@@ -525,13 +549,14 @@ static void on_add_patient(lv_event_t *e)
     add_form_mask = lv_obj_create(medical_screen);
     lv_obj_set_size(add_form_mask, 1024, 600);                           // 盖满屏幕
     lv_obj_set_style_bg_color(add_form_mask, lv_color_hex(0x000000), 0); // 纯黑
-    lv_obj_set_style_bg_opa(add_form_mask, LV_OPA_50, 0);                
-    lv_obj_set_style_border_width(add_form_mask, 0, 0);                  
-    lv_obj_clear_flag(add_form_mask, LV_OBJ_FLAG_SCROLLABLE);            
+    lv_obj_set_style_bg_opa(add_form_mask, LV_OPA_50, 0);
+    lv_obj_set_style_border_width(add_form_mask, 0, 0);
+    lv_obj_clear_flag(add_form_mask, LV_OBJ_FLAG_SCROLLABLE);
 
     // 2. 在这块黑布的中间，放一块用来当弹窗的白色面板
     panel = lv_obj_create(add_form_mask);
-    lv_obj_set_size(panel, 420, 320);
+    lv_obj_set_size(panel, 420, 380);
+
     lv_obj_center(panel);
     lv_obj_set_style_radius(panel, 18, 0);
     lv_obj_set_style_bg_color(panel, lv_color_hex(0xFFFFFF), 0);
@@ -564,7 +589,7 @@ static void on_add_patient(lv_event_t *e)
     // 这个牛逼：对齐目标变成上面那个输入框(add_form_name_ta)，在它正下方偏左对齐往下走 18px
     lv_obj_align_to(room_label, add_form_name_ta, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 18);
 
-    // 6. 造个真实的下拉框，给那两个诊室选项
+    // 6. 造个下拉框，给那两个诊室选项
     add_form_room_dd = lv_dropdown_create(panel);
     lv_obj_set_size(add_form_room_dd, 300, 46);
 
@@ -572,6 +597,16 @@ static void on_add_patient(lv_event_t *e)
 
     lv_dropdown_set_options(add_form_room_dd, "1\n2");
     lv_obj_set_style_text_font(add_form_room_dd, ui_font_get_22(), 0);
+
+    // 急诊插队开关选项
+    lv_obj_t *urgent_label = lv_label_create(panel);
+    lv_label_set_text(urgent_label, "开启急诊插队");
+    lv_obj_set_style_text_font(urgent_label, ui_font_get_22(), 0);
+    lv_obj_set_style_text_color(urgent_label, lv_color_hex(0xC0392B), 0); // 红色提示
+    lv_obj_align_to(urgent_label, add_form_room_dd, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 20);
+
+    add_form_urgent_sw = lv_switch_create(panel);
+    lv_obj_align_to(add_form_urgent_sw, urgent_label, LV_ALIGN_OUT_RIGHT_MID, 20, 0);
 
     // 7. 造白板左下角的【确定】按钮
     btn = lv_button_create(panel);
@@ -607,6 +642,13 @@ static void on_add_patient(lv_event_t *e)
     // 键盘也得有交互（打字、收起），绑上事件
     lv_obj_add_event_cb(add_form_kb, on_form_kb_event, LV_EVENT_ALL, NULL);
 
+    // 新增拼音输入法
+    add_form_pinyin_ime = lv_ime_pinyin_create(add_form_mask);
+    // 设置拼音中字体的显示和大小
+    lv_obj_set_style_text_font(add_form_pinyin_ime, ui_font_get_22(), 0);
+    // 实体键盘绑定事件
+    lv_ime_pinyin_set_keyboard(add_form_pinyin_ime, add_form_kb);
+    lv_obj_align_to(add_form_pinyin_ime, add_form_kb, LV_ALIGN_OUT_TOP_MID, 0, -2);
     reset_idle(NULL);
 }
 
@@ -744,7 +786,15 @@ lv_obj_t *medical_create_screen(lv_event_cb_t back_cb)
     // 【重要】当它被点击，去执行从 app_ui.c 里传过来的 back_cb 函数（退回主界面）
     lv_obj_add_event_cb(btn, back_cb, LV_EVENT_CLICKED, NULL);
     lab = lv_label_create(btn);
+
+#if 1
     lv_label_set_text(lab, "返回菜单");
+#endif
+
+#if 0
+    lv_label_set_text(lab, "退出登录");
+#endif
+
     lv_obj_set_style_text_font(lab, ui_font_get_22(), 0);
     lv_obj_set_style_text_color(lab, lv_color_black(), 0);
     lv_obj_center(lab);

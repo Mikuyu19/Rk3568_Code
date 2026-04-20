@@ -6,5 +6,6 @@
  * 程序启动后会先显示登录页。
  */
 void app_ui_create(void);
+void app_ui_open_menu(void);
 
 #endif

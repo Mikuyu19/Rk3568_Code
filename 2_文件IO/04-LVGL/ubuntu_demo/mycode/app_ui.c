@@ -108,30 +108,30 @@ static void clear_login_input(void)
     lv_obj_add_flag(g_ui.msg_label, LV_OBJ_FLAG_HIDDEN); // 隐藏报错信息
 }
 
-
 static void delete_user_screens(void)
 {
     if (g_ui.game_2048_screen != NULL)
     {
-        lv_obj_delete(g_ui.game_2048_screen); // 彻底销毁页面及上面的所有控件
-        g_ui.game_2048_screen = NULL;         // 指针复位，触发下次的重新创建
+        // lv_obj_delete(g_ui.game_2048_screen); // 彻底销毁页面及上面的所有控件
+        lv_obj_delete_async(g_ui.game_2048_screen); // 换成 _async 异步安全删除
+        g_ui.game_2048_screen = NULL;
     }
 
     if (g_ui.album_screen != NULL)
     {
-        lv_obj_delete(g_ui.album_screen);
+        lv_obj_delete_async(g_ui.album_screen); // 换成 _async 异步安全删除
         g_ui.album_screen = NULL;
     }
 
     if (g_ui.medical_screen != NULL)
     {
-        lv_obj_delete(g_ui.medical_screen);
+        lv_obj_delete_async(g_ui.medical_screen);
         g_ui.medical_screen = NULL;
     }
 
     if (g_ui.rank_screen != NULL)
     {
-        lv_obj_delete(g_ui.rank_screen);
+        lv_obj_delete_async(g_ui.rank_screen);
         g_ui.rank_screen = NULL;
         g_ui.rank_panel = NULL;
     }
@@ -183,7 +183,8 @@ static void on_open_2048(lv_event_t *e)
     {
         g_ui.game_2048_screen = app_2048_create_screen(on_back_to_menu);
     }
-    lv_screen_load(g_ui.game_2048_screen);
+    // lv_screen_load(g_ui.game_2048_screen);
+    lv_screen_load_anim(g_ui.game_2048_screen, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, false);
 }
 
 /* 进入 相册 */
@@ -194,7 +195,8 @@ static void on_open_album(lv_event_t *e)
     {
         g_ui.album_screen = album_create_screen(on_back_to_menu);
     }
-    lv_screen_load(g_ui.album_screen);
+    // lv_screen_load(g_ui.album_screen);
+    lv_screen_load_anim(g_ui.album_screen, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, false);
 }
 
 /* 进入 医疗叫号系统 */
@@ -205,7 +207,8 @@ static void on_open_medical(lv_event_t *e)
     {
         g_ui.medical_screen = medical_create_screen(on_back_to_menu);
     }
-    lv_screen_load(g_ui.medical_screen);
+    // lv_screen_load(g_ui.medical_screen);
+    lv_screen_load_anim(g_ui.medical_screen, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, false);
 }
 
 /* 读取后端排行榜数据并在界面上动态生成列表 */
@@ -272,7 +275,8 @@ static void on_open_rank(lv_event_t *e)
         refresh_rank_list();
     }
 
-    lv_screen_load(g_ui.rank_screen);
+    // lv_screen_load(g_ui.rank_screen);
+    lv_screen_load_anim(g_ui.rank_screen, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, false);
 }
 
 /* 登出账号操作 */
@@ -280,11 +284,16 @@ static void on_logout(lv_event_t *e)
 {
     LV_UNUSED(e);
 
-    user_logout();                     // 后端状态登出
-    delete_user_screens();             // 清空该用户打开的所有私人页面和数据缓存
-    clear_login_input();               // 清空登录框上的账号密码痕迹
-    hide_keyboard();                   // 收起键盘
+    user_logout();         // 后端状态登出
+    delete_user_screens(); // 清空该用户打开的所有私人页面和数据缓存
+    clear_login_input();   // 清空登录框上的账号密码痕迹
+    hide_keyboard();       // 收起键盘
+
     lv_screen_load(g_ui.login_screen); // 踢回登录页
+    // 1. 【核心修复】必须先将画面切回登录页，让旧页面失去 active (激活) 状态！
+    // 登出动作直接使用 lv_screen_load 硬切，避免动画期间旧页面被销毁导致崩溃
+    // 2. 等安全切走之后，再执行清空销毁操作
+    delete_user_screens();
 }
 
 /* 构建主菜单 */
@@ -334,8 +343,25 @@ static void on_login(lv_event_t *e)
     if (user_login(user, pwd))
     { // 调用后端验证
         lv_obj_add_flag(g_ui.msg_label, LV_OBJ_FLAG_HIDDEN);
-        update_current_user_label();      // 刷新左上角显示的用户名
-        lv_screen_load(g_ui.menu_screen); // 验证通过进入大厅
+#if 1
+        // 不进主菜单了，不需要刷新主菜单的用户名标签
+        update_current_user_label();
+
+        // 禁止跳转到大厅(主菜单)
+        lv_screen_load_anim(g_ui.menu_screen, LV_SCR_LOAD_ANIM_FADE_ON, 300, 0, false);
+#endif
+#if 0
+        // 创建并直接加载医疗叫号页面
+        if (g_ui.medical_screen == NULL)
+        {
+            // 注意这里：我们将右上角按钮绑定的回调函数改成了 on_logout (退出登录)
+            // 这样在医疗界面点右上角就会直接退回登录页
+            g_ui.medical_screen = medical_create_screen(on_logout);
+        }
+            
+        // lv_screen_load(g_ui.medical_screen); // 直接进入医疗系统
+        lv_screen_load_anim(g_ui.medical_screen, LV_SCR_LOAD_ANIM_FADE_ON, 300, 0, false);
+#endif
     }
     else
     {

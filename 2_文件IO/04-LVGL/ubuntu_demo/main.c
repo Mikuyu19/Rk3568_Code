@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include "lvgl/examples/lv_examples.h"
 #include "mycode/app_ui.h"
 
 /* 读取环境变量。
@@ -58,11 +59,12 @@ int main(void)
     lv_init();
     lv_linux_disp_init();
     app_ui_create();
+    // lv_example_ime_pinyin_1();
+    while (1)
+    {
 
-    while (1) {
-        
         lv_timer_handler();
-        
+
         usleep(5000);
     }
 

@@ -42,7 +42,7 @@
 
 #if LV_USE_STDLIB_MALLOC == LV_STDLIB_BUILTIN
     /*Size of the memory available for `lv_malloc()` in bytes (>= 2kB)*/
-    #define LV_MEM_SIZE (256 * 1024U)          /*[bytes]*/
+    #define LV_MEM_SIZE (2048 * 1024U)          /*[bytes]*/
 
     /*Size of the memory expand for `lv_malloc()` in bytes*/
     #define LV_MEM_POOL_EXPAND_SIZE 0
@@ -809,7 +809,7 @@
     /*Use 9 key input(k9)*/
     #define LV_IME_PINYIN_USE_K9_MODE      1
     #if LV_IME_PINYIN_USE_K9_MODE == 1
-        #define LV_IME_PINYIN_K9_CAND_TEXT_NUM 3
+        #define LV_IME_PINYIN_K9_CAND_TEXT_NUM 5
     #endif /*LV_IME_PINYIN_USE_K9_MODE*/
 #endif
 

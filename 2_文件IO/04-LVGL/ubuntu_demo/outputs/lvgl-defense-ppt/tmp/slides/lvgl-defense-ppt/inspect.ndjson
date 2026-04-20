@@ -1,0 +1,450 @@
+{"kind":"deck","id":"lvgl-defense-ppt","slideCount":12,"slideSize":{"width":1280,"height":720}}
+{"kind":"slide","slide":1,"id":"o2jnqz"}
+{"kind":"slide","slide":2,"id":"k61ncb"}
+{"kind":"slide","slide":3,"id":"olgue5"}
+{"kind":"slide","slide":4,"id":"oxl0ag"}
+{"kind":"slide","slide":5,"id":"pshua0"}
+{"kind":"slide","slide":6,"id":"61zlav"}
+{"kind":"slide","slide":7,"id":"hb8u2i"}
+{"kind":"slide","slide":8,"id":"5a8o2c"}
+{"kind":"slide","slide":9,"id":"46gdub"}
+{"kind":"slide","slide":10,"id":"rl3aie"}
+{"kind":"slide","slide":11,"id":"u46rap"}
+{"kind":"slide","slide":12,"id":"9cjgqy"}
+{"kind":"image","slide":1,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":1,"id":"3","role":"cover overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":1,"id":"4","role":"cover frame","shapeType":"roundRect","bbox":[58,54,1164,612]}
+{"kind":"shape","slide":1,"id":"5","role":"cover accent stripe","shapeType":"rect","bbox":[58,54,18,612]}
+{"kind":"textbox","slide":1,"id":"6","role":"cover kicker","text":"嵌入式图形界面课程答辩","textPreview":"嵌入式图形界面课程答辩","textChars":11,"textLines":1,"bbox":[112,96,320,24]}
+{"kind":"textbox","slide":1,"id":"7","role":"cover title","text":"基于 LVGL 的多功能嵌入式交互系统设计与实现","textPreview":"基于 LVGL 的多功能嵌入式交互系统设计与实现","textChars":24,"textLines":1,"bbox":[112,140,640,116]}
+{"kind":"textbox","slide":1,"id":"8","role":"cover subtitle","text":"用户管理、医疗叫号、2048 与电子相册","textPreview":"用户管理、医疗叫号、2048 与电子相册","textChars":20,"textLines":1,"bbox":[114,274,520,34]}
+{"kind":"textbox","slide":1,"id":"9","role":"cover intro","text":"围绕 ubuntu_demo 工程，按真实代码现状梳理项目目标、模块实现、核心算法、工程配置与后续扩展。","textPreview":"围绕 ubuntu_demo 工程，按真实代码现状梳理项目目标、模块实现、核心算法、工程配置与后续扩展。","textChars":52,"textLines":1,"bbox":[114,332,620,62]}
+{"kind":"shape","slide":1,"id":"10","role":"tag: 用户系统","shapeType":"roundRect","bbox":[114,418,110,28]}
+{"kind":"textbox","slide":1,"id":"11","role":"tag text","text":"用户系统","textPreview":"用户系统","textChars":4,"textLines":1,"bbox":[124,423,90,18]}
+{"kind":"shape","slide":1,"id":"12","role":"tag: 医疗叫号","shapeType":"roundRect","bbox":[236,418,110,28]}
+{"kind":"textbox","slide":1,"id":"13","role":"tag text","text":"医疗叫号","textPreview":"医疗叫号","textChars":4,"textLines":1,"bbox":[246,423,90,18]}
+{"kind":"shape","slide":1,"id":"14","role":"tag: 2048","shapeType":"roundRect","bbox":[358,418,94,28]}
+{"kind":"textbox","slide":1,"id":"15","role":"tag text","text":"2048","textPreview":"2048","textChars":4,"textLines":1,"bbox":[368,423,74,18]}
+{"kind":"shape","slide":1,"id":"16","role":"tag: 电子相册","shapeType":"roundRect","bbox":[464,418,118,28]}
+{"kind":"textbox","slide":1,"id":"17","role":"tag text","text":"电子相册","textPreview":"电子相册","textChars":4,"textLines":1,"bbox":[474,423,98,18]}
+{"kind":"shape","slide":1,"id":"18","role":"tag: 工程适配","shapeType":"roundRect","bbox":[594,418,110,28]}
+{"kind":"textbox","slide":1,"id":"19","role":"tag text","text":"工程适配","textPreview":"工程适配","textChars":4,"textLines":1,"bbox":[604,423,90,18]}
+{"kind":"shape","slide":1,"id":"20","role":"cover info","shapeType":"roundRect","bbox":[832,112,316,274]}
+{"kind":"textbox","slide":1,"id":"21","role":"cover info title","text":"答辩信息","textPreview":"答辩信息","textChars":4,"textLines":1,"bbox":[858,136,120,24]}
+{"kind":"textbox","slide":1,"id":"22","role":"cover info body","text":"汇报人：姓名占位\n学号：学号占位\n课程：课程名称占位\n日期：答辩日期占位","textPreview":"汇报人：姓名占位 | 学号：学号占位 | 课程：课程名称占位 | 日期：答辩日期占位","textChars":36,"textLines":4,"bbox":[858,180,256,118]}
+{"kind":"textbox","slide":1,"id":"23","role":"cover info note","text":"封面字段已留空，方便答辩前直接修改。","textPreview":"封面字段已留空，方便答辩前直接修改。","textChars":18,"textLines":1,"bbox":[858,316,250,24]}
+{"kind":"shape","slide":1,"id":"24","role":"cover summary","shapeType":"roundRect","bbox":[832,420,316,144]}
+{"kind":"textbox","slide":1,"id":"25","role":"cover summary title","text":"本次汇报重点","textPreview":"本次汇报重点","textChars":6,"textLines":1,"bbox":[858,444,140,24]}
+{"kind":"textbox","slide":1,"id":"26","role":"cover summary body","text":"功能覆盖尽量完整，图片后续由项目截图和开发板照片替换。","textPreview":"功能覆盖尽量完整，图片后续由项目截图和开发板照片替换。","textChars":27,"textLines":1,"bbox":[858,482,248,50]}
+{"kind":"textbox","slide":1,"id":"27","role":"cover page","text":"01 / 12","textPreview":"01 / 12","textChars":7,"textLines":1,"bbox":[1088,632,86,18]}
+{"kind":"textbox","slide":1,"id":"28","role":"cover footer","text":"答辩用图示、照片与代码截图位置均已预留","textPreview":"答辩用图示、照片与代码截图位置均已预留","textChars":19,"textLines":1,"bbox":[112,626,320,18]}
+{"kind":"image","slide":2,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":2,"id":"3","role":"plate readability overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":2,"id":"4","role":"header","text":"项目目标","textPreview":"项目目标","textChars":4,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":2,"id":"5","role":"header","text":"02 / 12","textPreview":"02 / 12","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":2,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":2,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":2,"id":"8","role":"title","text":"项目背景与目标","textPreview":"项目背景与目标","textChars":7,"textLines":1,"bbox":[64,86,780,142]}
+{"kind":"textbox","slide":2,"id":"9","role":"subtitle","text":"把 LVGL、文件 I/O 与多页面交互组合成一个完整课程项目。","textPreview":"把 LVGL、文件 I/O 与多页面交互组合成一个完整课程项目。","textChars":32,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":2,"id":"10","role":"bullet panel: 为什么做成综合项目","shapeType":"roundRect","bbox":[70,218,640,404]}
+{"kind":"shape","slide":2,"id":"11","role":"panel accent: 为什么做成综合项目","shapeType":"rect","bbox":[70,218,640,8]}
+{"kind":"textbox","slide":2,"id":"12","role":"panel title","text":"为什么做成综合项目","textPreview":"为什么做成综合项目","textChars":9,"textLines":1,"bbox":[92,238,596,30]}
+{"kind":"textbox","slide":2,"id":"13","role":"panel body: 为什么做成综合项目","text":"• 综合使用 LVGL、文件 I/O 和多页面 UI。\n• 用一个工程串起登录、业务、娱乐和数据持久化。\n• 在 Ubuntu 仿真环境里先验证界面与逻辑。\n• 为后续 RK3568 适配保留运行入口和资源准备。","textPreview":"• 综合使用 LVGL、文件 I/O 和多页面 UI。 | • 用一个工程串起登录、业务、娱乐和数据持久化。 | • 在 Ubuntu 仿真环境里先验证界面与逻辑。 | • 为后续 RK3568 适配保留运行入口和资源准备。","textChars":106,"textLines":4,"bbox":[92,284,596,316]}
+{"kind":"shape","slide":2,"id":"14","role":"placeholder: 功能模块结构图占位","shapeType":"roundRect","bbox":[750,218,460,282]}
+{"kind":"shape","slide":2,"id":"15","role":"placeholder rule","shapeType":"rect","bbox":[770,238,420,2]}
+{"kind":"shape","slide":2,"id":"16","role":"placeholder rule","shapeType":"rect","bbox":[770,478,420,2]}
+{"kind":"shape","slide":2,"id":"17","role":"placeholder badge","shapeType":"roundRect","bbox":[774,242,112,28]}
+{"kind":"textbox","slide":2,"id":"18","role":"placeholder label","text":"图片占位","textPreview":"图片占位","textChars":4,"textLines":1,"bbox":[786,248,86,18]}
+{"kind":"textbox","slide":2,"id":"19","role":"placeholder title","text":"功能模块结构图占位","textPreview":"功能模块结构图占位","textChars":9,"textLines":1,"bbox":[780,333,400,36]}
+{"kind":"textbox","slide":2,"id":"20","role":"placeholder tip","text":"建议后续放项目功能框图或菜单层级图。","textPreview":"建议后续放项目功能框图或菜单层级图。","textChars":18,"textLines":1,"bbox":[786,371,388,52]}
+{"kind":"shape","slide":2,"id":"21","role":"bullet panel: 本次汇报主线","shapeType":"roundRect","bbox":[750,504,460,118]}
+{"kind":"shape","slide":2,"id":"22","role":"panel accent: 本次汇报主线","shapeType":"rect","bbox":[750,504,460,8]}
+{"kind":"textbox","slide":2,"id":"23","role":"panel title","text":"本次汇报主线","textPreview":"本次汇报主线","textChars":6,"textLines":1,"bbox":[772,524,416,30]}
+{"kind":"textbox","slide":2,"id":"24","role":"panel body: 本次汇报主线","text":"• 项目目标 → 系统结构 → 功能模块 → 核心算法 → 工程配置与问题解决。","textPreview":"• 项目目标 → 系统结构 → 功能模块 → 核心算法 → 工程配置与问题解决。","textChars":40,"textLines":1,"bbox":[772,570,416,30]}
+{"kind":"textbox","slide":2,"id":"25","role":"caption","text":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textPreview":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textChars":25,"textLines":1,"bbox":[64,676,860,18]}
+{"kind":"image","slide":3,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":3,"id":"3","role":"plate readability overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":3,"id":"4","role":"header","text":"系统结构","textPreview":"系统结构","textChars":4,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":3,"id":"5","role":"header","text":"03 / 12","textPreview":"03 / 12","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":3,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":3,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":3,"id":"8","role":"title","text":"系统整体结构与页面调度","textPreview":"系统整体结构与页面调度","textChars":11,"textLines":1,"bbox":[64,86,780,142]}
+{"kind":"textbox","slide":3,"id":"9","role":"subtitle","text":"页面关系围绕登录入口、主菜单分发和子页面回退展开。","textPreview":"页面关系围绕登录入口、主菜单分发和子页面回退展开。","textChars":25,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":3,"id":"10","role":"flow zone","shapeType":"roundRect","bbox":[70,212,700,430]}
+{"kind":"textbox","slide":3,"id":"11","role":"flow title","text":"页面流转关系","textPreview":"页面流转关系","textChars":6,"textLines":1,"bbox":[94,234,180,24]}
+{"kind":"shape","slide":3,"id":"12","role":"step card: 登录页","shapeType":"roundRect","bbox":[108,286,160,92]}
+{"kind":"shape","slide":3,"id":"13","role":"step badge","shapeType":"ellipse","bbox":[124,300,30,30]}
+{"kind":"textbox","slide":3,"id":"14","role":"step number","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[134,307,12,16]}
+{"kind":"textbox","slide":3,"id":"15","role":"step title","text":"登录页","textPreview":"登录页","textChars":3,"textLines":1,"bbox":[164,302,88,22]}
+{"kind":"textbox","slide":3,"id":"16","role":"step body","text":"输入用户名和密码。\n注册、登录都从这里进入。","textPreview":"输入用户名和密码。 | 注册、登录都从这里进入。","textChars":22,"textLines":2,"bbox":[126,333,124,33]}
+{"kind":"shape","slide":3,"id":"17","role":"flow bar","shapeType":"roundRect","bbox":[268,328,48,8]}
+{"kind":"shape","slide":3,"id":"18","role":"step card: 主菜单","shapeType":"roundRect","bbox":[316,286,170,92]}
+{"kind":"shape","slide":3,"id":"19","role":"step badge","shapeType":"ellipse","bbox":[332,300,30,30]}
+{"kind":"textbox","slide":3,"id":"20","role":"step number","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[342,307,12,16]}
+{"kind":"textbox","slide":3,"id":"21","role":"step title","text":"主菜单","textPreview":"主菜单","textChars":3,"textLines":1,"bbox":[372,302,98,22]}
+{"kind":"textbox","slide":3,"id":"22","role":"step body","text":"统一进入 2048、电子相册、医疗叫号和排行榜。","textPreview":"统一进入 2048、电子相册、医疗叫号和排行榜。","textChars":24,"textLines":1,"bbox":[334,333,134,33]}
+{"kind":"shape","slide":3,"id":"23","role":"flow bar","shapeType":"roundRect","bbox":[396,378,8,28]}
+{"kind":"shape","slide":3,"id":"24","role":"step card: 2048","shapeType":"roundRect","bbox":[92,432,148,94]}
+{"kind":"shape","slide":3,"id":"25","role":"step badge","shapeType":"ellipse","bbox":[108,446,30,30]}
+{"kind":"textbox","slide":3,"id":"26","role":"step number","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[118,453,12,16]}
+{"kind":"textbox","slide":3,"id":"27","role":"step title","text":"2048","textPreview":"2048","textChars":4,"textLines":1,"bbox":[148,448,76,22]}
+{"kind":"textbox","slide":3,"id":"28","role":"step body","text":"滑动交互、分数与最高分更新。","textPreview":"滑动交互、分数与最高分更新。","textChars":14,"textLines":1,"bbox":[110,479,112,35]}
+{"kind":"shape","slide":3,"id":"29","role":"step card: 电子相册","shapeType":"roundRect","bbox":[258,432,148,94]}
+{"kind":"shape","slide":3,"id":"30","role":"step badge","shapeType":"ellipse","bbox":[274,446,30,30]}
+{"kind":"textbox","slide":3,"id":"31","role":"step number","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[284,453,12,16]}
+{"kind":"textbox","slide":3,"id":"32","role":"step title","text":"电子相册","textPreview":"电子相册","textChars":4,"textLines":1,"bbox":[314,448,76,22]}
+{"kind":"textbox","slide":3,"id":"33","role":"step body","text":"本地 BMP 浏览和自动轮播。","textPreview":"本地 BMP 浏览和自动轮播。","textChars":15,"textLines":1,"bbox":[276,479,112,35]}
+{"kind":"shape","slide":3,"id":"34","role":"step card: 医疗叫号","shapeType":"roundRect","bbox":[424,432,148,94]}
+{"kind":"shape","slide":3,"id":"35","role":"step badge","shapeType":"ellipse","bbox":[440,446,30,30]}
+{"kind":"textbox","slide":3,"id":"36","role":"step number","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[450,453,12,16]}
+{"kind":"textbox","slide":3,"id":"37","role":"step title","text":"医疗叫号","textPreview":"医疗叫号","textChars":4,"textLines":1,"bbox":[480,448,76,22]}
+{"kind":"textbox","slide":3,"id":"38","role":"step body","text":"队列、医生信息、添加病人和公告。","textPreview":"队列、医生信息、添加病人和公告。","textChars":16,"textLines":1,"bbox":[442,479,112,35]}
+{"kind":"shape","slide":3,"id":"39","role":"step card: 排行榜","shapeType":"roundRect","bbox":[590,432,148,94]}
+{"kind":"shape","slide":3,"id":"40","role":"step badge","shapeType":"ellipse","bbox":[606,446,30,30]}
+{"kind":"textbox","slide":3,"id":"41","role":"step number","text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[616,453,12,16]}
+{"kind":"textbox","slide":3,"id":"42","role":"step title","text":"排行榜","textPreview":"排行榜","textChars":3,"textLines":1,"bbox":[646,448,76,22]}
+{"kind":"textbox","slide":3,"id":"43","role":"step body","text":"读取用户最高分并排序展示。","textPreview":"读取用户最高分并排序展示。","textChars":13,"textLines":1,"bbox":[608,479,112,35]}
+{"kind":"shape","slide":3,"id":"44","role":"right zone","shapeType":"roundRect","bbox":[806,212,404,430]}
+{"kind":"shape","slide":3,"id":"45","role":"placeholder: 主菜单或流程图占位","shapeType":"roundRect","bbox":[830,236,356,204]}
+{"kind":"shape","slide":3,"id":"46","role":"placeholder rule","shapeType":"rect","bbox":[850,256,316,2]}
+{"kind":"shape","slide":3,"id":"47","role":"placeholder rule","shapeType":"rect","bbox":[850,418,316,2]}
+{"kind":"shape","slide":3,"id":"48","role":"placeholder badge","shapeType":"roundRect","bbox":[854,260,112,28]}
+{"kind":"textbox","slide":3,"id":"49","role":"placeholder label","text":"图片占位","textPreview":"图片占位","textChars":4,"textLines":1,"bbox":[866,266,86,18]}
+{"kind":"textbox","slide":3,"id":"50","role":"placeholder title","text":"主菜单或流程图占位","textPreview":"主菜单或流程图占位","textChars":9,"textLines":1,"bbox":[860,322,296,36]}
+{"kind":"textbox","slide":3,"id":"51","role":"placeholder tip","text":"建议后续放主菜单界面截图。","textPreview":"建议后续放主菜单界面截图。","textChars":13,"textLines":1,"bbox":[866,366,284,52]}
+{"kind":"shape","slide":3,"id":"52","role":"bullet panel: 页面调度亮点","shapeType":"roundRect","bbox":[830,466,356,146]}
+{"kind":"shape","slide":3,"id":"53","role":"panel accent: 页面调度亮点","shapeType":"rect","bbox":[830,466,356,8]}
+{"kind":"textbox","slide":3,"id":"54","role":"panel title","text":"页面调度亮点","textPreview":"页面调度亮点","textChars":6,"textLines":1,"bbox":[852,486,312,30]}
+{"kind":"textbox","slide":3,"id":"55","role":"panel body: 页面调度亮点","text":"• 主页面跳转使用 lv_screen_load_anim。\n• 退出登录前先切页，再异步销毁子页面。\n• 排行榜页面支持按需创建和刷新。","textPreview":"• 主页面跳转使用 lv_screen_load_anim。 | • 退出登录前先切页，再异步销毁子页面。 | • 排行榜页面支持按需创建和刷新。","textChars":69,"textLines":3,"bbox":[852,532,312,58]}
+{"kind":"textbox","slide":3,"id":"56","role":"caption","text":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textPreview":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textChars":25,"textLines":1,"bbox":[64,676,860,18]}
+{"kind":"image","slide":4,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":4,"id":"3","role":"plate readability overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":4,"id":"4","role":"header","text":"用户模块","textPreview":"用户模块","textChars":4,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":4,"id":"5","role":"header","text":"04 / 12","textPreview":"04 / 12","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":4,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":4,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":4,"id":"8","role":"title","text":"用户管理与排行榜","textPreview":"用户管理与排行榜","textChars":8,"textLines":1,"bbox":[64,86,780,142]}
+{"kind":"textbox","slide":4,"id":"9","role":"subtitle","text":"注册、登录、TXT 持久化和最高分排行构成项目的基础数据层。","textPreview":"注册、登录、TXT 持久化和最高分排行构成项目的基础数据层。","textChars":30,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":4,"id":"10","role":"bullet panel: 实现要点","shapeType":"roundRect","bbox":[70,218,500,404]}
+{"kind":"shape","slide":4,"id":"11","role":"panel accent: 实现要点","shapeType":"rect","bbox":[70,218,500,8]}
+{"kind":"textbox","slide":4,"id":"12","role":"panel title","text":"实现要点","textPreview":"实现要点","textChars":4,"textLines":1,"bbox":[92,238,456,30]}
+{"kind":"textbox","slide":4,"id":"13","role":"panel body: 实现要点","text":"• user_register 和 user_login 负责账号校验。\n• 系统启动时会兜底创建默认 admin 账号。\n• 用户数据写入 user_data.txt，断电后可恢复。\n• 2048 破纪录后会同步刷新当前用户最高分。\n• 排行榜按 best_score 降序排序展示。","textPreview":"• user_register 和 user_login 负责账号校验。 | • 系统启动时会兜底创建默认 admin 账号。 | • 用户数据写入 user_data.txt，断电后可恢复。 | • 2048 破纪录后会同步刷新当前用户最高分。 | • 排行榜按 best_score 降序排序展示。","textChars":143,"textLines":5,"bbox":[92,284,456,316]}
+{"kind":"shape","slide":4,"id":"14","role":"key card: 默认账号","shapeType":"roundRect","bbox":[92,500,210,92]}
+{"kind":"shape","slide":4,"id":"15","role":"key accent: 默认账号","shapeType":"rect","bbox":[92,500,8,92]}
+{"kind":"textbox","slide":4,"id":"16","role":"key card label","text":"默认账号","textPreview":"默认账号","textChars":4,"textLines":1,"bbox":[114,518,170,22]}
+{"kind":"textbox","slide":4,"id":"17","role":"key card body","text":"admin / 123456","textPreview":"admin / 123456","textChars":14,"textLines":1,"bbox":[114,548,170,28]}
+{"kind":"shape","slide":4,"id":"18","role":"key card: 存储形式","shapeType":"roundRect","bbox":[316,500,230,92]}
+{"kind":"shape","slide":4,"id":"19","role":"key accent: 存储形式","shapeType":"rect","bbox":[316,500,8,92]}
+{"kind":"textbox","slide":4,"id":"20","role":"key card label","text":"存储形式","textPreview":"存储形式","textChars":4,"textLines":1,"bbox":[338,518,190,22]}
+{"kind":"textbox","slide":4,"id":"21","role":"key card body","text":"username,password,best_score","textPreview":"username,password,best_score","textChars":28,"textLines":1,"bbox":[338,548,190,28]}
+{"kind":"shape","slide":4,"id":"22","role":"screens zone","shapeType":"roundRect","bbox":[600,218,610,404]}
+{"kind":"shape","slide":4,"id":"23","role":"placeholder: 登录界面截图位","shapeType":"roundRect","bbox":[626,244,558,166]}
+{"kind":"shape","slide":4,"id":"24","role":"placeholder rule","shapeType":"rect","bbox":[646,264,518,2]}
+{"kind":"shape","slide":4,"id":"25","role":"placeholder rule","shapeType":"rect","bbox":[646,388,518,2]}
+{"kind":"shape","slide":4,"id":"26","role":"placeholder badge","shapeType":"roundRect","bbox":[650,268,112,28]}
+{"kind":"textbox","slide":4,"id":"27","role":"placeholder label","text":"图片占位","textPreview":"图片占位","textChars":4,"textLines":1,"bbox":[662,274,86,18]}
+{"kind":"textbox","slide":4,"id":"28","role":"placeholder title","text":"登录界面截图位","textPreview":"登录界面截图位","textChars":7,"textLines":1,"bbox":[656,330,498,36]}
+{"kind":"textbox","slide":4,"id":"29","role":"placeholder tip","text":"建议放账号输入、密码输入和软键盘截图。","textPreview":"建议放账号输入、密码输入和软键盘截图。","textChars":19,"textLines":1,"bbox":[662,374,486,52]}
+{"kind":"shape","slide":4,"id":"30","role":"placeholder: 排行榜界面截图位","shapeType":"roundRect","bbox":[626,432,558,166]}
+{"kind":"shape","slide":4,"id":"31","role":"placeholder rule","shapeType":"rect","bbox":[646,452,518,2]}
+{"kind":"shape","slide":4,"id":"32","role":"placeholder rule","shapeType":"rect","bbox":[646,576,518,2]}
+{"kind":"shape","slide":4,"id":"33","role":"placeholder badge","shapeType":"roundRect","bbox":[650,456,112,28]}
+{"kind":"textbox","slide":4,"id":"34","role":"placeholder label","text":"图片占位","textPreview":"图片占位","textChars":4,"textLines":1,"bbox":[662,462,86,18]}
+{"kind":"textbox","slide":4,"id":"35","role":"placeholder title","text":"排行榜界面截图位","textPreview":"排行榜界面截图位","textChars":8,"textLines":1,"bbox":[656,518,498,36]}
+{"kind":"textbox","slide":4,"id":"36","role":"placeholder tip","text":"建议放当前用户和排行列表截图。","textPreview":"建议放当前用户和排行列表截图。","textChars":15,"textLines":1,"bbox":[662,562,486,52]}
+{"kind":"textbox","slide":4,"id":"37","role":"caption","text":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textPreview":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textChars":25,"textLines":1,"bbox":[64,676,860,18]}
+{"kind":"image","slide":5,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":5,"id":"3","role":"plate readability overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":5,"id":"4","role":"header","text":"医疗模块 01","textPreview":"医疗模块 01","textChars":7,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":5,"id":"5","role":"header","text":"05 / 12","textPreview":"05 / 12","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":5,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":5,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":5,"id":"8","role":"title","text":"医疗叫号系统概览","textPreview":"医疗叫号系统概览","textChars":8,"textLines":1,"bbox":[64,86,780,142]}
+{"kind":"textbox","slide":5,"id":"9","role":"subtitle","text":"医疗模块不只是界面展示，还包含排队状态、医生信息和底部操作控制。","textPreview":"医疗模块不只是界面展示，还包含排队状态、医生信息和底部操作控制。","textChars":32,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":5,"id":"10","role":"placeholder: 医疗主界面截图位","shapeType":"roundRect","bbox":[70,218,720,404]}
+{"kind":"shape","slide":5,"id":"11","role":"placeholder rule","shapeType":"rect","bbox":[90,238,680,2]}
+{"kind":"shape","slide":5,"id":"12","role":"placeholder rule","shapeType":"rect","bbox":[90,600,680,2]}
+{"kind":"shape","slide":5,"id":"13","role":"placeholder badge","shapeType":"roundRect","bbox":[94,242,112,28]}
+{"kind":"textbox","slide":5,"id":"14","role":"placeholder label","text":"图片占位","textPreview":"图片占位","textChars":4,"textLines":1,"bbox":[106,248,86,18]}
+{"kind":"textbox","slide":5,"id":"15","role":"placeholder title","text":"医疗主界面截图位","textPreview":"医疗主界面截图位","textChars":8,"textLines":1,"bbox":[100,394,660,36]}
+{"kind":"textbox","slide":5,"id":"16","role":"placeholder tip","text":"建议放当前叫号大卡、等候队列、医生信息和底部按钮的完整页面。","textPreview":"建议放当前叫号大卡、等候队列、医生信息和底部按钮的完整页面。","textChars":30,"textLines":1,"bbox":[106,432,648,52]}
+{"kind":"shape","slide":5,"id":"17","role":"medical facts","shapeType":"roundRect","bbox":[820,218,390,404]}
+{"kind":"textbox","slide":5,"id":"18","role":"medical fact title","text":"核心数据点","textPreview":"核心数据点","textChars":5,"textLines":1,"bbox":[844,240,140,24]}
+{"kind":"shape","slide":5,"id":"19","role":"key card: current_patient","shapeType":"roundRect","bbox":[844,280,164,108]}
+{"kind":"shape","slide":5,"id":"20","role":"key accent: current_patient","shapeType":"rect","bbox":[844,280,8,108]}
+{"kind":"textbox","slide":5,"id":"21","role":"key card label","text":"current_patient","textPreview":"current_patient","textChars":15,"textLines":1,"bbox":[866,298,124,22]}
+{"kind":"textbox","slide":5,"id":"22","role":"key card body","text":"当前叫号病人信息","textPreview":"当前叫号病人信息","textChars":8,"textLines":1,"bbox":[866,328,124,44]}
+{"kind":"shape","slide":5,"id":"23","role":"key card: wait_queue[10]","shapeType":"roundRect","bbox":[1026,280,164,108]}
+{"kind":"shape","slide":5,"id":"24","role":"key accent: wait_queue[10]","shapeType":"rect","bbox":[1026,280,8,108]}
+{"kind":"textbox","slide":5,"id":"25","role":"key card label","text":"wait_queue[10]","textPreview":"wait_queue[10]","textChars":14,"textLines":1,"bbox":[1048,298,124,22]}
+{"kind":"textbox","slide":5,"id":"26","role":"key card body","text":"固定长度等待队列","textPreview":"固定长度等待队列","textChars":8,"textLines":1,"bbox":[1048,328,124,44]}
+{"kind":"shape","slide":5,"id":"27","role":"key card: doctors[2]","shapeType":"roundRect","bbox":[844,404,164,108]}
+{"kind":"shape","slide":5,"id":"28","role":"key accent: doctors[2]","shapeType":"rect","bbox":[844,404,8,108]}
+{"kind":"textbox","slide":5,"id":"29","role":"key card label","text":"doctors[2]","textPreview":"doctors[2]","textChars":10,"textLines":1,"bbox":[866,422,124,22]}
+{"kind":"textbox","slide":5,"id":"30","role":"key card body","text":"按诊室切换医生资料","textPreview":"按诊室切换医生资料","textChars":9,"textLines":1,"bbox":[866,452,124,44]}
+{"kind":"shape","slide":5,"id":"31","role":"key card: next_number","shapeType":"roundRect","bbox":[1026,404,164,108]}
+{"kind":"shape","slide":5,"id":"32","role":"key accent: next_number","shapeType":"rect","bbox":[1026,404,8,108]}
+{"kind":"textbox","slide":5,"id":"33","role":"key card label","text":"next_number","textPreview":"next_number","textChars":11,"textLines":1,"bbox":[1048,422,124,22]}
+{"kind":"textbox","slide":5,"id":"34","role":"key card body","text":"新病人号码自增分配","textPreview":"新病人号码自增分配","textChars":9,"textLines":1,"bbox":[1048,452,124,44]}
+{"kind":"textbox","slide":5,"id":"35","role":"medical action title","text":"底部操作","textPreview":"底部操作","textChars":4,"textLines":1,"bbox":[844,536,120,20]}
+{"kind":"shape","slide":5,"id":"36","role":"tag: 模拟叫号","shapeType":"roundRect","bbox":[844,566,96,28]}
+{"kind":"textbox","slide":5,"id":"37","role":"tag text","text":"模拟叫号","textPreview":"模拟叫号","textChars":4,"textLines":1,"bbox":[854,571,76,18]}
+{"kind":"shape","slide":5,"id":"38","role":"tag: 紧急公告","shapeType":"roundRect","bbox":[954,566,96,28]}
+{"kind":"textbox","slide":5,"id":"39","role":"tag text","text":"紧急公告","textPreview":"紧急公告","textChars":4,"textLines":1,"bbox":[964,571,76,18]}
+{"kind":"shape","slide":5,"id":"40","role":"tag: 添加病人","shapeType":"roundRect","bbox":[1064,566,96,28]}
+{"kind":"textbox","slide":5,"id":"41","role":"tag text","text":"添加病人","textPreview":"添加病人","textChars":4,"textLines":1,"bbox":[1074,571,76,18]}
+{"kind":"textbox","slide":5,"id":"42","role":"caption","text":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textPreview":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textChars":25,"textLines":1,"bbox":[64,676,860,18]}
+{"kind":"image","slide":6,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":6,"id":"3","role":"plate readability overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":6,"id":"4","role":"header","text":"医疗模块 02","textPreview":"医疗模块 02","textChars":7,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":6,"id":"5","role":"header","text":"06 / 12","textPreview":"06 / 12","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":6,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":6,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":6,"id":"8","role":"title","text":"医疗叫号交互细节","textPreview":"医疗叫号交互细节","textChars":8,"textLines":1,"bbox":[64,86,780,142]}
+{"kind":"textbox","slide":6,"id":"9","role":"subtitle","text":"添加病人弹窗把输入、遮罩、防误触和拼音输入整合到一套交互流程中。","textPreview":"添加病人弹窗把输入、遮罩、防误触和拼音输入整合到一套交互流程中。","textChars":32,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":6,"id":"10","role":"placeholder: 添加病人表单 + 拼音候选区占位","shapeType":"roundRect","bbox":[70,218,620,404]}
+{"kind":"shape","slide":6,"id":"11","role":"placeholder rule","shapeType":"rect","bbox":[90,238,580,2]}
+{"kind":"shape","slide":6,"id":"12","role":"placeholder rule","shapeType":"rect","bbox":[90,600,580,2]}
+{"kind":"shape","slide":6,"id":"13","role":"placeholder badge","shapeType":"roundRect","bbox":[94,242,112,28]}
+{"kind":"textbox","slide":6,"id":"14","role":"placeholder label","text":"图片占位","textPreview":"图片占位","textChars":4,"textLines":1,"bbox":[106,248,86,18]}
+{"kind":"textbox","slide":6,"id":"15","role":"placeholder title","text":"添加病人表单 + 拼音候选区占位","textPreview":"添加病人表单 + 拼音候选区占位","textChars":16,"textLines":1,"bbox":[100,394,560,36]}
+{"kind":"textbox","slide":6,"id":"16","role":"placeholder tip","text":"建议放半透明遮罩、表单面板、软键盘和拼音候选区截图。","textPreview":"建议放半透明遮罩、表单面板、软键盘和拼音候选区截图。","textChars":26,"textLines":1,"bbox":[106,432,548,52]}
+{"kind":"shape","slide":6,"id":"17","role":"bullet panel: 交互亮点","shapeType":"roundRect","bbox":[720,218,490,404]}
+{"kind":"shape","slide":6,"id":"18","role":"panel accent: 交互亮点","shapeType":"rect","bbox":[720,218,490,8]}
+{"kind":"textbox","slide":6,"id":"19","role":"panel title","text":"交互亮点","textPreview":"交互亮点","textChars":4,"textLines":1,"bbox":[742,238,446,30]}
+{"kind":"textbox","slide":6,"id":"20","role":"panel body: 交互亮点","text":"• 创建黑色半透明遮罩，避免底层按钮误触。\n• 姓名输入框、诊室下拉框和急诊开关集中在一张弹窗里。\n• 软键盘默认隐藏，点击输入框后再弹出。\n• 接入 lv_ime_pinyin，实现中文拼音输入。\n• 公告弹窗和 30 秒闲置计时器共同维护使用体验。","textPreview":"• 创建黑色半透明遮罩，避免底层按钮误触。 | • 姓名输入框、诊室下拉框和急诊开关集中在一张弹窗里。 | • 软键盘默认隐藏，点击输入框后再弹出。 | • 接入 lv_ime_pinyin，实现中文拼音输入。 | • 公告弹窗和 30 秒闲置计时器共同维护使用体验。","textChars":126,"textLines":5,"bbox":[742,284,446,316]}
+{"kind":"shape","slide":6,"id":"21","role":"tag: 诊室选择：1 / 2","shapeType":"roundRect","bbox":[744,560,132,28]}
+{"kind":"textbox","slide":6,"id":"22","role":"tag text","text":"诊室选择：1 / 2","textPreview":"诊室选择：1 / 2","textChars":10,"textLines":1,"bbox":[754,565,112,18]}
+{"kind":"shape","slide":6,"id":"23","role":"tag: 急诊开关：支持插队","shapeType":"roundRect","bbox":[888,560,148,28]}
+{"kind":"textbox","slide":6,"id":"24","role":"tag text","text":"急诊开关：支持插队","textPreview":"急诊开关：支持插队","textChars":9,"textLines":1,"bbox":[898,565,128,18]}
+{"kind":"shape","slide":6,"id":"25","role":"tag: IME：拼音候选","shapeType":"roundRect","bbox":[1048,560,138,28]}
+{"kind":"textbox","slide":6,"id":"26","role":"tag text","text":"IME：拼音候选","textPreview":"IME：拼音候选","textChars":8,"textLines":1,"bbox":[1058,565,118,18]}
+{"kind":"textbox","slide":6,"id":"27","role":"caption","text":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textPreview":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textChars":25,"textLines":1,"bbox":[64,676,860,18]}
+{"kind":"image","slide":7,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":7,"id":"3","role":"plate readability overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":7,"id":"4","role":"header","text":"医疗模块 03","textPreview":"医疗模块 03","textChars":7,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":7,"id":"5","role":"header","text":"07 / 12","textPreview":"07 / 12","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":7,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":7,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":7,"id":"8","role":"title","text":"医疗叫号核心逻辑","textPreview":"医疗叫号核心逻辑","textChars":8,"textLines":1,"bbox":[64,86,780,142]}
+{"kind":"textbox","slide":7,"id":"9","role":"subtitle","text":"这一页重点讲急诊插队、命令解析以及叫号后的联动刷新。","textPreview":"这一页重点讲急诊插队、命令解析以及叫号后的联动刷新。","textChars":26,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":7,"id":"10","role":"medical flow","shapeType":"roundRect","bbox":[70,218,530,404]}
+{"kind":"textbox","slide":7,"id":"11","role":"logic title","text":"逻辑流程","textPreview":"逻辑流程","textChars":4,"textLines":1,"bbox":[94,240,140,24]}
+{"kind":"shape","slide":7,"id":"12","role":"step card: 添加病人","shapeType":"roundRect","bbox":[94,282,482,92]}
+{"kind":"shape","slide":7,"id":"13","role":"step badge","shapeType":"ellipse","bbox":[110,296,30,30]}
+{"kind":"textbox","slide":7,"id":"14","role":"step number","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[120,303,12,16]}
+{"kind":"textbox","slide":7,"id":"15","role":"step title","text":"添加病人","textPreview":"添加病人","textChars":4,"textLines":1,"bbox":[150,298,410,22]}
+{"kind":"textbox","slide":7,"id":"16","role":"step body","text":"读取姓名、诊室和急诊开关，决定插入位置。","textPreview":"读取姓名、诊室和急诊开关，决定插入位置。","textChars":20,"textLines":1,"bbox":[112,329,446,33]}
+{"kind":"shape","slide":7,"id":"17","role":"flow bar","shapeType":"roundRect","bbox":[332,382,8,24]}
+{"kind":"shape","slide":7,"id":"18","role":"step card: 队列更新","shapeType":"roundRect","bbox":[94,410,482,92]}
+{"kind":"shape","slide":7,"id":"19","role":"step badge","shapeType":"ellipse","bbox":[110,424,30,30]}
+{"kind":"textbox","slide":7,"id":"20","role":"step number","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[120,431,12,16]}
+{"kind":"textbox","slide":7,"id":"21","role":"step title","text":"队列更新","textPreview":"队列更新","textChars":4,"textLines":1,"bbox":[150,426,410,22]}
+{"kind":"textbox","slide":7,"id":"22","role":"step body","text":"普通病人追加到队尾；急诊病人触发数组整体右移。","textPreview":"普通病人追加到队尾；急诊病人触发数组整体右移。","textChars":23,"textLines":1,"bbox":[112,457,446,33]}
+{"kind":"shape","slide":7,"id":"23","role":"flow bar","shapeType":"roundRect","bbox":[332,510,8,24]}
+{"kind":"shape","slide":7,"id":"24","role":"step card: 叫号联动","shapeType":"roundRect","bbox":[94,538,482,82]}
+{"kind":"shape","slide":7,"id":"25","role":"step badge","shapeType":"ellipse","bbox":[110,552,30,30]}
+{"kind":"textbox","slide":7,"id":"26","role":"step number","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[120,559,12,16]}
+{"kind":"textbox","slide":7,"id":"27","role":"step title","text":"叫号联动","textPreview":"叫号联动","textChars":4,"textLines":1,"bbox":[150,554,410,22]}
+{"kind":"textbox","slide":7,"id":"28","role":"step body","text":"刷新当前叫号、队列列表、医生信息，再触发闪烁和终端 TTS。","textPreview":"刷新当前叫号、队列列表、医生信息，再触发闪烁和终端 TTS。","textChars":30,"textLines":1,"bbox":[112,585,446,23]}
+{"kind":"shape","slide":7,"id":"29","role":"code block: 急诊插队核心摘录","shapeType":"roundRect","bbox":[628,218,582,238]}
+{"kind":"shape","slide":7,"id":"30","role":"code header","shapeType":"rect","bbox":[628,218,582,34]}
+{"kind":"textbox","slide":7,"id":"31","role":"code title","text":"急诊插队核心摘录","textPreview":"急诊插队核心摘录","textChars":8,"textLines":1,"bbox":[644,226,550,18]}
+{"kind":"textbox","slide":7,"id":"32","role":"code text","text":"int insert_idx = queue_count;\nbool is_urgent = lv_obj_has_state(add_form_urgent_sw, LV_STATE_CHECKED);\n\nif (is_urgent && queue_count > 0) {\n    insert_idx = 0;\n    for (int i = queue_count; i > 0; i--) {\n        wait_queue[i] = wait_queue[i - 1];\n    }\n}","textPreview":"int insert_idx = queue_count; | bool is_urgent = lv_obj_has_state(add_form_urgent_sw, LV_STATE_CHECKED); |  | if (is_urgent && queue_count > 0) { |     insert_idx = 0; |     for (i","textChars":254,"textLines":9,"bbox":[646,266,546,150]}
+{"kind":"textbox","slide":7,"id":"33","role":"code note","text":"来自 code/medical.c 的 on_add_form_ok 逻辑。","textPreview":"来自 code/medical.c 的 on_add_form_ok 逻辑。","textChars":38,"textLines":1,"bbox":[646,428,546,18]}
+{"kind":"shape","slide":7,"id":"34","role":"card panel: 命令式叫号","shapeType":"roundRect","bbox":[628,456,278,166]}
+{"kind":"shape","slide":7,"id":"35","role":"card accent: 命令式叫号","shapeType":"rect","bbox":[628,456,8,166]}
+{"kind":"shape","slide":7,"id":"36","role":"icon badge","shapeType":"ellipse","bbox":[650,480,54,54]}
+{"kind":"shape","slide":7,"id":"37","role":"icon glyph","shapeType":"ellipse","bbox":[663,498,10,10]}
+{"kind":"shape","slide":7,"id":"38","role":"icon glyph","shapeType":"ellipse","bbox":[681,507,10,10]}
+{"kind":"shape","slide":7,"id":"39","role":"icon glyph","shapeType":"rect","bbox":[672,505,19,3]}
+{"kind":"textbox","slide":7,"id":"40","role":"card label","text":"命令式叫号","textPreview":"命令式叫号","textChars":5,"textLines":1,"bbox":[716,478,170,28]}
+{"kind":"textbox","slide":7,"id":"41","role":"card body: 命令式叫号","text":"medical_parse_cmd 支持解析\n@call,12,张三,1诊室\n形式的字符串，并同步清理原队列位置。","textPreview":"medical_parse_cmd 支持解析 | @call,12,张三,1诊室 | 形式的字符串，并同步清理原队列位置。","textChars":57,"textLines":3,"bbox":[652,542,230,58]}
+{"kind":"shape","slide":7,"id":"42","role":"card panel: 声光提示","shapeType":"roundRect","bbox":[932,456,278,166]}
+{"kind":"shape","slide":7,"id":"43","role":"card accent: 声光提示","shapeType":"rect","bbox":[932,456,8,166]}
+{"kind":"shape","slide":7,"id":"44","role":"icon badge","shapeType":"ellipse","bbox":[954,480,54,54]}
+{"kind":"shape","slide":7,"id":"45","role":"icon glyph","shapeType":"rect","bbox":[970,509,6,12]}
+{"kind":"shape","slide":7,"id":"46","role":"icon glyph","shapeType":"rect","bbox":[979,501,6,20]}
+{"kind":"shape","slide":7,"id":"47","role":"icon glyph","shapeType":"rect","bbox":[988,494,6,27]}
+{"kind":"textbox","slide":7,"id":"48","role":"card label","text":"声光提示","textPreview":"声光提示","textChars":4,"textLines":1,"bbox":[1020,478,170,28]}
+{"kind":"textbox","slide":7,"id":"49","role":"card body: 声光提示","text":"叫号完成后会执行 start_blink() 与\ntts_speak()，把界面高亮和终端播报串起来。","textPreview":"叫号完成后会执行 start_blink() 与 | tts_speak()，把界面高亮和终端播报串起来。","textChars":51,"textLines":2,"bbox":[956,542,230,58]}
+{"kind":"textbox","slide":7,"id":"50","role":"caption","text":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textPreview":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textChars":25,"textLines":1,"bbox":[64,676,860,18]}
+{"kind":"image","slide":8,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":8,"id":"3","role":"plate readability overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":8,"id":"4","role":"header","text":"2048 模块 01","textPreview":"2048 模块 01","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":8,"id":"5","role":"header","text":"08 / 12","textPreview":"08 / 12","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":8,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":8,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":8,"id":"8","role":"title","text":"2048 模块界面与玩法","textPreview":"2048 模块界面与玩法","textChars":12,"textLines":1,"bbox":[64,86,780,142]}
+{"kind":"textbox","slide":8,"id":"9","role":"subtitle","text":"2048 页面承接了触摸滑动、分数显示、胜负弹窗和返回重置等交互。","textPreview":"2048 页面承接了触摸滑动、分数显示、胜负弹窗和返回重置等交互。","textChars":33,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":8,"id":"10","role":"placeholder: 2048 主界面截图位","shapeType":"roundRect","bbox":[70,218,620,404]}
+{"kind":"shape","slide":8,"id":"11","role":"placeholder rule","shapeType":"rect","bbox":[90,238,580,2]}
+{"kind":"shape","slide":8,"id":"12","role":"placeholder rule","shapeType":"rect","bbox":[90,600,580,2]}
+{"kind":"shape","slide":8,"id":"13","role":"placeholder badge","shapeType":"roundRect","bbox":[94,242,112,28]}
+{"kind":"textbox","slide":8,"id":"14","role":"placeholder label","text":"图片占位","textPreview":"图片占位","textChars":4,"textLines":1,"bbox":[106,248,86,18]}
+{"kind":"textbox","slide":8,"id":"15","role":"placeholder title","text":"2048 主界面截图位","textPreview":"2048 主界面截图位","textChars":11,"textLines":1,"bbox":[100,394,560,36]}
+{"kind":"textbox","slide":8,"id":"16","role":"placeholder tip","text":"建议放棋盘、分数卡片、重置按钮和胜负弹窗截图。","textPreview":"建议放棋盘、分数卡片、重置按钮和胜负弹窗截图。","textChars":23,"textLines":1,"bbox":[106,432,548,52]}
+{"kind":"shape","slide":8,"id":"17","role":"bullet panel: 玩法与交互","shapeType":"roundRect","bbox":[720,218,490,404]}
+{"kind":"shape","slide":8,"id":"18","role":"panel accent: 玩法与交互","shapeType":"rect","bbox":[720,218,490,8]}
+{"kind":"textbox","slide":8,"id":"19","role":"panel title","text":"玩法与交互","textPreview":"玩法与交互","textChars":5,"textLines":1,"bbox":[742,238,446,30]}
+{"kind":"textbox","slide":8,"id":"20","role":"panel body: 玩法与交互","text":"• 使用 4x4 棋盘矩阵保存当前状态。\n• 手指滑动会映射到上、下、左、右四个方向。\n• 界面同时显示当前分数和历史最高分。\n• 支持返回菜单和重新开始两类按钮操作。\n• 当出现 2048 或无路可走时弹出提示框。","textPreview":"• 使用 4x4 棋盘矩阵保存当前状态。 | • 手指滑动会映射到上、下、左、右四个方向。 | • 界面同时显示当前分数和历史最高分。 | • 支持返回菜单和重新开始两类按钮操作。 | • 当出现 2048 或无路可走时弹出提示框。","textChars":108,"textLines":5,"bbox":[742,284,446,316]}
+{"kind":"shape","slide":8,"id":"21","role":"key card: 棋盘","shapeType":"roundRect","bbox":[744,514,138,86]}
+{"kind":"shape","slide":8,"id":"22","role":"key accent: 棋盘","shapeType":"rect","bbox":[744,514,8,86]}
+{"kind":"textbox","slide":8,"id":"23","role":"key card label","text":"棋盘","textPreview":"棋盘","textChars":2,"textLines":1,"bbox":[766,532,98,22]}
+{"kind":"textbox","slide":8,"id":"24","role":"key card body","text":"4x4","textPreview":"4x4","textChars":3,"textLines":1,"bbox":[766,562,98,22]}
+{"kind":"shape","slide":8,"id":"25","role":"key card: 方向","shapeType":"roundRect","bbox":[896,514,138,86]}
+{"kind":"shape","slide":8,"id":"26","role":"key accent: 方向","shapeType":"rect","bbox":[896,514,8,86]}
+{"kind":"textbox","slide":8,"id":"27","role":"key card label","text":"方向","textPreview":"方向","textChars":2,"textLines":1,"bbox":[918,532,98,22]}
+{"kind":"textbox","slide":8,"id":"28","role":"key card body","text":"4 个","textPreview":"4 个","textChars":3,"textLines":1,"bbox":[918,562,98,22]}
+{"kind":"shape","slide":8,"id":"29","role":"key card: 联动","shapeType":"roundRect","bbox":[1048,514,138,86]}
+{"kind":"shape","slide":8,"id":"30","role":"key accent: 联动","shapeType":"rect","bbox":[1048,514,8,86]}
+{"kind":"textbox","slide":8,"id":"31","role":"key card label","text":"联动","textPreview":"联动","textChars":2,"textLines":1,"bbox":[1070,532,98,22]}
+{"kind":"textbox","slide":8,"id":"32","role":"key card body","text":"BEST","textPreview":"BEST","textChars":4,"textLines":1,"bbox":[1070,562,98,22]}
+{"kind":"textbox","slide":8,"id":"33","role":"caption","text":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textPreview":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textChars":25,"textLines":1,"bbox":[64,676,860,18]}
+{"kind":"image","slide":9,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":9,"id":"3","role":"plate readability overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":9,"id":"4","role":"header","text":"2048 模块 02","textPreview":"2048 模块 02","textChars":10,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":9,"id":"5","role":"header","text":"09 / 12","textPreview":"09 / 12","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":9,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":9,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":9,"id":"8","role":"title","text":"2048 算法与成绩联动","textPreview":"2048 算法与成绩联动","textChars":12,"textLines":1,"bbox":[64,86,780,142]}
+{"kind":"textbox","slide":9,"id":"9","role":"subtitle","text":"核心思想是把每次滑动统一成去零、合并、二次去零，再决定是否生成新数字。","textPreview":"核心思想是把每次滑动统一成去零、合并、二次去零，再决定是否生成新数字。","textChars":35,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":9,"id":"10","role":"2048 flow","shapeType":"roundRect","bbox":[70,218,520,404]}
+{"kind":"textbox","slide":9,"id":"11","role":"2048 flow title","text":"矩阵处理步骤","textPreview":"矩阵处理步骤","textChars":6,"textLines":1,"bbox":[94,240,170,24]}
+{"kind":"shape","slide":9,"id":"12","role":"step card: 去零","shapeType":"roundRect","bbox":[94,282,472,82]}
+{"kind":"shape","slide":9,"id":"13","role":"step badge","shapeType":"ellipse","bbox":[110,296,30,30]}
+{"kind":"textbox","slide":9,"id":"14","role":"step number","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[120,303,12,16]}
+{"kind":"textbox","slide":9,"id":"15","role":"step title","text":"去零","textPreview":"去零","textChars":2,"textLines":1,"bbox":[150,298,400,22]}
+{"kind":"textbox","slide":9,"id":"16","role":"step body","text":"把当前行或列中的非 0 元素先压紧。","textPreview":"把当前行或列中的非 0 元素先压紧。","textChars":18,"textLines":1,"bbox":[112,329,436,23]}
+{"kind":"shape","slide":9,"id":"17","role":"flow bar","shapeType":"roundRect","bbox":[320,372,8,20]}
+{"kind":"shape","slide":9,"id":"18","role":"step card: 合并","shapeType":"roundRect","bbox":[94,402,472,82]}
+{"kind":"shape","slide":9,"id":"19","role":"step badge","shapeType":"ellipse","bbox":[110,416,30,30]}
+{"kind":"textbox","slide":9,"id":"20","role":"step number","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[120,423,12,16]}
+{"kind":"textbox","slide":9,"id":"21","role":"step title","text":"合并","textPreview":"合并","textChars":2,"textLines":1,"bbox":[150,418,400,22]}
+{"kind":"textbox","slide":9,"id":"22","role":"step body","text":"相邻且相等的数字相加，同时累计当前分数。","textPreview":"相邻且相等的数字相加，同时累计当前分数。","textChars":20,"textLines":1,"bbox":[112,449,436,23]}
+{"kind":"shape","slide":9,"id":"23","role":"flow bar","shapeType":"roundRect","bbox":[320,492,8,20]}
+{"kind":"shape","slide":9,"id":"24","role":"step card: 再去零并生成新数","shapeType":"roundRect","bbox":[94,518,472,82]}
+{"kind":"shape","slide":9,"id":"25","role":"step badge","shapeType":"ellipse","bbox":[110,532,30,30]}
+{"kind":"textbox","slide":9,"id":"26","role":"step number","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[120,539,12,16]}
+{"kind":"textbox","slide":9,"id":"27","role":"step title","text":"再去零并生成新数","textPreview":"再去零并生成新数","textChars":8,"textLines":1,"bbox":[150,534,400,22]}
+{"kind":"textbox","slide":9,"id":"28","role":"step body","text":"如果盘面发生变化，就调用 rand_num 生成新的 2 或 4。","textPreview":"如果盘面发生变化，就调用 rand_num 生成新的 2 或 4。","textChars":33,"textLines":1,"bbox":[112,565,436,23]}
+{"kind":"shape","slide":9,"id":"29","role":"code block: 合并与刷新摘录","shapeType":"roundRect","bbox":[620,218,590,240]}
+{"kind":"shape","slide":9,"id":"30","role":"code header","shapeType":"rect","bbox":[620,218,590,34]}
+{"kind":"textbox","slide":9,"id":"31","role":"code title","text":"合并与刷新摘录","textPreview":"合并与刷新摘录","textChars":7,"textLines":1,"bbox":[636,226,558,18]}
+{"kind":"textbox","slide":9,"id":"32","role":"code text","text":"rm_zero(temp_arr, &flag);\nhebing(temp_arr, &flag);\nrm_zero(temp_arr, &flag);\n\nif (flag)\n    rand_num();\n\ng_game.score += temp_arr[i];\nupdate_best_score();","textPreview":"rm_zero(temp_arr, &flag); | hebing(temp_arr, &flag); | rm_zero(temp_arr, &flag); |  | if (flag) |     rand_num(); |  | g_game.score += temp_arr[i]; | update_best_score();","textChars":154,"textLines":9,"bbox":[638,266,554,152]}
+{"kind":"textbox","slide":9,"id":"33","role":"code note","text":"来自 mycode/2048.c 的矩阵更新逻辑。","textPreview":"来自 mycode/2048.c 的矩阵更新逻辑。","textChars":25,"textLines":1,"bbox":[638,430,554,18]}
+{"kind":"shape","slide":9,"id":"34","role":"bullet panel: 成绩联动","shapeType":"roundRect","bbox":[620,462,590,160]}
+{"kind":"shape","slide":9,"id":"35","role":"panel accent: 成绩联动","shapeType":"rect","bbox":[620,462,590,8]}
+{"kind":"textbox","slide":9,"id":"36","role":"panel title","text":"成绩联动","textPreview":"成绩联动","textChars":4,"textLines":1,"bbox":[642,482,546,30]}
+{"kind":"textbox","slide":9,"id":"37","role":"panel body: 成绩联动","text":"• 四个方向滑动通过行列重映射复用同一套处理思路。\n• update_best_score 会在分数突破时回写用户最高分。\n• 排行榜页面读取的就是这里持久化后的 best_score。","textPreview":"• 四个方向滑动通过行列重映射复用同一套处理思路。 | • update_best_score 会在分数突破时回写用户最高分。 | • 排行榜页面读取的就是这里持久化后的 best_score。","textChars":93,"textLines":3,"bbox":[642,528,546,72]}
+{"kind":"textbox","slide":9,"id":"38","role":"caption","text":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textPreview":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textChars":25,"textLines":1,"bbox":[64,676,860,18]}
+{"kind":"image","slide":10,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":10,"id":"3","role":"plate readability overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":10,"id":"4","role":"header","text":"相册模块","textPreview":"相册模块","textChars":4,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":10,"id":"5","role":"header","text":"10 / 12","textPreview":"10 / 12","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":10,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":10,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":10,"id":"8","role":"title","text":"电子相册模块","textPreview":"电子相册模块","textChars":6,"textLines":1,"bbox":[64,86,780,142]}
+{"kind":"textbox","slide":10,"id":"9","role":"subtitle","text":"相册页面围绕本地 BMP 图片浏览、自动播放和退出时的资源回收展开。","textPreview":"相册页面围绕本地 BMP 图片浏览、自动播放和退出时的资源回收展开。","textChars":34,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":10,"id":"10","role":"placeholder: 电子相册界面截图位","shapeType":"roundRect","bbox":[70,218,620,404]}
+{"kind":"shape","slide":10,"id":"11","role":"placeholder rule","shapeType":"rect","bbox":[90,238,580,2]}
+{"kind":"shape","slide":10,"id":"12","role":"placeholder rule","shapeType":"rect","bbox":[90,600,580,2]}
+{"kind":"shape","slide":10,"id":"13","role":"placeholder badge","shapeType":"roundRect","bbox":[94,242,112,28]}
+{"kind":"textbox","slide":10,"id":"14","role":"placeholder label","text":"图片占位","textPreview":"图片占位","textChars":4,"textLines":1,"bbox":[106,248,86,18]}
+{"kind":"textbox","slide":10,"id":"15","role":"placeholder title","text":"电子相册界面截图位","textPreview":"电子相册界面截图位","textChars":9,"textLines":1,"bbox":[100,394,560,36]}
+{"kind":"textbox","slide":10,"id":"16","role":"placeholder tip","text":"建议放大图区域、上一张/下一张按钮和自动播放按钮截图。","textPreview":"建议放大图区域、上一张/下一张按钮和自动播放按钮截图。","textChars":27,"textLines":1,"bbox":[106,432,548,52]}
+{"kind":"shape","slide":10,"id":"17","role":"bullet panel: 实现要点","shapeType":"roundRect","bbox":[720,218,490,270]}
+{"kind":"shape","slide":10,"id":"18","role":"panel accent: 实现要点","shapeType":"rect","bbox":[720,218,490,8]}
+{"kind":"textbox","slide":10,"id":"19","role":"panel title","text":"实现要点","textPreview":"实现要点","textChars":4,"textLines":1,"bbox":[742,238,446,30]}
+{"kind":"textbox","slide":10,"id":"20","role":"panel body: 实现要点","text":"• 固定读取 build/pic 下的 a.bmp、b.bmp、c.bmp。\n• 上一张和下一张都支持循环切换。\n• 底部会同步显示当前页码信息。\n• 点击自动播放后，每 3000ms 自动切一张。","textPreview":"• 固定读取 build/pic 下的 a.bmp、b.bmp、c.bmp。 | • 上一张和下一张都支持循环切换。 | • 底部会同步显示当前页码信息。 | • 点击自动播放后，每 3000ms 自动切一张。","textChars":99,"textLines":4,"bbox":[742,284,446,182]}
+{"kind":"shape","slide":10,"id":"21","role":"key card: 图片数量","shapeType":"roundRect","bbox":[744,512,140,88]}
+{"kind":"shape","slide":10,"id":"22","role":"key accent: 图片数量","shapeType":"rect","bbox":[744,512,8,88]}
+{"kind":"textbox","slide":10,"id":"23","role":"key card label","text":"图片数量","textPreview":"图片数量","textChars":4,"textLines":1,"bbox":[766,530,100,22]}
+{"kind":"textbox","slide":10,"id":"24","role":"key card body","text":"3 张 BMP","textPreview":"3 张 BMP","textChars":7,"textLines":1,"bbox":[766,560,100,24]}
+{"kind":"shape","slide":10,"id":"25","role":"key card: 自动播放","shapeType":"roundRect","bbox":[896,512,140,88]}
+{"kind":"shape","slide":10,"id":"26","role":"key accent: 自动播放","shapeType":"rect","bbox":[896,512,8,88]}
+{"kind":"textbox","slide":10,"id":"27","role":"key card label","text":"自动播放","textPreview":"自动播放","textChars":4,"textLines":1,"bbox":[918,530,100,22]}
+{"kind":"textbox","slide":10,"id":"28","role":"key card body","text":"3000ms","textPreview":"3000ms","textChars":6,"textLines":1,"bbox":[918,560,100,24]}
+{"kind":"shape","slide":10,"id":"29","role":"key card: 退出回收","shapeType":"roundRect","bbox":[1048,512,138,88]}
+{"kind":"shape","slide":10,"id":"30","role":"key accent: 退出回收","shapeType":"rect","bbox":[1048,512,8,88]}
+{"kind":"textbox","slide":10,"id":"31","role":"key card label","text":"退出回收","textPreview":"退出回收","textChars":4,"textLines":1,"bbox":[1070,530,98,22]}
+{"kind":"textbox","slide":10,"id":"32","role":"key card body","text":"lv_timer_del","textPreview":"lv_timer_del","textChars":12,"textLines":1,"bbox":[1070,560,98,24]}
+{"kind":"textbox","slide":10,"id":"33","role":"caption","text":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textPreview":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textChars":25,"textLines":1,"bbox":[64,676,860,18]}
+{"kind":"image","slide":11,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":11,"id":"3","role":"plate readability overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":11,"id":"4","role":"header","text":"工程事实","textPreview":"工程事实","textChars":4,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":11,"id":"5","role":"header","text":"11 / 12","textPreview":"11 / 12","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":11,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":11,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":11,"id":"8","role":"title","text":"工程配置、适配准备与问题解决","textPreview":"工程配置、适配准备与问题解决","textChars":14,"textLines":1,"bbox":[64,86,780,142]}
+{"kind":"textbox","slide":11,"id":"9","role":"subtitle","text":"这一页只讲当前仓库中真实存在的运行方式、适配入口和问题处理办法。","textPreview":"这一页只讲当前仓库中真实存在的运行方式、适配入口和问题处理办法。","textChars":32,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":11,"id":"10","role":"bullet panel: 工程现状","shapeType":"roundRect","bbox":[70,218,520,404]}
+{"kind":"shape","slide":11,"id":"11","role":"panel accent: 工程现状","shapeType":"rect","bbox":[70,218,520,8]}
+{"kind":"textbox","slide":11,"id":"12","role":"panel title","text":"工程现状","textPreview":"工程现状","textChars":4,"textLines":1,"bbox":[92,238,476,30]}
+{"kind":"textbox","slide":11,"id":"13","role":"panel body: 工程现状","text":"• 当前仓库启用 SDL 仿真，lv_conf.h 中 LV_USE_SDL = 1。\n• main.c 仍保留 framebuffer /dev/fb0 与触摸 event6 的入口。\n• FreeType、拼音输入法和 2 MB LVGL 内存池都已开启。\n• CMakeLists.txt 里能看到 SDL 和交叉编译相关配置痕迹。\n• 资源路径仍含 Ubuntu 共享目录硬编码，因此 RK3568 只写适配准备或部分验证。","textPreview":"• 当前仓库启用 SDL 仿真，lv_conf.h 中 LV_USE_SDL = 1。 | • main.c 仍保留 framebuffer /dev/fb0 与触摸 event6 的入口。 | • FreeType、拼音输入法和 2 MB LVGL 内存池都已开启。 | • CMakeLists.txt 里能看到 SDL 和交叉编译相关配置痕迹。 | • ","textChars":216,"textLines":5,"bbox":[92,284,476,316]}
+{"kind":"shape","slide":11,"id":"14","role":"code block: 页面销毁与定时器清理摘录","shapeType":"roundRect","bbox":[620,218,590,214]}
+{"kind":"shape","slide":11,"id":"15","role":"code header","shapeType":"rect","bbox":[620,218,590,34]}
+{"kind":"textbox","slide":11,"id":"16","role":"code title","text":"页面销毁与定时器清理摘录","textPreview":"页面销毁与定时器清理摘录","textChars":12,"textLines":1,"bbox":[636,226,558,18]}
+{"kind":"textbox","slide":11,"id":"17","role":"code text","text":"if (g_ui.medical_screen != NULL) {\n    lv_obj_delete_async(g_ui.medical_screen);\n    g_ui.medical_screen = NULL;\n}\n\nif (auto_play_timer != NULL) {\n    lv_timer_del(auto_play_timer);\n    auto_play_timer = NULL;\n}","textPreview":"if (g_ui.medical_screen != NULL) { |     lv_obj_delete_async(g_ui.medical_screen); |     g_ui.medical_screen = NULL; | } |  | if (auto_play_timer != NULL) { |     lv_timer_del(auto","textChars":211,"textLines":9,"bbox":[638,266,554,150]}
+{"kind":"shape","slide":11,"id":"18","role":"card panel: 问题 1：切屏崩溃","shapeType":"roundRect","bbox":[620,430,282,192]}
+{"kind":"shape","slide":11,"id":"19","role":"card accent: 问题 1：切屏崩溃","shapeType":"rect","bbox":[620,430,8,192]}
+{"kind":"shape","slide":11,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[642,454,54,54]}
+{"kind":"shape","slide":11,"id":"21","role":"icon glyph","shapeType":"ellipse","bbox":[655,472,10,10]}
+{"kind":"shape","slide":11,"id":"22","role":"icon glyph","shapeType":"ellipse","bbox":[673,481,10,10]}
+{"kind":"shape","slide":11,"id":"23","role":"icon glyph","shapeType":"rect","bbox":[664,479,19,3]}
+{"kind":"textbox","slide":11,"id":"24","role":"card label","text":"问题 1：切屏崩溃","textPreview":"问题 1：切屏崩溃","textChars":9,"textLines":1,"bbox":[708,452,174,28]}
+{"kind":"textbox","slide":11,"id":"25","role":"card body: 问题 1：切屏崩溃","text":"退出登录时如果在动画过程中直接删旧页面，容易触发段错误。当前做法是先切回登录页，再用\nlv_obj_delete_async 异步回收子页面。","textPreview":"退出登录时如果在动画过程中直接删旧页面，容易触发段错误。当前做法是先切回登录页，再用 | lv_obj_delete_async 异步回收子页面。","textChars":71,"textLines":2,"bbox":[644,516,234,84]}
+{"kind":"shape","slide":11,"id":"26","role":"card panel: 问题 2：内存与定时器","shapeType":"roundRect","bbox":[928,430,282,192]}
+{"kind":"shape","slide":11,"id":"27","role":"card accent: 问题 2：内存与定时器","shapeType":"rect","bbox":[928,430,8,192]}
+{"kind":"shape","slide":11,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[950,454,54,54]}
+{"kind":"shape","slide":11,"id":"29","role":"icon glyph","shapeType":"roundRect","bbox":[963,469,26,13]}
+{"kind":"shape","slide":11,"id":"30","role":"icon glyph","shapeType":"roundRect","bbox":[968,478,26,13]}
+{"kind":"shape","slide":11,"id":"31","role":"icon glyph","shapeType":"roundRect","bbox":[973,487,20,10]}
+{"kind":"textbox","slide":11,"id":"32","role":"card label","text":"问题 2：内存与定时器","textPreview":"问题 2：内存与定时器","textChars":11,"textLines":1,"bbox":[1016,452,174,28]}
+{"kind":"textbox","slide":11,"id":"33","role":"card body: 问题 2：内存与定时器","text":"字库和 IME 会增加内存压力，因此配置了 2 MB\nLVGL\n内存池；相册和医疗模块在页面销毁时都会主动删定时器，避免野指针。","textPreview":"字库和 IME 会增加内存压力，因此配置了 2 MB | LVGL | 内存池；相册和医疗模块在页面销毁时都会主动删定时器，避免野指针。","textChars":64,"textLines":3,"bbox":[952,516,234,84]}
+{"kind":"textbox","slide":11,"id":"34","role":"caption","text":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textPreview":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textChars":25,"textLines":1,"bbox":[64,676,860,18]}
+{"kind":"image","slide":12,"id":"2","role":"fallback art plate","path":"fallback-data-url","bbox":[0,0,1280,720]}
+{"kind":"shape","slide":12,"id":"3","role":"plate readability overlay","shapeType":"rect","bbox":[0,0,1280,720]}
+{"kind":"textbox","slide":12,"id":"4","role":"header","text":"总结展望","textPreview":"总结展望","textChars":4,"textLines":1,"bbox":[64,34,430,24]}
+{"kind":"textbox","slide":12,"id":"5","role":"header","text":"12 / 12","textPreview":"12 / 12","textChars":7,"textLines":1,"bbox":[1114,34,104,24]}
+{"kind":"shape","slide":12,"id":"6","role":"header rule","shapeType":"rect","bbox":[64,64,1152,2]}
+{"kind":"shape","slide":12,"id":"7","role":"header marker","shapeType":"ellipse","bbox":[57,57,16,16]}
+{"kind":"textbox","slide":12,"id":"8","role":"title","text":"总结与展望","textPreview":"总结与展望","textChars":5,"textLines":1,"bbox":[64,86,780,142]}
+{"kind":"textbox","slide":12,"id":"9","role":"subtitle","text":"项目价值体现在：功能完整、实现真实、工程细节可讲、后续扩展方向清晰。","textPreview":"项目价值体现在：功能完整、实现真实、工程细节可讲、后续扩展方向清晰。","textChars":34,"textLines":1,"bbox":[66,234,720,70]}
+{"kind":"shape","slide":12,"id":"10","role":"card panel: 页面组织","shapeType":"roundRect","bbox":[86,228,250,166]}
+{"kind":"shape","slide":12,"id":"11","role":"card accent: 页面组织","shapeType":"rect","bbox":[86,228,8,166]}
+{"kind":"shape","slide":12,"id":"12","role":"icon badge","shapeType":"ellipse","bbox":[108,252,54,54]}
+{"kind":"shape","slide":12,"id":"13","role":"icon glyph","shapeType":"ellipse","bbox":[121,270,10,10]}
+{"kind":"shape","slide":12,"id":"14","role":"icon glyph","shapeType":"ellipse","bbox":[139,279,10,10]}
+{"kind":"shape","slide":12,"id":"15","role":"icon glyph","shapeType":"rect","bbox":[130,277,19,3]}
+{"kind":"textbox","slide":12,"id":"16","role":"card label","text":"页面组织","textPreview":"页面组织","textChars":4,"textLines":1,"bbox":[174,250,142,28]}
+{"kind":"textbox","slide":12,"id":"17","role":"card body: 页面组织","text":"从登录页、主菜单到多个子页面，已经形成完整的多页面\nLVGL 工程结构。","textPreview":"从登录页、主菜单到多个子页面，已经形成完整的多页面 | LVGL 工程结构。","textChars":36,"textLines":2,"bbox":[110,314,202,58]}
+{"kind":"shape","slide":12,"id":"18","role":"card panel: 数据持久化","shapeType":"roundRect","bbox":[358,228,250,166]}
+{"kind":"shape","slide":12,"id":"19","role":"card accent: 数据持久化","shapeType":"rect","bbox":[358,228,8,166]}
+{"kind":"shape","slide":12,"id":"20","role":"icon badge","shapeType":"ellipse","bbox":[380,252,54,54]}
+{"kind":"shape","slide":12,"id":"21","role":"icon glyph","shapeType":"roundRect","bbox":[393,267,26,13]}
+{"kind":"shape","slide":12,"id":"22","role":"icon glyph","shapeType":"roundRect","bbox":[398,276,26,13]}
+{"kind":"shape","slide":12,"id":"23","role":"icon glyph","shapeType":"roundRect","bbox":[403,285,20,10]}
+{"kind":"textbox","slide":12,"id":"24","role":"card label","text":"数据持久化","textPreview":"数据持久化","textChars":5,"textLines":1,"bbox":[446,250,142,28]}
+{"kind":"textbox","slide":12,"id":"25","role":"card body: 数据持久化","text":"用户信息和 2048 最高分写入 TXT\n文件，体现了文件 I/O 在项目中的实际落地。","textPreview":"用户信息和 2048 最高分写入 TXT | 文件，体现了文件 I/O 在项目中的实际落地。","textChars":44,"textLines":2,"bbox":[382,314,202,58]}
+{"kind":"shape","slide":12,"id":"26","role":"card panel: 算法实现","shapeType":"roundRect","bbox":[630,228,250,166]}
+{"kind":"shape","slide":12,"id":"27","role":"card accent: 算法实现","shapeType":"rect","bbox":[630,228,8,166]}
+{"kind":"shape","slide":12,"id":"28","role":"icon badge","shapeType":"ellipse","bbox":[652,252,54,54]}
+{"kind":"shape","slide":12,"id":"29","role":"icon glyph","shapeType":"rect","bbox":[668,281,6,12]}
+{"kind":"shape","slide":12,"id":"30","role":"icon glyph","shapeType":"rect","bbox":[677,273,6,20]}
+{"kind":"shape","slide":12,"id":"31","role":"icon glyph","shapeType":"rect","bbox":[686,266,6,27]}
+{"kind":"textbox","slide":12,"id":"32","role":"card label","text":"算法实现","textPreview":"算法实现","textChars":4,"textLines":1,"bbox":[718,250,142,28]}
+{"kind":"textbox","slide":12,"id":"33","role":"card body: 算法实现","text":"医疗队列的插队和 2048\n的矩阵处理，让项目不仅有界面，也有底层数据逻辑。","textPreview":"医疗队列的插队和 2048 | 的矩阵处理，让项目不仅有界面，也有底层数据逻辑。","textChars":38,"textLines":2,"bbox":[654,314,202,58]}
+{"kind":"shape","slide":12,"id":"34","role":"card panel: 工程思考","shapeType":"roundRect","bbox":[902,228,250,166]}
+{"kind":"shape","slide":12,"id":"35","role":"card accent: 工程思考","shapeType":"rect","bbox":[902,228,8,166]}
+{"kind":"shape","slide":12,"id":"36","role":"icon badge","shapeType":"ellipse","bbox":[924,252,54,54]}
+{"kind":"shape","slide":12,"id":"37","role":"icon glyph","shapeType":"roundRect","bbox":[937,267,26,13]}
+{"kind":"shape","slide":12,"id":"38","role":"icon glyph","shapeType":"roundRect","bbox":[942,276,26,13]}
+{"kind":"shape","slide":12,"id":"39","role":"icon glyph","shapeType":"roundRect","bbox":[947,285,20,10]}
+{"kind":"textbox","slide":12,"id":"40","role":"card label","text":"工程思考","textPreview":"工程思考","textChars":4,"textLines":1,"bbox":[990,250,142,28]}
+{"kind":"textbox","slide":12,"id":"41","role":"card body: 工程思考","text":"SDL、字库、内存池、定时器回收和板端入口准备，体现了工程层面的完整性。","textPreview":"SDL、字库、内存池、定时器回收和板端入口准备，体现了工程层面的完整性。","textChars":36,"textLines":1,"bbox":[926,314,202,58]}
+{"kind":"shape","slide":12,"id":"42","role":"bullet panel: 后续扩展方向","shapeType":"roundRect","bbox":[86,432,1066,168]}
+{"kind":"shape","slide":12,"id":"43","role":"panel accent: 后续扩展方向","shapeType":"rect","bbox":[86,432,1066,8]}
+{"kind":"textbox","slide":12,"id":"44","role":"panel title","text":"后续扩展方向","textPreview":"后续扩展方向","textChars":6,"textLines":1,"bbox":[108,452,1022,30]}
+{"kind":"textbox","slide":12,"id":"45","role":"panel body: 后续扩展方向","text":"• 把资源路径抽象成相对路径或统一配置，减少平台切换成本。\n• 补齐真实板端资源部署与实物运行验证，进一步完善 RK3568 适配。\n• 把命令式叫号继续扩展成真实 TTS 或网络消息输入。","textPreview":"• 把资源路径抽象成相对路径或统一配置，减少平台切换成本。 | • 补齐真实板端资源部署与实物运行验证，进一步完善 RK3568 适配。 | • 把命令式叫号继续扩展成真实 TTS 或网络消息输入。","textChars":95,"textLines":3,"bbox":[108,498,1022,80]}
+{"kind":"textbox","slide":12,"id":"46","role":"caption","text":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textPreview":"截图、实物照片和代码截图由答辩前自行替换到占位框中","textChars":25,"textLines":1,"bbox":[64,676,860,18]}

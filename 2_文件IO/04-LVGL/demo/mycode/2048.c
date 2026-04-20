@@ -26,7 +26,7 @@ typedef struct
     lv_obj_t *status_label;                     // 屏幕底部的状态提示语
     lv_point_t start_point;                     // 记录手指按下的坐标
     lv_point_t end_point;                       // 记录手指松开的坐标
-    int game_grid[GRID_SIZE][GRID_SIZE];        // 底层 4x4 逻辑矩阵数据
+    int game_grid[GRID_SIZE][GRID_SIZE];        // 底层 4x4 逻
     int score;                                  // 当前得分
     int best_score;                             // 历史最高得分
     int game_over;                              // 游戏结束标志位 (1:结束, 0:进行中)

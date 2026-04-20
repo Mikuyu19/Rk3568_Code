@@ -411,5 +411,6 @@ CMakeFiles/main.dir/mycode/app_ui.c.o: \
  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/lvgl/src/core/../tick/lv_tick.h \
  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/lvgl/src/core/../layouts/lv_layout.h \
  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/album.h \
+ /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/medical.h \
  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/ui_font.h \
  /mnt/hgfs/Rk3568_Code/2_文件IO/04-LVGL/demo/mycode/user_data.h

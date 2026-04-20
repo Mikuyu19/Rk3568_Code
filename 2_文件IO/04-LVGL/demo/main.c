@@ -75,7 +75,6 @@ int main(void)
      * 它会负责处理界面刷新、动画、输入事件等。
      */
 
-    // test01();
     app_ui_create();
     while (1)
     {
