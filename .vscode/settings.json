@@ -5,6 +5,8 @@
         "stdlib.h": "c",
         "lvgl.h": "c",
         "curses.h": "c",
-        "fcntl.h": "c"
+        "fcntl.h": "c",
+        "signal.h": "c",
+        "pthread.h": "c"
     }
 }
