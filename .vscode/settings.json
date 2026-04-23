@@ -7,6 +7,7 @@
         "curses.h": "c",
         "fcntl.h": "c",
         "signal.h": "c",
-        "pthread.h": "c"
+        "pthread.h": "c",
+        "stat.h": "c"
     }
 }
