@@ -1,0 +1,53 @@
+[2026-05-06 14:35:31] CONNECT 客户端连接 IP=127.0.0.1 Port=39544
+[2026-05-06 14:37:37] CALL number=12 name=张三 room=1诊室 doctor=王医生
+[2026-05-06 14:38:39] NOTICE text=系统维护中 duration=10
+[2026-05-07 17:42:58] CONNECT 客户端连接 IP=127.0.0.1 Port=51412
+[2026-05-07 17:43:02] CONNECT 客户端断开 fd=14
+[2026-05-07 17:43:59] CONNECT 客户端连接 IP=127.0.0.1 Port=44794
+[2026-05-07 17:44:30] NOTICE text=hello duration=0
+[2026-05-07 17:44:44] NOTICE text=hello duration=0
+[2026-05-07 17:45:08] CALL number=12 name=张三 room=2诊室 doctor=(未指定)
+[2026-05-07 17:47:42] CONNECT 客户端断开 fd=14
+[2026-05-08 10:03:30] CONNECT 客户端连接 IP=127.0.0.1 Port=45636
+[2026-05-08 10:58:11] NOTICE text=hello duration=0
+[2026-05-08 11:17:39] CALL number=12 name=zhangsan room=2诊室 doctor=(未指定)
+[2026-05-08 11:18:18] CONNECT 客户端断开 fd=14
+[2026-05-08 11:25:36] CONNECT 客户端连接 IP=127.0.0.1 Port=50014
+[2026-05-08 11:27:04] NOTICE text=hello duration=0
+[2026-05-08 11:28:09] CONNECT 客户端连接 IP=127.0.0.1 Port=36174
+[2026-05-08 11:28:21] CALL number=12 name=zhangsan room=3诊室 doctor=(未指定)
+[2026-05-09 09:03:26] CONNECT 客户端连接 IP=127.0.0.1 Port=49372
+[2026-05-09 09:03:42] NOTICE text=hello duration=0
+[2026-05-09 09:04:04] NOTICE text=hello duration=0
+[2026-05-09 09:04:40] CALL number=28 name=zhangsan room=2诊室 doctor=(未指定)
+[2026-05-09 09:05:19] CONNECT 客户端断开 fd=14
+[2026-05-09 09:08:51] CONNECT 客户端连接 IP=127.0.0.1 Port=60070
+[2026-05-09 09:09:05] NOTICE text=hello duration=0
+[2026-05-09 09:09:27] NOTICE text=hello duration=0
+[2026-05-09 09:10:02] CALL number=23 name=zhangsan room=2诊室 doctor=(未指定)
+[2026-05-09 09:10:23] CALL WAIT 队列更新 count=1
+[2026-05-09 09:10:41] CONNECT 客户端断开 fd=14
+[2026-05-09 09:14:41] CONNECT 客户端连接 IP=127.0.0.1 Port=46686
+[2026-05-09 09:14:49] CALL WAIT 队列更新 count=1
+[2026-05-09 09:23:08] CALL number=82 name=lihua room=2诊室 doctor=(未指定)
+[2026-05-09 09:23:21] CALL number=2 name=hdew room=1诊室 doctor=(未指定)
+[2026-05-09 09:25:54] NOTICE text=hello duration=0
+[2026-05-09 09:26:26] NOTICE text=hello duration=0
+[2026-05-09 09:31:07] CONNECT 客户端连接 IP=127.0.0.1 Port=40922
+[2026-05-09 09:31:22] NOTICE text=hello duration=0
+[2026-05-09 09:31:59] NOTICE text=hwe duration=0
+[2026-05-09 09:32:32] NOTICE text=hello duration=0
+[2026-05-09 09:33:17] CONNECT 客户端连接 IP=127.0.0.1 Port=54142
+[2026-05-09 09:33:45] NOTICE text=hello duration=0
+[2026-05-09 09:34:19] CONNECT 客户端连接 IP=127.0.0.1 Port=58236
+[2026-05-09 09:34:27] NOTICE text=ghell duration=6
+[2026-05-09 09:34:48] CONNECT 客户端断开 fd=14
+[2026-05-09 09:37:53] CONNECT 客户端连接 IP=127.0.0.1 Port=45404
+[2026-05-09 09:45:27] CONNECT 客户端连接 IP=127.0.0.1 Port=33430
+[2026-05-09 10:02:09] CONNECT 客户端连接 IP=127.0.0.1 Port=53396
+[2026-05-09 10:02:12] CONNECT 客户端断开 fd=14
+[2026-05-09 10:07:12] CONNECT 客户端连接 IP=127.0.0.1 Port=58472
+[2026-05-09 10:08:50] CALL number=23 name=zhangsan room=3诊室 doctor=(未指定)
+[2026-05-09 10:09:23] NOTICE text=hello duration=0
+[2026-05-09 10:11:26] CALL WAIT 队列更新 count=1
+[2026-05-09 10:12:22] CONNECT 客户端断开 fd=14

@@ -1,0 +1,103 @@
+1，mplayer简介
+ 
+MPlayer是一款开源多媒体播放器，以GNU通用公共许可证发布。此款软件可在各主流操作系统使用，
+例如Linux和其他类Unix系统、Windows及Mac OS X系统。支持播放多种主流的音视频格式。 
+
+ubuntu中想要使用mplayer的话，需要安装:   sudo apt install mplayer 
+
+开发板上想要使用mplayer的话，需要移植，移植步骤见 ：  Mplayer移植目录中的 移植步骤.txt
+
+mplayer有两种工作模式，一种普通模式（纯粹娱乐），一种 slave模式（用于二次开发）。
+
+2，普通模式
+	播放命令 : mplayer -quiet 音视频文件名
+	在这种模式下可以直接通过键盘快捷键控制播放。其中 -quiet 是不打印多余信息
+	常用的有：
+		left or right 向后/向前搜索10秒
+		up or down 向后/向前搜索1分钟
+		注意： up down left right 是键盘的方向键
+		p or SPACE 暂停播放(按任意键继续)
+		q or ESC 停止播放并退出
+		
+	
+3， slave 模式
+	在播放音视频时加上参数 -slave （不加则是普通模式）
+	mplayer -quiet -slave 音视频文件名
+	在这种模式下可以从标准输入设备获取命令来控制播放
+	
+	//常用命令
+	loadfile   newfilename   //会结束正在播放的文件，播放新文件。 
+ 
+	volume x 1  //设置音量 中间的x为音量的大小。x的范围 [0,100]
+	 
+	mute  1/0 //静音开关 , 1：静音；0：取消静音。
+	 
+	pause  //暂停
+			//如果暂停了，输入任何有效命令都会继续播放
+	
+	quit 退出MPlayer。
+	 
+	get_time_length  //返回值是播放文件的长度，以秒为单位。
+	 
+	seek value   //向前查找到文件的位置播放 参数value为秒数。
+		seek +5  //快进5秒
+		seek -5  //快退5秒
+	 
+	get_percent_pos //返回播放进度的百分比（0--99）
+	 
+	get_time_pos //返回当前播放位置的时间，单位是秒，采用浮点数
+	 
+	//其他命令 
+	get_file_name //打印出当前文件名
+	 
+	get_meta_album //打印出当前文件的'专辑'的元数据
+	 
+	get_meta_artist //打印出当前文件的'艺术家'的元数据
+	 
+	get_meta_comment //打印出当前文件的'评论'的元数据
+	 
+	get_meta_genre //打印出当前文件的'流派'的元数据
+	 
+	get_meta_title //打印出当前文件的'标题'的元数据
+	 
+	get_meta_year //打印出当前文件的'年份'的元数据
+	
+	所有命令都要以 \n 结束
+	
+4，从管道文件中获取命令
+	在 slave模式下，不但可以从标准输入设备获取命令，还可以从指定的有名管道文件中获取命令。
+	
+	加上一个参数 -input file=有名管道的文件名
+	这样就可以从有名管道中获取/读取命令来控制播放器
+	
+	如：
+	mplayer -quiet -slave -input file=管道文件名字 音视频文件名
+	
+	
+	我们可以写代码往这个管道文件中写入命令来控制 mplayer
+	如：
+	一个进程执行 ： mplayer -quiet -slave -input file=/home/china/1.fifo 1.mp4
+
+	另一个进程往/home/china/1.fifo管道中写入命令即可控制 mplayer的播放
+
+	int fd = open("/home/china/1.fifo",O_RDWR);
+    if(-1==fd)
+    {
+        perror("open失败:");
+        return -1;
+    }
+
+    write(fd,"pause\n",6);//注意所有命令都以\n结束才会有效
+    
+    close(fd);
+	
+5，如果是播放视频，可以设置窗口位置及大小
+	在开发板上播放视频，除了播放窗口外，还需要留一些空间显示控制图标(如：静音，播放暂停按钮，上下曲切换，快进快退....)
+	所以需要设置窗口位置及大小
+	如：
+		-geometry  0:0 -zoom -x 400 -y 400
+	
+	-geometry  0:0   //指定播放窗口的起始位置
+
+	-zoom -x 400 -y 400  //指定播放窗口的宽和高
+	

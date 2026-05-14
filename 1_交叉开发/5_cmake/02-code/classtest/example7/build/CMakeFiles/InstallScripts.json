@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/mnt/hgfs/Rk3568_Code/1_\u4ea4\u53c9\u5f00\u53d1/5_cmake/02-code/classtest/example7/build/cmake_install.cmake",
+		"/mnt/hgfs/Rk3568_Code/1_\u4ea4\u53c9\u5f00\u53d1/5_cmake/02-code/classtest/example7/build/lib/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

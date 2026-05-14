@@ -1,0 +1,91 @@
+![1774407559816](2026.3.25-双向链表.assets/1774407559816.png)
+
+```c
+typedef int delemtype;
+typedef struct dnode
+{
+	delemtype data;//数据域
+	struct dnode *next;//指针域 保存下一个结点的地址
+	struct dnode *prev;//指针域 保存上一个结点的地址
+}dnode;
+```
+
+1）创建一个带头结点的双向链表，并且打印输出，尾插法
+
+2）尾插函数
+
+![1774408023018](2026.3.25-双向链表.assets/1774408023018.png)
+
+3.头插
+
+![1774408661351](2026.3.25-双向链表.assets/1774408661351.png)
+
+3.有序插入的函数(升序)
+
+![1774409315269](2026.3.25-双向链表.assets/1774409315269.png)
+
+4.删除值为x的所有结点
+
+![1774409876457](2026.3.25-双向链表.assets/1774409876457.png)
+
+5.销毁链表
+
+
+
+double_list.c/double_list.h/main.c
+
+```
+//创建一个新的结点
+dnode *malloc_new_dnode(delemtype d)
+{
+	dnode *pnew = malloc(sizeof(dnode));
+	pnew->data = d;
+	pnew->next=pnew->prev= NULL;
+	return pnew;
+}
+/*
+	尾插
+*/
+void tail_insert_double_list(dnode *head,delemtype d)
+{
+
+}
+/*
+	头插
+*/
+void head_insert_double_list(dnode *head,delemtype d)
+{
+
+}
+/*
+	有序插入
+*/
+void sort_asc_insert_double_list(dnode *head,delemtype d)
+{
+
+}
+/*
+	创建带头结点的双向链表
+*/
+dnode *create_double_list()
+{
+
+}
+
+/*
+	删除所有值为x的结点
+*/
+void delete_all_x_node_double_list(dnode *head,delemtype x)
+{
+
+}
+
+/*
+	销毁链表
+*/
+dnode* destroy_double_list(dnode *head,delemtype x)
+{
+
+}
+```
+

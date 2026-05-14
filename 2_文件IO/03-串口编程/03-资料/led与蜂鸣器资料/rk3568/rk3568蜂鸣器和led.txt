@@ -1,0 +1,24 @@
+rk3568led和蜂鸣器
+注意：需要进入开机启动程序led测试和蜂鸣器测试去加载驱动程序
+
+蜂鸣器：
+	echo 1 > /sys/class/gpio/gpio111/value
+	echo 0 > /sys/class/gpio/gpio111/value
+led1:
+	echo 1 > /sys/class/gpio/gpio120/value
+	echo 0 > /sys/class/gpio/gpio120/value
+led2:
+	echo 1 > /sys/class/gpio/gpio121/value
+	echo 0 > /sys/class/gpio/gpio121/value
+led3:
+	echo 1 > /sys/class/gpio/gpio123/value
+	echo 0 > /sys/class/gpio/gpio123/value
+led4:
+	echo 1 > /sys/class/gpio/gpio124/value
+	echo 0 > /sys/class/gpio/gpio124/value
+
+代码参考步骤：
+	1.打开你要操作的蜂鸣器或led对应的文件 open
+	2.写入1或0操作蜂鸣器或led write
+	3.关闭文件	close
+	

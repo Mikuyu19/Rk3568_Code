@@ -1,0 +1,3 @@
+id:1 name:zhangsan score:76
+id:2 name:wangwu score:80
+id:3 name:lisi score:66

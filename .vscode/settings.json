@@ -1,0 +1,16 @@
+{
+    "cmake.sourceDirectory": "C:/Users/Zelda/Desktop/Rk3568_Code/1_交叉开发/5_cmake/02-code/classtest/example5",
+    "files.associations": {
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "lvgl.h": "c",
+        "curses.h": "c",
+        "fcntl.h": "c",
+        "signal.h": "c",
+        "pthread.h": "c",
+        "stat.h": "c",
+        "lv_examples.h": "c",
+        "dirent.h": "c",
+        "unistd.h": "c"
+    }
+}

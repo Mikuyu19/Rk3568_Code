@@ -1,0 +1,185 @@
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/mman.h>
+#include "bmp.h"
+#include <stdlib.h>
+
+
+int lcd_fd = -1;
+unsigned int *plcd = NULL;
+int bmp_fd = -1;
+/*  
+void *mmap(void *addr, size_t length, int prot, int flags,int fd, off_t offset);
+参数：@addr:一般填NULL.想让系统给我们分配映射的地址.而不是自己指定
+        length:映射的内存空间需要多大
+        1024*600*4
+    @prot:映射过后的权限 PROT_EXEC|PROT_READ|PROT_WRITE
+        PROT_EXEC  可执行
+        PROT_READ  可读
+        PROT_WRITE 可写
+    @flags:映射过后的属性
+        MAP_SHARED:共享属性,对内存的操作,立即再设备上显示
+    @fd:内存要跟哪个文件建立映射关系
+        lcd_fd
+    @offset:偏移量
+            0
+返回值：
+    成功：返回与设备建立映射关闭的内存地址 
+    失败：NULL
+*/
+
+
+/*
+    lcd_open:开启LCD设备文件
+    参数：无参数
+    返回值
+        打开成功返回0 否则返回-1
+*/
+void lcd_open()
+{
+    //1.打开lcd文件
+    lcd_fd = open("/dev/fb0",2);
+    if(lcd_fd == -1)
+    {
+        perror("open failed");
+        return;
+    }
+    //2.mmap映射
+    plcd = (unsigned int *)mmap(NULL,1024*600*4 ,PROT_READ|PROT_WRITE|PROT_EXEC,MAP_SHARED,lcd_fd,0);
+    if(plcd == NULL)
+    {
+        perror("mmap fail");
+        return;
+    }
+    return;
+}
+
+
+/*
+    lcd_close:解除mmap映射，关闭LCD设备文件
+    参数：无
+    返回值
+        无返回值
+*/
+void lcd_close(void)
+{
+    // 1. 解除映射
+    if (plcd != NULL)
+    {
+        munmap(plcd, 1024*600*4);
+        plcd = NULL;
+    }
+
+    // 2. 关闭文件描述符
+    if (lcd_fd != -1)
+    {
+        close(lcd_fd);
+        lcd_fd = -1;
+    }
+}
+
+/*
+函数：lcd_draw_point
+功能：在指定坐标画一个点
+参数：  x - 列（0 ~ 1023）
+        y - 行（0 ~ 599）
+*/
+void lcd_draw_point(int x, int y, unsigned int color)
+{
+    if (x >= 0 && x < 1024 && y >= 0 && y < 600)
+    {
+// printf("%d\n",__LINE__);
+        *(plcd + 1024 * y + x) = color;
+// printf("%d\n",__LINE__);   
+    }
+}
+
+
+/*
+    bmp图片显示
+    x0,y0:你要显示图片的起始位置x0列 y0行
+    bmp_path:你显示的图片名字
+*/
+
+void bmp_display(int x0,int y0,char* bmp_path)
+{
+    //1.打开图片
+    int bmp_fd = open(bmp_path,0);
+    if(bmp_fd==-1)
+    {
+        perror("open bmp fail");
+        return ;
+    }
+    printf("%d\n",__LINE__);
+    //2.读取图片
+    //获取宽 高 色深
+
+    int width = 0;
+    lseek(bmp_fd,0x12,SEEK_SET);
+    read(bmp_fd,&width,4);
+
+    int height = 0;
+    lseek(bmp_fd,0x16,SEEK_SET);
+    read(bmp_fd,&height,4);
+
+    int depth = 0;
+    lseek(bmp_fd,0x1C,SEEK_SET);
+    read(bmp_fd,&depth,2);
+    // printf("width=%d height=%d depth=%d\n",width,height,depth);
+
+//printf("%d\n",__LINE__);
+    //3.获取像素数组大小
+    int line_bytes=abs(width)*depth/8;//一行有多少字节
+    int laizi=0;//针对存储一行的大小必须为4的倍数 如果照片没有为4的倍数需要用一个数来补一下 使其成为4的倍数
+    if(line_bytes%4)//如果一行的大小对4取余为0则不需要补否则需要用laizi来补
+    {
+        laizi=4-line_bytes%4;
+    }
+    line_bytes+=laizi;//加上之后就是一行的字节数(为4的倍数)
+    int total_bytes=line_bytes*abs(height);//整个像素数组的大小
+
+    char pix[total_bytes];//用来保存读到的像素数组的数据
+//printf("%d\n",__LINE__);
+    //4.跳转光标到像素数组位置 54(BITMAP文件头14个字节 DIB头40个字节)
+    lseek(bmp_fd,54,SEEK_SET);
+//printf("%d\n",__LINE__);
+    //5.读取像素数组的数据放到pix中
+    read(bmp_fd,pix,total_bytes);
+//printf("%d\n",__LINE__);
+    //6.解析像素数组的数据
+    unsigned char a,r,g,b;
+    unsigned int color;
+    
+    int i=0;
+    for(int y=0; y<abs(height); y++)
+    {
+        printf("%d\n",__LINE__);
+        for(int x=0; x<abs(width); x++)
+        {
+            b=pix[i++];
+            g=pix[i++];
+            r=pix[i++];
+            //printf("%d\n",__LINE__);
+            if(depth == 32)
+                a=pix[i++];
+            else if(depth == 24)
+                a=0;
+            //printf("%d\n",__LINE__);
+            //组装一个颜色
+            color=a<<24|r<<16|g<<8|b;
+            //printf("%d\n",__LINE__);
+            //画点
+            lcd_draw_point(width>0?x+x0:abs(width)-x-1+x0,height>0?abs(height)-y-1+y0:y+y0,color);
+            //printf("%d\n",__LINE__);
+        }
+        //跳过癞子
+        i+=laizi;
+    }
+printf("%d\n",__LINE__);
+    //7.关闭图片
+    close(bmp_fd);
+printf("%d\n",__LINE__);
+}

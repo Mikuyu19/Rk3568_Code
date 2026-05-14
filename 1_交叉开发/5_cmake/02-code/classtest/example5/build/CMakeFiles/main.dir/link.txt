@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/main.dir/src/add.c.o CMakeFiles/main.dir/src/main.c.o CMakeFiles/main.dir/src/sub.c.o -o main   -L/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example5/./lib  -Wl,-rpath,/mnt/hgfs/CS2612/二阶段/01-交叉开发/05-cmake/02-code/example5/./lib -lbst

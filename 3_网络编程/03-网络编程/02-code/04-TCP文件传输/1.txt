@@ -1,0 +1,159 @@
+#include <stdio.h>
+#include <sys/types.h>
+#include <dirent.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <libgen.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <pthread.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdlib.h>
+struct cp_file
+{
+    char src[1024];//要拷贝的文件的路径名
+    char dest[1024];//目标文件名
+};
+
+void *cp(void *arg)
+{
+    struct cp_file p = *(struct cp_file*)arg;
+    int fd_src,fd_dest;
+    //用只读的方式打开源文件
+    fd_src = open(p.src,0);
+    //用只写的方式打开目的文件
+    fd_dest = open(p.dest,O_WRONLY|O_CREAT|O_TRUNC,0777);
+
+    //循环读取源文件的数据写入到目的文件
+    while(1)
+    {
+        char buf[1024] = {0};
+        int ret = read(fd_src,buf,sizeof(buf));
+        if(ret == 0)
+            break;
+        write(fd_dest,buf,ret);
+    }
+    
+    //关闭两个文件
+    close(fd_src);
+    close(fd_dest);
+    free(arg);
+}
+
+
+/*
+	把src_dir拷贝到dest_dir目录下
+	src_dir:源目录路径
+	dest_dir：目的目录路径
+*/
+void cp_dir(char *src_dir ,char *dest_dir)
+{
+    /*打开源目录(从哪个目录拷贝)*/
+    DIR *dir = opendir(src_dir);
+    if(dir == NULL)
+    {
+        perror("opendir failed");
+        return ;
+    }
+    
+    /*分别获取源目录和目的目录的绝对路径(后面接你需要拼接带路径的文件名)*/
+    //保存当前目录的工作路径
+    char curdirname[1024] = {0};
+    getcwd(curdirname,sizeof(curdirname)-1);
+
+    //保存要拷贝的源目录的工作路径
+    chdir(src_dir);
+    char srcdirname[1024] = {0};
+    getcwd(srcdirname,sizeof(srcdirname)-1);
+    chdir(curdirname);
+
+    //保存要拷贝的目的目录的工作路径
+    if(chdir(dest_dir)==-1)//判断是否切换路径失败
+    {
+        
+        mkdir(dest_dir,0777);//创建这个目录
+        chdir(dest_dir);//切换路径
+    }
+    char destdirname[1024] = {0};
+    getcwd(destdirname,sizeof(destdirname)-1);  
+    chdir(curdirname);
+
+    printf("curdirname = %s\n",curdirname);
+    printf("srcdirname = %s\n",srcdirname);
+    printf("destdirname = %s\n",destdirname);
+
+  	/*让源目录成为目的目录的子目录名，获取这个子目录的名字*/
+  	char *dirname = basename(srcdirname);
+  	/*获取这个子目录的名字与目的目录进行拼接，并创建这个目录*/
+    char newdirname[2048] = {0};
+  	sprintf(newdirname,"%s/%s",destdirname,dirname);
+    printf("newdirname = %s\n",newdirname);
+
+    /*创建一个空目录*/
+    int ret = mkdir(newdirname,0777);
+    if(ret == -1)
+    {
+        if(errno!=EEXIST)
+            return ;
+    }
+  	/*更新目的目录*/
+    dest_dir = newdirname;
+  	
+    /*读取源目录的目录项*/
+    struct dirent *p;
+	while(p = readdir(dir))
+    {
+        //先跳过两个隐藏目录. ..
+        if(strcmp(p->d_name,".") == 0 || strcmp(p->d_name,"..") == 0)
+            continue;
+
+        //拼接源路径
+        char file_src[2048] ={0};
+        sprintf(file_src,"%s/%s",srcdirname,p->d_name);
+        //获取文件属性
+        struct stat buf;
+        stat(file_src,&buf);
+
+        //如果是目录
+        if(S_ISDIR(buf.st_mode))
+        {
+            cp_dir(file_src,dest_dir);
+        }
+        
+        //如果是普通文件
+        else if(S_ISREG(buf.st_mode))
+        {
+        	//拼接目标路径
+            char file_dest[2048] = {0};
+        	sprintf(file_dest,"%s/%s",dest_dir,p->d_name);
+            printf("file_src = %s\n",file_src);
+            printf("file_dest = %s\n",file_dest);
+        	//保存源路径与目标路径
+            struct cp_file *cp_filename = malloc(sizeof(struct cp_file));
+            strcpy(cp_filename->src,file_src);
+            strcpy(cp_filename->dest,file_dest);
+            //创建一个线程，让线程执行一个cp函数->拷贝文件的内容
+            pthread_t id;
+            pthread_create(&id,NULL,cp,(void *)cp_filename);
+            
+            //等待线程结束
+            pthread_join(id,NULL);
+        }
+        
+    }
+}
+
+//./a.out aaa  lixiang
+int main(int argc,char **argv)
+{
+	if(argc != 3)
+	{
+		printf("Usage:%s <src_dir> <dest_dir>\n",argv[0]);
+		return -1;
+	}
+	cp_dir(argv[1],argv[2]);
+}

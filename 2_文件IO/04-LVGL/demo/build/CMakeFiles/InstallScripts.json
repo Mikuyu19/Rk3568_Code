@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"/mnt/hgfs/Rk3568_Code/2_\u6587\u4ef6IO/04-LVGL/demo/build/cmake_install.cmake",
+		"/mnt/hgfs/Rk3568_Code/2_\u6587\u4ef6IO/04-LVGL/demo/build/freetype-2.13.3/cmake_install.cmake",
+		"/mnt/hgfs/Rk3568_Code/2_\u6587\u4ef6IO/04-LVGL/demo/build/lvgl/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gcc -pthread -Wall server.c)",
+      "Bash(mv code/medical.c ui/medical.c)",
+      "Bash(mv code/medical.h ui/medical.h)",
+      "Bash(mv mycode/app_ui.c ui/app_ui.c)",
+      "Bash(mv mycode/app_ui.h ui/app_ui.h)",
+      "Bash(mv mycode/ui_font.c ui/ui_font.c)",
+      "Bash(mv mycode/user_data.c core/user_data.c)",
+      "Bash(mv mycode/user_data.h core/user_data.h)",
+      "Bash(mv mycode/2048.c other/2048.c)",
+      "Bash(mv mycode/2048.h other/2048.h)",
+      "Bash(mv mycode/album.c other/album.c)",
+      "Bash(mv mycode/album.h other/album.h)",
+      "Bash(mv mycode/player.c other/player.c)",
+      "Bash(gcc -std=c99 -c core/app_state.c -I core -o C:/Users/Zelda/AppData/Local/Temp/test.o)",
+      "Bash(echo \"FAILED with code $?\")"
+    ]
+  }
+}
